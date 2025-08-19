@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/checkUsername/route": "/api/checkUsername",
+  "/api/auth/[...nextauth]/route": "/api/auth/[...nextauth]",
+  "/api/checkEmail/route": "/api/checkEmail",
+  "/api/register/route": "/api/register",
+  "/information/page": "/information",
+  "/add%20infomation/page": "/add%20infomation",
+  "/page": "/",
+  "/sign%20in/page": "/sign%20in",
+  "/sign%20up/page": "/sign%20up",
+  "/profile/page": "/profile"
+}
