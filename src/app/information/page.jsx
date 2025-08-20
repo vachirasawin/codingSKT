@@ -65,6 +65,16 @@ function page() {
             link: "https://www.fontawesome.com/"
         },
         {
+            title: "Color Hunt",
+            image: "colorhunt",
+            extension: "gif",
+            content: "Website ที่รวบรวมสีต่าง ๆ ที่เข้ากันได้อย่างสวยงาม",
+            description: "",
+            width: "320",
+            height: "320",
+            link: "https://colorhunt.co/"
+        },
+        {
             title: "Mongoose",
             image: "mongoose",
             extension: "png",
