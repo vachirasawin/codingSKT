@@ -53,7 +53,7 @@ function page() {
     };
 
     const handleAddInput = () => {
-        setInputs(prev => [...prev, ["", "", "", "", "", "", "", ""]]);
+        setInputs(prev => [...prev, ["", "", "", "", ""]]);
     };
     const handleRemoveInput = (indexToRemove) => {
         setInputs(prev => {
