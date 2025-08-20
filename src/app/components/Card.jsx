@@ -13,7 +13,7 @@ function Card({ contents, title, description, h }) {
                         <p className = "text-[#9497a1] text-lg max-md:text-sm">{description}</p>
                     </div>
                 </div>
-                <div className = "flex overflow-x-auto hide-scrollbar gap-4 pb-24 max-md:pb-8">
+                <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8">
                     {contents.map((content, index) => (
                         <div key = {content.title} className = "shadow-md bg-white rounded-lg">
                             <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 ${h}`}>

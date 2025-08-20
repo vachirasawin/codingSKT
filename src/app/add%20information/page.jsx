@@ -121,13 +121,13 @@ function page() {
                                     <i className = "fa-solid fa-minus"></i>
                                 </div>
                             </div>
-                            <div className = "flex overflow-x-auto hide-scrollbar">
+                            <div className = "flex overflow-x-auto styleScrollbar">
                                 {inputs.map((input, index) => (
                                     <div key = {index} className = {`border border-[#ececec] rounded-lg ${(index === 0 && inputs.length > 1) && "rounded-r-none border-r-0"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-none border-r-0"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
                                         <div className = "w-28">
                                             <Listbox value = {`${inputs[index][0]}${inputs[index][1] ? ` - ${inputs[index][1]}` : ""}`} onChange = {(val) => {const parts = val.split(" - "); const title = parts[0] || ""; const description = parts[1] || ""; handleInput(index, 0, title); handleInput(index, 1, description); resetAlert();}}>
                                                 <Listbox.Button className = "w-28 h-14 absolute opacity-0"/>
-                                                <Listbox.Options className = "absolute bg-white border border-[#ececec] text-sm text-center rounded-xl max-h-60 overflow-y-auto hide-scrollbar outline-none mt-14">
+                                                <Listbox.Options className = "absolute bg-white border border-[#ececec] text-sm text-center rounded-xl max-h-60 overflow-y-auto styleScrollbar outline-none mt-14">
                                                     {subject.map((subject, i) => (
                                                         <Listbox.Option key = {i} value = {subject[0]} className = {({ active })  => `cursor-pointer px-4 py-2 trnasition-all duration-100 ${active ? "bg-blue-500 text-white" : "text-[#171717]"}`}>
                                                             {subject[0]}

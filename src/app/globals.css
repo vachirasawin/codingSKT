@@ -5,13 +5,26 @@
   --breakpoint-xxs: 30rem;
 }
 
-.hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+.styleScrollbar {
+  margin-bottom: 8px;
+}
+.styleScrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.styleScrollbar::-webkit-scrollbar-thumb {
+  background-color: #9497a125;
+  border-radius: 6px;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #9497a150;
+  border-radius: 6px;
 }
 
 .no-spinner::-webkit-outer-spin-button, .no-spinner::-webkit-inner-spin-button {

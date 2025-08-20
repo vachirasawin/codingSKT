@@ -18,7 +18,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, information, dashboard
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 20.08.25.3</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 20.08.25.4</p>
                 </div>
                 <div className = "flex gap-8">
                     <div className = "flex flex-col gap-4">
