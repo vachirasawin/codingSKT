@@ -19,7 +19,7 @@ function Histogram({ data }) {
                         <div className = "h-1/8 text-end"><p>1</p></div>
                         <div className = "h-1/8 text-end"><p>0</p></div>
                     </div>
-                    <div className = "gap-0.5 flex flex-col">
+                    <div className = "gap-0.5 flex flex-col mb-4">
                         <div className = "border-l border-b border-[#9497a1] min-w-fit px-4 h-96 flex gap-12 items-end">
                             {data.map((data, index) => {
                                 const heightLower = data.lower * (maxHeight / 4);
