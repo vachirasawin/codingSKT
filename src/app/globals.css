@@ -30,3 +30,18 @@ body {
   font-family: "Noto Sans Thai", Helvetica, sans-serif;
   overflow: auto;
 }
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(250px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slide-up 1s ease-out forwards;
+}
