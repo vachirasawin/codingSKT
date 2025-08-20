@@ -2,8 +2,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 function Info() {
+    const { data: session } = useSession();
+    
     return (
         <div className = "px-4 border-b border-[#ececec] bg-white">
             <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-4 py-24 max-md:py-4">
@@ -30,10 +33,12 @@ function Info() {
                             </p>
                         </div>
                     </div>
-                    <div className = "flex gap-2 max-md:flex-col">
-                        <Link href = "/add information" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-[#171717] text-white hover:bg-white hover:text-[#171717] h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Add Information</Link>
-                        <Link href = "/profile" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-white text-[#171717] hover:bg-[#171717] hover:text-white h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Profile</Link>
-                    </div>
+                    {session && (
+                        <div className = "flex gap-2 max-md:flex-col">
+                            <Link href = "/add information" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-[#171717] text-white hover:bg-white hover:text-[#171717] h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Add Information</Link>
+                            <Link href = "/profile" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-white text-[#171717] hover:bg-[#171717] hover:text-white h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Profile</Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

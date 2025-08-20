@@ -3,28 +3,31 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function Card({ contents, title, description }) {
+function Card({ contents, title, description, h }) {
     return (
         <div className = "px-4 border-b border-[#ececec] bg-[#f1f6fa]">
-            <div className = {`container mx-auto justify-self-center flex flex-col gap-8 py-24 max-md:py-4`}>
+            <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8`}>
                 <div className = "flex justify-center w-full">
                     <div className = "flex flex-col gap-2 text-center w-lg">
-                        <h1 className = "text-2xl font-bold">{title}</h1>
-                        <p className = "text-[#9497a1]">{description}</p>
+                        <h1 className = "text-4xl font-bold max-md:text-2x">{title}</h1>
+                        <p className = "text-[#9497a1] text-lg max-md:text-sm">{description}</p>
                     </div>
                 </div>
-                <div className = "flex overflow-x-auto hide-scrollbar gap-4">
+                <div className = "flex overflow-x-auto hide-scrollbar gap-4 pb-24 max-md:pb-8">
                     {contents.map((content, index) => (
                         <div key = {content.title} className = "shadow-md bg-white rounded-lg">
-                            <div className = "py-11 px-8 flex flex-col gap-7 min-w-64 h-72">
+                            <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 ${h}`}>
                                 {content.image !== "-" && (
                                     <div className = "border border-[#ececec] w-16 h-16 flex justify-center items-center rounded-xl">
                                         <Image src = {`/${content.image}.${content.extension}`} alt = {content.title} width = {content.width} height = {content.height} unoptimized className = "object-contain w-8"/>
                                     </div>
                                 )}
                                 <div className = "flex flex-col gap-4">
-                                    <h1 className = "text-xl font-bold">{content.title}</h1>
-                                    <p className = "font-sans text-[#9497a1]">{content.description}</p>
+                                    <div className = "flex flex-col">
+                                        <h1 className = "text-xl font-bold">{content.title}</h1>
+                                        <p className = "text-[#9497a1] text-xs font-medium">{content.description}</p>
+                                    </div>
+                                    <p className = "font-normal text-[#9497a1]">{content.content}</p>
                                 </div>
                             </div>
                             {content.link !== "-" && (

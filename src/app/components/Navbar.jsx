@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
-function Navbar({ home, signIn, signUp, addInfo, profile, session, information}) {
+function Navbar({ home, signIn, signUp, addInfo, profile, session, information, dashboard }) {
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
@@ -39,7 +39,8 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information})
                         {session && (
                             <>
                                 <Link href = "/profile" className = {`${profile && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Profile</Link>
-                                <Link href = "/add infomation" className = {`${addInfo && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Add Infomation</Link>
+                                <Link href = "/add information" className = {`${addInfo && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Add Information</Link>
+                                <Link href = "/dashboard" className = {`${dashboard && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Dashboard</Link>
                             </>
                         )}
                         <Link href = "/information" className = {`${information && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Information</Link>
@@ -58,7 +59,8 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information})
                     {session && (
                         <>
                             <Link href = "/profile" className = {profile && "text-[#171717]"}>Profile</Link>
-                            <Link href = "/add infomation" className = {addInfo && "text-[#171717]"}>Add Infomation</Link>
+                            <Link href = "/add information" className = {addInfo && "text-[#171717]"}>Add Information</Link>
+                            <Link href = "/dashboard" className = {dashboard && "text-[#171717]"}>Dashboard</Link>
                         </>
                     )}
                     <Link href = "/information" className = {information && "text-[#171717]"}>Inforamtion</Link>
