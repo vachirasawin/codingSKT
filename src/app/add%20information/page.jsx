@@ -53,7 +53,11 @@ function page() {
     };
 
     const handleAddInput = () => {
-        setInputs(prev => [...prev, ["", "", "", "", ""]]);
+        setInputs(prev => {
+            const gpaCount = prev[0].length - 4;
+            const newInput = ["", "", "", "", ...Array(gpaCount).fill("")];
+            return [...prev, newInput];
+        });
     };
     const handleRemoveInput = (indexToRemove) => {
         setInputs(prev => {
