@@ -169,7 +169,7 @@ function page() {
                                 </div>
                             </div>
                             <div className = "flex justify-center gap-x-2 text-sm">
-                                <p>Already have an account?</p><Link href = "/sign in" className = "text-blue-500">Sign In</Link>
+                                <p>Already have an account?</p><Link href = "/signin" className = "text-blue-500">Sign In</Link>
                             </div>
                             <div className = "flex gap-4 max-xxs:flex-col">
                                 <button type = "submit" className = "w-1/2 max-xxs:w-full py-2 bg-[#171717] border-2 border-[#171717] hover:bg-white hover:text-[#171717] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center">Sign Up</button>

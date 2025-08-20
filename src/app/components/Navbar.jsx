@@ -46,7 +46,7 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information, 
                         <Link href = "/information" className = {`${information && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Information</Link>
                     </div>
                     {!session ? (
-                        <Link href = {`/${signIn ? "sign up" : "sign in"}`} className = {`shadow-md w-28 h-10 flex justify-center items-center font-medium rounded-xl text-sm border-2 border-[#171717] ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"} max-md:hidden`}>{signIn ? "Sign Up" : "Sign In"}</Link>
+                        <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`shadow-md w-28 h-10 flex justify-center items-center font-medium rounded-xl text-sm border-2 border-[#171717] ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"} max-md:hidden`}>{signIn ? "Sign Up" : "Sign In"}</Link>
                     ) : (
                         <div onClick = {() => signOut()} className = {`shadow-md w-28 h-10 flex justify-center items-center font-medium rounded-xl text-sm bg-[#f55555] text-white max-md:hidden`}>Sign Out</div>
                     )}
@@ -66,7 +66,7 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information, 
                     <Link href = "/information" className = {information && "text-[#171717]"}>Inforamtion</Link>
                 </div>
                 {!session ? (
-                    <Link href = {`/${signIn ? "sign up" : "sign in"}`} className = {`shadow-md w-full h-10 flex justify-center items-center font-medium rounded-xl text-sm border-2 border-[#171717] ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>{signIn ? "Sign Up" : "Sign In"}</Link>
+                    <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`shadow-md w-full h-10 flex justify-center items-center font-medium rounded-xl text-sm border-2 border-[#171717] ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>{signIn ? "Sign Up" : "Sign In"}</Link>
                 ) : (
                     <div onClick = {() => signOut()} className = {`shadow-md w-full h-10 flex justify-center items-center font-medium rounded-xl text-sm border-2 border-[#f55555] bg-[#f55555] text-white`}>Sign Out</div>
                 )}
