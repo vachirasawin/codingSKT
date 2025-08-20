@@ -18,7 +18,7 @@ function page() {
             <Navbar home session = {session}/>
             <Title/>
             <Info/>
-            <Footer/>
+            <Footer home session = {session}/>
         </div>
     )
 }

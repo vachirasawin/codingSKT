@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import Card from "../components/Card";
+import Footer from "../components/Footer";
 
 function page() {
     const { data: session } = useSession();
@@ -286,6 +287,7 @@ function page() {
             <Title/>
             <Card contents = {contentsSoftware} title = "Software" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-52"/>
+            <Footer information session = {session}/>
         </div>
     )
 }
