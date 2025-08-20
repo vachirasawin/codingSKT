@@ -14,32 +14,32 @@ function Info() {
 
     const datas = [
         {
-            title: "Subject",
-            description: "Description",
+            title: "Math",
+            description: "Basic",
             lower: "1",
             upper: "2"
         },
         {
-            title: "Subject",
-            description: "Description",
+            title: "Math",
+            description: "Additional",
             lower: "1",
             upper: "1.5"
         },
         {
-            title: "Subject",
-            description: "Description",
+            title: "English",
+            description: "Basic",
             lower: "3",
             upper: "3.5"
         },
         {
-            title: "Subject",
-            description: "Description",
+            title: "English",
+            description: "Additional",
             lower: "2",
             upper: "2.5"
         },
         {
-            title: "Subject",
-            description: "Description",
+            title: "Thai",
+            description: "-",
             lower: "3",
             upper: "4"
         }
