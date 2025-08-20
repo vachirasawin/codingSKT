@@ -7,7 +7,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, information, dashboard
 
     return (
         <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]">
-            <div className = "container mx-auto justify-self-center flex flex-wrap justify-around py-8 max-md:py-4 text-white">
+            <div className = "container mx-auto justify-self-center flex flex-wrap gap-4 justify-around py-8 max-md:py-4 text-white">
                 <div className = "flex flex-col gap-2">
                     <div className = "flex items-center gap-2">
                         <Image src = "/logo.png" unoptimized alt = "codingSKT Logo" width = {1000} height = {1000} className = "w-11"/>
