@@ -76,8 +76,9 @@ const authOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        signIn: "/sign%20in"
-    }
+        signIn: "/signin"
+    },
+    debug: process.env.NODE_ENV === "development"
 }
 
 const handler = NextAuth(authOptions);
