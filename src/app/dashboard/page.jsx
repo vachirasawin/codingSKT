@@ -13,7 +13,7 @@ import Grid from "../components/Grid";
 
 function page() {
     const { data: session } = useSession();
-    // if (!session) redirect ("/");
+    if (!session) redirect ("/");
 
     const datas = [
         {
