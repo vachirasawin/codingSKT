@@ -39,7 +39,7 @@ function Info() {
         },
         {
             title: "Thai",
-            description: "-",
+            description: "",
             lower: "3",
             upper: "4"
         }
