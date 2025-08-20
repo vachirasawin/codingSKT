@@ -108,7 +108,7 @@ function page() {
             image: "google",
             extension: "webp",
             content: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-            description: "version ",
+            description: "",
             width: "250",
             height: "250",
             link: "https://developers.google.com/?hl=th"
@@ -118,7 +118,7 @@ function page() {
             image: "github",
             extension: "png",
             content: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-            description: "version ",
+            description: "",
             width: "1200",
             height: "1200",
             link: "https://developer.github.com/"
@@ -128,7 +128,7 @@ function page() {
             image: "meta",
             extension: "webp",
             content: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-            description: "version ",
+            description: "",
             width: "1280",
             height: "851",
             link: "https://developers.facebook.com/?locale=th_TH"
@@ -167,7 +167,7 @@ function page() {
             title: "Git",
             image: "git",
             extension: "png",
-            content: "Platform สำหรับ host เว็บไซต์แบบ dynamic",
+            content: "git version 2.50.1.windows.1",
             description: "โปรแกรมสำหรับ push source code เว็บแอปพลิเคชันขึ้น github",
             width: "383",
             height: "383",
