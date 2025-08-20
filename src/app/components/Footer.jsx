@@ -18,12 +18,14 @@ function Footer({ home, signIn, signUp, addInfo, profile, information, dashboard
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 20.08.25.2</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 20.08.25.3</p>
                 </div>
                 <div className = "flex gap-8">
                     <div className = "flex flex-col gap-4">
                         <h1 className = "font-semibold text-sm">Quick link</h1>
                         <div className = "flex flex-col gap-2 text-xs font-medium text-[#9497a1]">
+                                <Link href = "/home" className = {`${home && "text-[#ececec"}`}>Home</Link>
+                                <Link href = "/information" className = {`${information && "text-[#ececec"}`}>Information</Link>
                             {session ? (
                                 <>
                                     <Link href = "/add information" className = {`${addInfo && "text-[#ececec"}`}>Add Information</Link>
@@ -32,8 +34,6 @@ function Footer({ home, signIn, signUp, addInfo, profile, information, dashboard
                                 </>
                             ) : (
                                 <>
-                                    <Link href = "/home" className = {`${home && "text-[#ececec"}`}>Home</Link>
-                                    <Link href = "/information" className = {`${information && "text-[#ececec"}`}>Information</Link>
                                     <Link href = "/signin" className = {`${signIn && "text-[#ececec"}`}>Sign In</Link>
                                     <Link href = "/signup" className = {`${signUp && "text-[#ececec"}`}>Sign Up</Link>
                                 </>

@@ -1,11 +1,63 @@
+"use client";
+
 // import from Next.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 
+// import from components
+import Histogram from "./Histogram";
+
 function Info() {
     const { data: session } = useSession();
+
+    const datas = [
+        {
+            title: "Subject",
+            description: "Description",
+            lower: "1",
+            upper: "2"
+        },
+        {
+            title: "Subject",
+            description: "Description",
+            lower: "1",
+            upper: "1.5"
+        },
+        {
+            title: "Subject",
+            description: "Description",
+            lower: "3",
+            upper: "3.5"
+        },
+        {
+            title: "Subject",
+            description: "Description",
+            lower: "2",
+            upper: "2.5"
+        },
+        {
+            title: "Subject",
+            description: "Description",
+            lower: "3",
+            upper: "4"
+        }
+    ]
+
+    const [displayData, setDisplayData] = useState(datas);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const isMobile = window.innerWidth < 768;
+            setDisplayData(isMobile ? datas.slice(0, 3) : datas);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     
     return (
         <div className = "px-4 border-b border-[#ececec] bg-white">
@@ -40,6 +92,7 @@ function Info() {
                         </div>
                     )}
                 </div>
+                <Histogram data = {displayData}/>
             </div>
         </div>
     )
