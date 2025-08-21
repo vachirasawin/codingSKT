@@ -129,7 +129,7 @@ function page() {
     
     return (
         <div>
-            <Navbar dashboard session = {session}/>
+            <Navbar dashboard/>
             <Title/>
             <Grid data = {datas}/>
             <Histogram data = {datas}/>

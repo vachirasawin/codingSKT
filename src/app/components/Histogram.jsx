@@ -26,7 +26,7 @@ function Histogram({ data }) {
                                 const heightUpper = (data.upper - data.lower) * (maxHeight / 4);
                                 
                                 return (
-                                    <div key = {index} className = "shadow-xl">
+                                    <div key = {index}>
                                         <div className = "bg-[#ffffff] w-12 rounded-t-xl border-2 border-b-0 border-[#606470] flex justify-center items-center min-md:hover:text-[#171717] min-md:text-transparent text-[#171717] transition-all duration-200 font-medium text-xs" style = {{ height: `${heightUpper}px` }}>{data.upper}</div>
                                         <div className = "bg-[#ececec] w-12 border-x-2 border-[#606470] flex justify-center items-center min-md:hover:text-[#171717] min-md:text-transparent text-[#171717] transition-all duration-200 font-medium text-xs" style = {{ height: `${heightLower}px` }}>{data.lower}</div>
                                     </div>

@@ -3,6 +3,7 @@
 // import from Next.js
 import React from "react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 // import from components
 import Navbar from "../components/Navbar";
@@ -13,6 +14,48 @@ import Footer from "../components/Footer";
 function page() {
     const { data: session } = useSession();
 
+    const contentsDevelopers = [
+        {
+            title: "Mr. Tiyasak Armedeenlamyan",
+            image: "Logo",
+            extension: "png",
+            content: "Lorem ipsum dolor sit amet consectetur.",
+            description: "นายติยศักดิ์ อามีดีนลามยาน",
+            width: "1000",
+            height: "1000",
+            link: "-"
+        },
+        {
+            title: "Mr. Ratchanon Tribawonkul",
+            image: "Logo",
+            extension: "png",
+            content: "Lorem ipsum dolor sit amet consectetur.",
+            description: "นายรัชชานนท์ ตรีบวรกุล",
+            width: "1000",
+            height: "1000",
+            link: "-"
+        },
+        {
+            title: "Mr. Vachirasawin Mahantaphalanon",
+            image: "Logo",
+            extension: "png",
+            content: "Lorem ipsum dolor sit amet consectetur.",
+            description: "นายวชิรัศวิน มหันตพลานนท์",
+            width: "1000",
+            height: "1000",
+            link: "-"
+        },
+        {
+            title: "Mr. Aiyakarn phorphakwaen",
+            image: "Logo",
+            extension: "png",
+            content: "Lorem ipsum dolor sit amet consectetur.",
+            description: "นายอัยการ เพราะผักแว่น",
+            width: "1000",
+            height: "1000",
+            link: "-"
+        }
+    ];
     const contentsSoftware = [
         {
             title: "Node.js",
@@ -245,7 +288,6 @@ function page() {
             link: "https://workspace.google.com/products/sheets/"
         }
     ];
-
     const contentsHardware = [
         {
             title: "AMD Ryzen 7 5700U",
@@ -293,8 +335,44 @@ function page() {
 
     return (
         <div>
-            <Navbar information session = {session}/>
+            <Navbar information/>
             <Title/>
+            <div className = "px-4 border-b border-[#ececec] bg-white">
+                <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4">
+                    <div className = "w-lg flex flex-col gap-8 max-md:gap-4">
+                        <div className = "flex flex-col gap-7 max-md:gap-4">
+                            <div>
+                                <h1 className = "text-5xl max-md:text-3xl font-bold text-[#171717]">
+                                    <span>coding</span>
+                                    <span className = "text-[#1d9dda]">S</span>
+                                    <span className = "text-[#df69a0]">K</span>
+                                    <span>T</span>
+                                </h1>
+                                <h2 className = "text-md max-md:text-xs font-medium">AI พยากรณ์ช่วงของเกรดในอนาคตจากข้อมูลเกรดเดิม</h2>
+                            </div>
+                            <div className = "text-[#9497a1] text-xl max-md:text-base">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                </p>
+                            </div>
+                        </div>
+                        {session && (
+                            <div className = "flex gap-2 max-md:flex-col">
+                                <Link href = "/add information" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-[#171717] text-white hover:bg-white hover:text-[#171717] h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Add Information</Link>
+                                <Link href = "/profile" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-white text-[#171717] hover:bg-[#171717] hover:text-white h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Profile</Link>
+                            </div>
+                        )}
+                    </div>
+                    <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI"/>
+                </div>
+            </div>
+            <Card contents = {contentsDevelopers} title = "Developers" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-84"/>
             <Card contents = {contentsSoftware} title = "Software" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-52"/>
             <Footer information session = {session}/>

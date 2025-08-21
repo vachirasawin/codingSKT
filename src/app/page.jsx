@@ -15,7 +15,7 @@ function page() {
     
     return (
         <div>
-            <Navbar home session = {session}/>
+            <Navbar home/>
             <Title/>
             <Info/>
             <Footer home session = {session}/>

@@ -18,24 +18,24 @@ function Footer({ home, signIn, signUp, addInfo, profile, information, dashboard
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 21.08.25.1</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 21.08.25.2-beta</p>
                 </div>
                 <div className = "flex gap-8">
                     <div className = "flex flex-col gap-4">
                         <h1 className = "font-semibold text-sm">Quick link</h1>
                         <div className = "flex flex-col gap-2 text-xs font-medium text-[#9497a1]">
-                                <Link href = "/home" className = {`${home && "text-[#ececec"}`}>Home</Link>
-                                <Link href = "/information" className = {`${information && "text-[#ececec"}`}>Information</Link>
+                                <Link href = "/" className = {`${home && "text-white"}`}>Home</Link>
+                                <Link href = "/information" className = {`${information && "text-white"}`}>Information</Link>
                             {session ? (
                                 <>
-                                    <Link href = "/add information" className = {`${addInfo && "text-[#ececec"}`}>Add Information</Link>
-                                    <Link href = "/profile" className = {`${profile && "text-[#ececec"}`}>Profile</Link>
-                                    <Link href = "/dashboard" className = {`${dashboard && "text-[#ececec"}`}>Dashboard</Link>
+                                    <Link href = "/add information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
+                                    <Link href = "/profile" className = {`${profile && "text-white"}`}>Profile</Link>
+                                    <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
                                 </>
                             ) : (
                                 <>
-                                    <Link href = "/signin" className = {`${signIn && "text-[#ececec"}`}>Sign In</Link>
-                                    <Link href = "/signup" className = {`${signUp && "text-[#ececec"}`}>Sign Up</Link>
+                                    <Link href = "/signin" className = {`${signIn && "text-white"}`}>Sign In</Link>
+                                    <Link href = "/signup" className = {`${signUp && "text-white"}`}>Sign Up</Link>
                                 </>
                             )}
                         </div>

@@ -108,7 +108,7 @@ function page() {
 
     return (
         <div>
-            <Navbar signUp session = {session}/>
+            <Navbar signUp/>
             <div className = "p-4">
                 <form onSubmit = {handleSubmit} className = "container mx-auto justify-self-center flex flex-col items-center gap-4 min-md:h-[calc(100vh-12rem)] mt-24 justify-center">
                     <div className = "bg-white rounded-2xl shadow-md">

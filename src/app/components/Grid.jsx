@@ -7,7 +7,7 @@ function Grid({ data }) {
     return (
         <div className = "px-4 border-b border-[#ececec]">
             <div className = "container mx-auto justify-self-center py-24 max-md:py-4 flex items-center justify-start overflow-x-auto styleScrollbar">
-                <div className = "shadow-xl rounded-xl">
+                <div>
                     <div className = "flex">
                         <div className = "border border-r-0 border-b-0 border-[#9497a1] flex justify-center items-center gap-2 w-42 h-12 rounded-tl-xl">
                             <i className = "fa-solid fa-book text-base"></i>

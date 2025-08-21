@@ -57,7 +57,7 @@ function page() {
 
     return (
         <div>
-            <Navbar profile session = {session}/>
+            <Navbar profile/>
             <div className = "p-4">
                 <form onSubmit = {handleSubmit} className = "container mx-auto justify-self-center flex flex-col items-center gap-4 md:h-[calc(100vh-12rem)] mt-24 justify-center">
                     <div className = "bg-white p-4 md:p-8 rounded-2xl flex flex-col gap-8 max-md:w-full shadow-md">
