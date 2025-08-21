@@ -207,7 +207,7 @@ function page() {
         {
             title: "NumPy",
             image: "numpy",
-            extension: "svg",
+            extension: "png",
             content: "Library สำหรับใช้คำนวณทางคณิตศาสตร์และจัดการข้อมูล array",
             description: "version 2.3.1",
             width: "2336",

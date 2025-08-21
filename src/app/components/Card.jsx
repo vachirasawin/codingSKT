@@ -18,7 +18,7 @@ function Card({ contents, title, description, h }) {
                         <div key = {content.title} className = "shadow-md bg-white rounded-lg">
                             <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 ${h}`}>
                                 {content.image !== "-" && (
-                                    <div className = "border border-[#ececec] w-16 h-16 flex justify-center items-center rounded-xl">
+                                    <div className = "border border-[#ececec] w-16 h-16 flex justify-center items-center rounded-xl aspect-square">
                                         <Image src = {`/${content.image}.${content.extension}`} alt = {content.title} width = {content.width} height = {content.height} unoptimized className = "object-contain w-8"/>
                                     </div>
                                 )}
