@@ -2,6 +2,7 @@
 
 // import from Next.js
 import React from "react";
+import { useSession } from "next-auth/react";
 
 // import from components
 import Navbar from "./components/Navbar";
@@ -10,13 +11,14 @@ import Title from "./components/Title";
 import Footer from "./components/Footer";
 
 function page() {
+    const { data: session } = useSession();
     
     return (
         <div>
             <Navbar home/>
             <Title/>
             <Info/>
-            <Footer home/>
+            <Footer home session = {session}/>
         </div>
     )
 }
