@@ -18,7 +18,7 @@ function page() {
     const contentsDevelopers = [
         {
             title: "Mr. Tiyasak Armedeenlamyan",
-            image: "Logo",
+            image: "logo",
             extension: "png",
             content: "Lorem ipsum dolor sit amet consectetur.",
             description: "นายติยศักดิ์ อามีดีนลามยาน",
@@ -29,7 +29,7 @@ function page() {
         },
         {
             title: "Mr. Ratchanon Tribawonkul",
-            image: "Logo",
+            image: "logo",
             extension: "png",
             content: "Lorem ipsum dolor sit amet consectetur.",
             description: "นายรัชชานนท์ ตรีบวรกุล",
@@ -40,7 +40,7 @@ function page() {
         },
         {
             title: "Mr. Vachirasawin Mahantaphalanon",
-            image: "Logo",
+            image: "logo",
             extension: "png",
             content: "Lorem ipsum dolor sit amet consectetur.",
             description: "นายวชิรัศวิน มหันตพลานนท์",
@@ -51,7 +51,7 @@ function page() {
         },
         {
             title: "Mr. Aiyakarn phorphakwaen",
-            image: "Logo",
+            image: "logo",
             extension: "png",
             content: "Lorem ipsum dolor sit amet consectetur.",
             description: "นายอัยการ เพราะผักแว่น",
