@@ -1,3 +1,5 @@
+"use client";
+
 // import from Next.js
 import React from "react";
 import { useSession } from "next-auth/react";
