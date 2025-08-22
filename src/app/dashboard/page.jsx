@@ -133,7 +133,7 @@ function page() {
             <Title/>
             <Grid data = {datas}/>
             <Histogram data = {datas}/>
-            <Footer home session = {session}/>
+            <Footer home/>
         </div>
     )
 }

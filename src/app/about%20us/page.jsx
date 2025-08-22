@@ -1,8 +1,5 @@
-"use client";
-
 // import from Next.js
 import React from "react";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,8 +10,6 @@ import Card from "../components/Card";
 import Footer from "../components/Footer";
 
 function page() {
-    const { data: session } = useSession();
-
     const contentsDevelopers = [
         {
             title: "Mr. Tiyasak Armedeenlamyan",
@@ -479,7 +474,7 @@ function page() {
             <Card contents = {contentsSoftware} title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsReport} title = "Report" subTitle = "Project" inverse downloadType description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-64"/>
-            <Footer aboutUs session = {session}/>
+            <Footer aboutUs/>
         </div>
     )
 }

@@ -2,9 +2,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
-function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, aboutUs }) {
     console.log("about us", aboutUs);
+
+    const { data: session } = useSession();
 
     return (
         <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]">

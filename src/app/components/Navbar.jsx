@@ -5,9 +5,11 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
-function Navbar({ home, signIn, signUp, addInfo, profile, session, dashboard, aboutUs }) {
+function Navbar({ home, signIn, signUp, addInfo, profile, dashboard, aboutUs }) {
     const [menu, setMenu] = useState(false);
+    const { data: session } = useSession();
 
     useEffect(() => {
         if (menu) {
