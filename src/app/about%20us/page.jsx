@@ -24,7 +24,8 @@ function page() {
             description: "นายติยศักดิ์ อามีดีนลามยาน",
             width: "1000",
             height: "1000",
-            link: "-"
+            link: "-",
+            symbol: "-"
         },
         {
             title: "Mr. Ratchanon Tribawonkul",
@@ -34,7 +35,8 @@ function page() {
             description: "นายรัชชานนท์ ตรีบวรกุล",
             width: "1000",
             height: "1000",
-            link: "-"
+            link: "-",
+            symbol: "-"
         },
         {
             title: "Mr. Vachirasawin Mahantaphalanon",
@@ -44,7 +46,8 @@ function page() {
             description: "นายวชิรัศวิน มหันตพลานนท์",
             width: "1000",
             height: "1000",
-            link: "-"
+            link: "-",
+            symbol: "-"
         },
         {
             title: "Mr. Aiyakarn phorphakwaen",
@@ -54,7 +57,8 @@ function page() {
             description: "นายอัยการ เพราะผักแว่น",
             width: "1000",
             height: "1000",
-            link: "-"
+            link: "-",
+            symbol: "-"
         }
     ];
     const contentsSoftware = [
@@ -66,7 +70,8 @@ function page() {
             description: "version 22.17.1",
             width: "1200",
             height: "735",
-            link: "https://nodejs.org/en"
+            link: "https://nodejs.org/en",
+            symbol: "-"
         },
         {
             title: "Next.js",
@@ -76,7 +81,8 @@ function page() {
             description: "version 15.4.6",
             width: "512",
             height: "512",
-            link: "https://nextjs.org/"
+            link: "https://nextjs.org/",
+            symbol: "-"
         },
         {
             title: "React",
@@ -86,7 +92,8 @@ function page() {
             description: "version 19.1.0",
             width: "800",
             height: "720",
-            link: "https://react.dev/"
+            link: "https://react.dev/",
+            symbol: "-"
         },
         {
             title: "Tailwind CSS",
@@ -96,7 +103,8 @@ function page() {
             description: "",
             width: "1280",
             height: "770",
-            link: "https://tailwindcss.com/"
+            link: "https://tailwindcss.com/",
+            symbol: "-"
         },
         {
             title: "Font Awesome",
@@ -106,7 +114,8 @@ function page() {
             description: "",
             width: "1200",
             height: "490",
-            link: "https://www.fontawesome.com/"
+            link: "https://www.fontawesome.com/",
+            symbol: "-"
         },
         {
             title: "Color Hunt",
@@ -116,7 +125,8 @@ function page() {
             description: "",
             width: "320",
             height: "320",
-            link: "https://colorhunt.co/"
+            link: "https://colorhunt.co/",
+            symbol: "-"
         },
         {
             title: "Mongoose",
@@ -126,7 +136,8 @@ function page() {
             description: "version 8.17.1",
             width: "280",
             height: "280",
-            link: "https://mongoosejs.com/"
+            link: "https://mongoosejs.com/",
+            symbol: "-"
         },
         {
             title: "MongoDB Atlas",
@@ -136,7 +147,8 @@ function page() {
             description: "",
             width: "512",
             height: "512",
-            link: "https://www.mongodb.com/products/platform"
+            link: "https://www.mongodb.com/products/platform",
+            symbol: "-"
         },
         {
             title: "BCrypt HASH",
@@ -146,7 +158,8 @@ function page() {
             description: "version 3.0.2",
             width: "400",
             height: "400",
-            link: "https://www.npmjs.com/package/bcryptjs"
+            link: "https://www.npmjs.com/package/bcryptjs",
+            symbol: "-"
         },
         {
             title: "NextAuth.js",
@@ -156,7 +169,8 @@ function page() {
             description: "version 4.24.11",
             width: "327",
             height: "361",
-            link: "https://next-auth.js.org/"
+            link: "https://next-auth.js.org/",
+            symbol: "-"
         },
         {
             title: "Google Developers",
@@ -166,7 +180,8 @@ function page() {
             description: "",
             width: "250",
             height: "250",
-            link: "https://developers.google.com/?hl=th"
+            link: "https://developers.google.com/?hl=th",
+            symbol: "-"
         },
         {
             title: "Github Developers",
@@ -176,7 +191,8 @@ function page() {
             description: "",
             width: "1200",
             height: "1200",
-            link: "https://developer.github.com/"
+            link: "https://developer.github.com/",
+            symbol: "-"
         },
         {
             title: "Facebook Developers",
@@ -186,7 +202,8 @@ function page() {
             description: "",
             width: "1280",
             height: "851",
-            link: "https://developers.facebook.com/?locale=th_TH"
+            link: "https://developers.facebook.com/?locale=th_TH",
+            symbol: "-"
         },
         {
             title: "Visual Studio Code",
@@ -196,7 +213,8 @@ function page() {
             description: "version 1.103.1",
             width: "1080",
             height: "1080",
-            link: "https://code.visualstudio.com/"
+            link: "https://code.visualstudio.com/",
+            symbol: "-"
         },
         {
             title: "Google Chrome",
@@ -206,7 +224,8 @@ function page() {
             description: "version 139.0.7258.128",
             width: "250",
             height: "256",
-            link: "https://www.google.com/intl/th_th/chrome/"
+            link: "https://www.google.com/intl/th_th/chrome/",
+            symbol: "-"
         },
         {
             title: "Vercel",
@@ -216,7 +235,8 @@ function page() {
             description: "",
             width: "360",
             height: "360",
-            link: "https://vercel.com/"
+            link: "https://vercel.com/",
+            symbol: "-"
         },
         {
             title: "Git",
@@ -226,7 +246,8 @@ function page() {
             description: "version 2.50.1.windows.1",
             width: "383",
             height: "383",
-            link: "https://git-scm.com/"
+            link: "https://git-scm.com/",
+            symbol: "-"
         },
         {
             title: "Python",
@@ -236,7 +257,8 @@ function page() {
             description: "version 3.13.5",
             width: "1200",
             height: "1200",
-            link: "https://www.python.org/"
+            link: "https://www.python.org/",
+            symbol: "-"
         },
         {
             title: "Jupyter Notebook",
@@ -246,7 +268,8 @@ function page() {
             description: "version 7.2.2",
             width: "1200",
             height: "1391",
-            link: "https://jupyter.org/"
+            link: "https://jupyter.org/",
+            symbol: "-"
         },
         {
             title: "NumPy",
@@ -256,7 +279,8 @@ function page() {
             description: "version 2.3.1",
             width: "2336",
             height: "2500",
-            link: "https://numpy.org/"
+            link: "https://numpy.org/",
+            symbol: "-"
         },
         {
             title: "Pandas",
@@ -266,7 +290,8 @@ function page() {
             description: "version 2.3.0",
             width: "1200",
             height: "486",
-            link: "https://pandas.pydata.org/"
+            link: "https://pandas.pydata.org/",
+            symbol: "-"
         },
         {
             title: "Seaborn",
@@ -276,7 +301,8 @@ function page() {
             description: "version 0.13.2",
             width: "400",
             height: "400",
-            link: "https://seaborn.pydata.org/"
+            link: "https://seaborn.pydata.org/",
+            symbol: "-"
         },
         {
             title: "Google Sheets",
@@ -286,7 +312,8 @@ function page() {
             description: "",
             width: "1200",
             height: "1650",
-            link: "https://workspace.google.com/products/sheets/"
+            link: "https://workspace.google.com/products/sheets/",
+            symbol: "-"
         }
     ];
     const contentsHardware = [
@@ -295,43 +322,117 @@ function page() {
             image: "-",
             content: "AMD Ryzen 7 5700U with Radeon Graphics 1.80GHz",
             description: "Processor",
-            link: "-"
+            link: "-",
+            symbol: "fa-solid fa-microchip"
         },
         {
             title: "16GB DDR4",
             image: "-",
             content: "16GB DDR4 3200MHz",
             description: "Installed RAM",
-            link: "-"
+            link: "-",
+            symbol: "fa-solid fa-memory"
         },
         {
             title: "SSD NVMe 512GB",
             image: "-",
             content: "477GB SSD PC SN530 NVMe WDC 512GB",
             description: "Storage",
-            link: "-"
+            link: "-",
+            symbol: "fa-solid fa-warehouse"
         },
         {
             title: "AMD Radeon(TM) Graphics",
             image: "-",
             content: "AMD Radeon(TM) Graphics (496MB)",
             description: "Graphics Card",
-            link: "-"
+            link: "-",
+            symbol: "fa-solid fa-microchip"
         },
         {
             title: "Windows 10 Home",
             image: "-",
             content: "Window 10 Home Single Language (version 22H2)",
             description: "OS",
-            link: "-"
+            link: "-",
+            symbol: "fa-brands fa-windows"
         },
         {
             title: "64-bit",
             image: "-",
             content: "64-bit operation system, x64-based processor",
             description: "System Type",
-            link: "-" 
+            link: "-",
+            symbol: "fa-solid fa-computer"
         },
+    ];
+    const contentsReport = [
+        {
+            title: "Introduction",
+            image: "-",
+            extension: "-",
+            content: "บทที่ 1 บทนำ",
+            description: "Chapter 1",
+            width: "-",
+            height: "-",
+            link: "/introduction.pdf",
+            symbol: "fa-solid fa-book"
+        },
+        {
+            title: "Chapter 2",
+            image: "-",
+            extension: "-",
+            content: "บทที่ 2 XXX",
+            description: "Chapter 2",
+            width: "-",
+            height: "-",
+            link: "/system-analysis.pdf",
+            symbol: "fa-solid fa-book"
+        },
+        {
+            title: "System Analysis",
+            image: "-",
+            extension: "-",
+            content: "บทที่ 3 การวิเคราะห์ระบบ",
+            description: "Chapter 3",
+            width: "-",
+            height: "-",
+            link: "/system-analysis.pdf",
+            symbol: "fa-solid fa-book"
+        },
+        {
+            title: "Chapter 4",
+            image: "-",
+            extension: "-",
+            content: "บทที่ 4 XXX",
+            description: "Chapter 4",
+            width: "-",
+            height: "-",
+            link: "/system-analysis.pdf",
+            symbol: "fa-solid fa-book"
+        },
+        {
+            title: "Chapter 5",
+            image: "-",
+            extension: "-",
+            content: "บทที่ 5 XXX",
+            description: "Chapter 5",
+            width: "-",
+            height: "-",
+            link: "/system-analysis.pdf",
+            symbol: "fa-solid fa-book"
+        },
+        {
+            title: "Chapter 6",
+            image: "-",
+            extension: "-",
+            content: "บทที่ 6 XXX",
+            description: "Chapter 6",
+            width: "-",
+            height: "-",
+            link: "/system-analysis.pdf",
+            symbol: "fa-solid fa-book"
+        }
     ];
 
     return (
@@ -376,7 +477,8 @@ function page() {
             </div>
             <Card contents = {contentsDevelopers} title = "Developers" subTitle = "-" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-84"/>
             <Card contents = {contentsSoftware} title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
-            <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-52"/>
+            <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
+            <Card contents = {contentsReport} title = "Report" subTitle = "Project" inverse downloadType description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-64"/>
             <Footer aboutUs session = {session}/>
         </div>
     )
