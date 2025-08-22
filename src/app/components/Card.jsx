@@ -3,13 +3,18 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function Card({ contents, title, description, h }) {
+function Card({ contents, title, subTitle, description, h }) {
     return (
-        <div className = "px-4 border-b border-[#ececec] bg-[#f1f6fa]">
+        <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]">
             <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8`}>
                 <div className = "flex justify-center w-full">
                     <div className = "flex flex-col gap-2 text-center w-lg">
-                        <h1 className = "text-4xl font-bold max-md:text-2x">{title}</h1>
+                        <div className = "flex justify-center items-center">
+                            <h1 className = "text-4xl font-bold max-md:text-2x text-blue-500">{title}</h1>
+                            {subTitle !== "-" && (
+                                <h1 className = "text-4xl font-bold max-md:text-2x">&nbsp;{subTitle}</h1>
+                            )}
+                        </div>
                         <p className = "text-[#9497a1] text-lg max-md:text-sm">{description}</p>
                     </div>
                 </div>

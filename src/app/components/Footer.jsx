@@ -26,7 +26,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                         <h1 className = "font-semibold text-sm">Quick link</h1>
                         <div className = "flex flex-col gap-2 text-xs font-medium text-[#9497a1]">
                                 <Link href = "/" className = {`${home && "text-white"}`}>Home</Link>
-                                <Link href = "/aboutus" className = {`${aboutUs && "text-white"}`}>About Us</Link>
+                                <Link href = "/about us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
                             {session ? (
                                 <>
                                     <Link href = "/add information" className = {`${addInfo && "text-white"}`}>Add Information</Link>

@@ -72,6 +72,7 @@ function Info() {
                                 <span>T</span>
                             </h1>
                             <h2 className = "text-md max-md:text-xs font-medium">AI พยากรณ์ช่วงของเกรดในอนาคตจากข้อมูลเกรดเดิม</h2>
+                            <div className = "w-36 border-2 border-blue-500 rounded-md mt-2"></div>
                         </div>
                         <div className = "text-[#9497a1] text-xl max-md:text-base">
                             <p>
