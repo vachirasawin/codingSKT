@@ -36,7 +36,7 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, dashboard, ab
                     </div>
                     <div className = "flex text-sm font-medium text-[#9497a1] gap-8 max-lg:hidden">
                         <Link href = "/" className = {`${home && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Home</Link>
-                        <Link href = "/about us" className = {`${aboutUs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>About Us</Link>
+                        <Link href = "/aboutus" className = {`${aboutUs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>About Us</Link>
                         {session && (
                             <>
                                 <Link href = "/profile" className = {`${profile && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Profile</Link>
@@ -56,7 +56,7 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, dashboard, ab
             <div className = {`fixed w-screen h-[calc(100vh-6rem)] flex flex-col gap-8 bg-white p-4 left-0 z-20 border-t border-[#ececec] ${menu ? ((home || information || dashboard) ? "opacity-100" : "translate-y-24 opacity-100") : "-translate-y-[calc(100vh-6rem)] opacity-100"} transform transition-all duration-500 ease-in-out min-lg:hidden`}>
                 <div className = "flex flex-col text-sm font-medium text-[#9497a1] gap-8">
                     <Link href = "/" className = {home && "text-[#171717]"}>Home</Link>
-                    <Link href = "/about us" className = {aboutUs && "text-[#171717]"}>About Us</Link>
+                    <Link href = "/aboutus" className = {aboutUs && "text-[#171717]"}>About Us</Link>
                     {session && (
                         <>
                             <Link href = "/profile" className = {profile && "text-[#171717]"}>Profile</Link>
