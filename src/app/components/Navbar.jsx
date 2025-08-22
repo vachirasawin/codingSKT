@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
-function Navbar({ home, signIn, signUp, addInfo, profile, session, information, dashboard }) {
+function Navbar({ home, signIn, signUp, addInfo, profile, session, dashboard, aboutUs }) {
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
@@ -36,6 +36,7 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information, 
                     </div>
                     <div className = "flex text-sm font-medium text-[#9497a1] gap-8 max-lg:hidden">
                         <Link href = "/" className = {`${home && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Home</Link>
+                        <Link href = "/about us" className = {`${aboutUs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>About Us</Link>
                         {session && (
                             <>
                                 <Link href = "/profile" className = {`${profile && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Profile</Link>
@@ -43,7 +44,6 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information, 
                                 <Link href = "/dashboard" className = {`${dashboard && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Dashboard</Link>
                             </>
                         )}
-                        <Link href = "/information" className = {`${information && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Information</Link>
                     </div>
                     {!session ? (
                         <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`shadow-md w-28 h-10 flex justify-center items-center font-medium rounded-xl text-sm border-2 border-[#171717] ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"} max-lg:hidden`}>{signIn ? "Sign Up" : "Sign In"}</Link>
@@ -56,6 +56,7 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information, 
             <div className = {`fixed w-screen h-[calc(100vh-6rem)] flex flex-col gap-8 bg-white p-4 left-0 z-20 border-t border-[#ececec] ${menu ? ((home || information || dashboard) ? "opacity-100" : "translate-y-24 opacity-100") : "-translate-y-[calc(100vh-6rem)] opacity-100"} transform transition-all duration-500 ease-in-out min-lg:hidden`}>
                 <div className = "flex flex-col text-sm font-medium text-[#9497a1] gap-8">
                     <Link href = "/" className = {home && "text-[#171717]"}>Home</Link>
+                    <Link href = "/about us" className = {aboutUs && "text-[#171717]"}>About Us</Link>
                     {session && (
                         <>
                             <Link href = "/profile" className = {profile && "text-[#171717]"}>Profile</Link>
@@ -63,7 +64,6 @@ function Navbar({ home, signIn, signUp, addInfo, profile, session, information, 
                             <Link href = "/dashboard" className = {dashboard && "text-[#171717]"}>Dashboard</Link>
                         </>
                     )}
-                    <Link href = "/information" className = {information && "text-[#171717]"}>Inforamtion</Link>
                 </div>
                 {!session ? (
                     <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`shadow-md w-full h-10 flex justify-center items-center font-medium rounded-xl text-sm border-2 border-[#171717] ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>{signIn ? "Sign Up" : "Sign In"}</Link>

@@ -335,7 +335,7 @@ function page() {
 
     return (
         <div>
-            <Navbar information/>
+            <Navbar aboutUs/>
             <Title/>
             <div className = "px-4 border-b border-[#ececec] bg-white">
                 <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4">
@@ -373,9 +373,9 @@ function page() {
                 </div>
             </div>
             <Card contents = {contentsDevelopers} title = "Developers" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-84"/>
-            <Card contents = {contentsSoftware} title = "Software" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
-            <Card contents = {contentsHardware} title = "Hardware" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-52"/>
-            <Footer information session = {session}/>
+            <Card contents = {contentsSoftware} title = "Software We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
+            <Card contents = {contentsHardware} title = "Hardware We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-52"/>
+            <Footer aboutUs session = {session}/>
         </div>
     )
 }

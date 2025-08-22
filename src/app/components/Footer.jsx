@@ -3,7 +3,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-function Footer({ home, signIn, signUp, addInfo, profile, information, dashboard, session }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs }) {
+    console.log("about us", aboutUs);
 
     return (
         <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]">
@@ -18,14 +19,14 @@ function Footer({ home, signIn, signUp, addInfo, profile, information, dashboard
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 21.08.25.2-beta</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 22.08.25.1</p>
                 </div>
                 <div className = "flex gap-8">
                     <div className = "flex flex-col gap-4">
                         <h1 className = "font-semibold text-sm">Quick link</h1>
                         <div className = "flex flex-col gap-2 text-xs font-medium text-[#9497a1]">
                                 <Link href = "/" className = {`${home && "text-white"}`}>Home</Link>
-                                <Link href = "/information" className = {`${information && "text-white"}`}>Information</Link>
+                                <Link href = "/about us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
                             {session ? (
                                 <>
                                     <Link href = "/add information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
