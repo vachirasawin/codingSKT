@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs }) {
-    console.log("about us", aboutUs);
-
     return (
         <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]">
             <div className = "container mx-auto justify-self-center flex flex-wrap gap-4 justify-around py-8 max-md:py-4 text-white">
@@ -19,7 +17,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 22.08.25.2-beta</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 23.08.25.1</p>
                 </div>
                 <div className = "flex gap-8">
                     <div className = "flex flex-col gap-4">

@@ -15,6 +15,85 @@ import Footer from "../components/Footer";
 function page() {
     const { data: session } = useSession();
 
+    const contentsML = [
+        {
+            title: "Classification",
+            image: "-",
+            extension: "-",
+            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปหมวดหมู่ (Class) โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ไม่ต่อเนื่อง",
+            description: "Supervised Learning",
+            width: "-",
+            height: "-",
+            link: "/machine-learning.pdf",
+            symbol: "-"
+        },
+        {
+            title: "Regression",
+            image: "-",
+            extension: "-",
+            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปตัวเลขต่อเนื่อง โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ต่อเนื่อง",
+            description: "Supervised Learning",
+            width: "-",
+            height: "-",
+            link: "/machine-learning.pdf",
+            symbol: "-"
+        },
+        {
+            title: "Clustering",
+            image: "-",
+            extension: "-",
+            content: "แบ่งข้อมูลออกเป็นกลุ่ม (Clusters) ตามคุณสมบัติ (Feature) ที่คล้ายกันเพื่อหาความสัมพันธ์แฝงในข้อมูล",
+            description: "Unsupervised Learning",
+            width: "-",
+            height: "-",
+            link: "/machine-learning.pdf",
+            symbol: "-"
+        },
+        {
+            title: "Dimensionality Reduction",
+            image: "-",
+            extension: "-",
+            content: "การลดจำนวนคุณสมบัติ (Features) ของข้อมูลให้เหลือเท่าที่จำเป็น เพื่อทำให้ประมวลผลเร็วขึ้น",
+            description: "Unsupervised Learning",
+            width: "-",
+            height: "-",
+            link: "/machine-learning.pdf",
+            symbol: "-"
+        },
+        {
+            title: "Association Rule Learning",
+            image: "-",
+            extension: "-",
+            content: "การหาความสัมพันธ์ระหว่างรายการข้อมูล (สิ่งใดเกิดร่วมกันบ่อย)",
+            description: "Unsupervised Learning",
+            width: "-",
+            height: "-",
+            link: "/machine-learning.pdf",
+            symbol: "-"
+        },
+        {
+            title: "Model-Based",
+            image: "-",
+            extension: "-",
+            content: "Agent พยายามสร้าง Model เพื่อทำนายสิ่งที่จะเกิดเมื่อทำบางสิ่ง",
+            description: "Reinforcement Learning",
+            width: "-",
+            height: "-",
+            link: "/machine-learning.pdf",
+            symbol: "-"
+        },
+        {
+            title: "Model-Free",
+            image: "-",
+            extension: "-",
+            content: "Agent เรียนรู้การกระทำที่ดีที่สุดโดยไม่ต้องสร้าง Model",
+            description: "Reinforcement Learning",
+            width: "-",
+            height: "-",
+            link: "/machine-learning.pdf",
+            symbol: "-"
+        }
+    ];
     const contentsDevelopers = [
         {
             title: "Mr. Tiyasak Armedeenlamyan",
@@ -455,13 +534,13 @@ function page() {
                             </div>
                             <div className = "text-[#9497a1] text-xl max-md:text-base">
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                    การพยากรณ์ช่วงของเกรดในอนาคตของผู้เรียนโดยแสดงผลเป็นช่วงโดยมีจุดต่ำสุดและจุดสูงสุด
                                 </p>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                    โดยใช้ AI สาขา Machine Learning ประเภท Supervised Learning แบบ Regression ในการพยากรณ์
                                 </p>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                    โดยใช้ข้อมูลจากชื่อวิชา เกรดเฉลี่ยรายวิชา หน่วยกิตรายวิชา หน่วยกิตที่เรียน หน่วยกิตที่ได้ และเกรดเฉลี่ยรวมในการพัฒนา AI
                                 </p>
                             </div>
                         </div>
@@ -475,7 +554,8 @@ function page() {
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI"/>
                 </div>
             </div>
-            <Card contents = {contentsDevelopers} title = "Developers" subTitle = "-" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-84"/>
+            <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-56"/>
+            <Card contents = {contentsDevelopers} title = "Developers" subTitle = "-" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsSoftware} title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsReport} title = "Report" subTitle = "Project" inverse downloadType description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-64"/>

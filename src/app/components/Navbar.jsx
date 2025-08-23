@@ -55,7 +55,7 @@ function Navbar({ home, signIn, signUp, addInfo, profile, dashboard, aboutUs }) 
                     <div onClick = {() => setMenu(!menu)} className = {`w-10 h-10 flex justify-center items-center rounded-xl text-base border-2 border-[#171717] ${menu ? "bg-white text-[#171717]" : "bg-[#171717] text-white"} min-lg:hidden`}><i className = "fa-solid fa-bars"></i></div>
                 </div>
             </div>
-            <div className = {`fixed w-screen h-[calc(100vh-6rem)] flex flex-col gap-8 bg-white p-4 left-0 z-20 border-t border-[#ececec] ${menu ? ((home || information || dashboard) ? "opacity-100" : "translate-y-24 opacity-100") : "-translate-y-[calc(100vh-6rem)] opacity-100"} transform transition-all duration-500 ease-in-out min-lg:hidden`}>
+            <div className = {`fixed w-screen h-[calc(100vh-6rem)] flex flex-col gap-8 bg-white p-4 left-0 z-20 border-t border-[#ececec] ${menu ? ((home || aboutUs || dashboard) ? "opacity-100" : "translate-y-24 opacity-100") : "-translate-y-[calc(100vh-6rem)] opacity-100"} transform transition-all duration-500 ease-in-out min-lg:hidden`}>
                 <div className = "flex flex-col text-sm font-medium text-[#9497a1] gap-8">
                     <Link href = "/" className = {home && "text-[#171717]"}>Home</Link>
                     <Link href = "/about us" className = {aboutUs && "text-[#171717]"}>About Us</Link>

@@ -76,13 +76,13 @@ function Info() {
                         </div>
                         <div className = "text-[#9497a1] text-xl max-md:text-base">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                การพยากรณ์ช่วงของเกรดในอนาคตของผู้เรียนโดยแสดงผลเป็นช่วงโดยมีจุดต่ำสุดและจุดสูงสุด
                             </p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                โดยใช้ AI สาขา Machine Learning ประเภท Supervised Learning แบบ Regression ในการพยากรณ์
                             </p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, numquam?
+                                โดยใช้ข้อมูลจากชื่อวิชา เกรดเฉลี่ยรายวิชา หน่วยกิตรายวิชา หน่วยกิตที่เรียน หน่วยกิตที่ได้ และเกรดเฉลี่ยรวมในการพัฒนา AI
                             </p>
                         </div>
                     </div>
