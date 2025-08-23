@@ -25,7 +25,8 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Regression",
@@ -36,7 +37,8 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-"
+            symbol: "-",
+            main: "true",
         },
         {
             title: "Clustering",
@@ -47,7 +49,8 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Dimensionality Reduction",
@@ -58,7 +61,8 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Association Rule Learning",
@@ -69,7 +73,8 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Model-Based",
@@ -80,7 +85,8 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Model-Free",
@@ -91,7 +97,8 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         }
     ];
     const contentsDevelopers = [
@@ -104,7 +111,8 @@ function page() {
             width: "1000",
             height: "1000",
             link: "-",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Mr. Ratchanon Tribawonkul",
@@ -115,7 +123,8 @@ function page() {
             width: "1000",
             height: "1000",
             link: "-",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Mr. Vachirasawin Mahantaphalanon",
@@ -126,7 +135,8 @@ function page() {
             width: "1000",
             height: "1000",
             link: "-",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Mr. Aiyakarn phorphakwaen",
@@ -137,7 +147,8 @@ function page() {
             width: "1000",
             height: "1000",
             link: "-",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         }
     ];
     const contentsSoftware = [
@@ -150,7 +161,8 @@ function page() {
             width: "1200",
             height: "735",
             link: "https://nodejs.org/en",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Next.js",
@@ -161,7 +173,8 @@ function page() {
             width: "512",
             height: "512",
             link: "https://nextjs.org/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "React",
@@ -172,7 +185,8 @@ function page() {
             width: "800",
             height: "720",
             link: "https://react.dev/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Tailwind CSS",
@@ -183,7 +197,8 @@ function page() {
             width: "1280",
             height: "770",
             link: "https://tailwindcss.com/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Font Awesome",
@@ -194,7 +209,8 @@ function page() {
             width: "1200",
             height: "490",
             link: "https://www.fontawesome.com/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Color Hunt",
@@ -205,7 +221,8 @@ function page() {
             width: "320",
             height: "320",
             link: "https://colorhunt.co/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Mongoose",
@@ -216,7 +233,8 @@ function page() {
             width: "280",
             height: "280",
             link: "https://mongoosejs.com/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "MongoDB Atlas",
@@ -227,7 +245,8 @@ function page() {
             width: "512",
             height: "512",
             link: "https://www.mongodb.com/products/platform",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "BCrypt HASH",
@@ -238,7 +257,8 @@ function page() {
             width: "400",
             height: "400",
             link: "https://www.npmjs.com/package/bcryptjs",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "NextAuth.js",
@@ -249,7 +269,8 @@ function page() {
             width: "327",
             height: "361",
             link: "https://next-auth.js.org/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Google Developers",
@@ -260,7 +281,8 @@ function page() {
             width: "250",
             height: "250",
             link: "https://developers.google.com/?hl=th",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Github Developers",
@@ -271,7 +293,8 @@ function page() {
             width: "1200",
             height: "1200",
             link: "https://developer.github.com/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Facebook Developers",
@@ -282,7 +305,8 @@ function page() {
             width: "1280",
             height: "851",
             link: "https://developers.facebook.com/?locale=th_TH",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Visual Studio Code",
@@ -293,7 +317,8 @@ function page() {
             width: "1080",
             height: "1080",
             link: "https://code.visualstudio.com/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Google Chrome",
@@ -304,7 +329,8 @@ function page() {
             width: "250",
             height: "256",
             link: "https://www.google.com/intl/th_th/chrome/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Vercel",
@@ -315,7 +341,8 @@ function page() {
             width: "360",
             height: "360",
             link: "https://vercel.com/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Git",
@@ -326,7 +353,8 @@ function page() {
             width: "383",
             height: "383",
             link: "https://git-scm.com/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Python",
@@ -337,7 +365,8 @@ function page() {
             width: "1200",
             height: "1200",
             link: "https://www.python.org/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Jupyter Notebook",
@@ -348,7 +377,8 @@ function page() {
             width: "1200",
             height: "1391",
             link: "https://jupyter.org/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "NumPy",
@@ -359,7 +389,8 @@ function page() {
             width: "2336",
             height: "2500",
             link: "https://numpy.org/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Pandas",
@@ -370,7 +401,8 @@ function page() {
             width: "1200",
             height: "486",
             link: "https://pandas.pydata.org/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Seaborn",
@@ -381,7 +413,8 @@ function page() {
             width: "400",
             height: "400",
             link: "https://seaborn.pydata.org/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         },
         {
             title: "Google Sheets",
@@ -392,7 +425,8 @@ function page() {
             width: "1200",
             height: "1650",
             link: "https://workspace.google.com/products/sheets/",
-            symbol: "-"
+            symbol: "-",
+            main: "-"
         }
     ];
     const contentsHardware = [

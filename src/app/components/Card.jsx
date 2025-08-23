@@ -18,7 +18,7 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                         <p className = "text-[#9497a1] text-lg max-md:text-sm w-lg max-sm:w-full">{description}</p>
                     </div>
                 </div>
-                <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8">
+                <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8 text-[#171717]">
                     {contents.map((content, index) => (
                         <div key = {content.title} className = "shadow-md bg-white rounded-lg">
                             <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 ${h}`}>
@@ -33,7 +33,7 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                                 )}
                                 <div className = "flex flex-col gap-4">
                                     <div className = "flex flex-col">
-                                        <h1 className = "text-xl font-bold">{content.title}</h1>
+                                        <h1 className = {`text-xl font-bold ${content.main === "true" && "text-blue-500"}`}>{content.title}</h1>
                                         <p className = "text-[#9497a1] text-xs font-medium">{content.description}</p>
                                     </div>
                                     <p className = "font-normal text-[#9497a1]">{content.content}</p>
