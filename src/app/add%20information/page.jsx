@@ -1,10 +1,12 @@
 "use client";
 
 // import from Next.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Listbox } from "@headlessui/react";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // import from components
 import Navbar from "../components/Navbar";
@@ -12,9 +14,12 @@ import Message from "../components/Message";
 
 function page() {
     const { data: session } = useSession();
-    if (!session) redirect ("/");
+    //if (!session) redirect ("/");
+        
+    useEffect(() => {
+        AOS.init({ duration: 500 });
+    }, []);
 
-    //Define input field
     const [inputs, setInputs] = useState([
         ["", "", "", "", ""],
         ["", "", "", "", ""],
@@ -41,7 +46,6 @@ function page() {
         ["Career"]
     ]);
 
-    //Define alert message
     const [message, setMessage] = useState("");
     const [type, setType] = useState("");
     const [alert, setAlert] = useState(false);
@@ -81,6 +85,7 @@ function page() {
             ["", "", "", "", ""],
             ["", "", "", "", ""]
         ]);
+        resetAlert();
     };
 
     const handleAddGPA = () => {
@@ -105,12 +110,30 @@ function page() {
         );
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const cleanedInputs = inputs.map((input) =>
+            input.map((value) => (value === "" ? "-" : value))
+        );
+
+        const hasIncomplete = cleanedInputs.some((input) =>
+            input[0] === "-" || input[2] === "-" || input[3] === "-" || input[4] === "-"
+        );
+        if (hasIncomplete) {
+            setAlert(true);
+            setMessage("Please complete all required fields.");
+            setType("error");
+            return;
+        }
+    }
+
     return (
         <div>
             <Navbar addInfo session = {session}/>
             <div className = "p-4">
-                <form className = "container mx-auto justify-self-center flex flex-col items-center gap-4 h-[calc(100vh-12rem)] mt-12 justify-center">
-                    <div className = "flex flex-col gap-4 max-w-full w-max bg-white p-4 md:p-8 rounded-2xl shadow-md">
+                <form onSubmit = {handleSubmit} className = "container mx-auto justify-self-center flex flex-col items-center gap-4 h-[calc(100vh-12rem)] mt-12 justify-center">
+                    <div className = "flex flex-col gap-4 max-w-full w-max bg-white p-4 md:p-8 rounded-2xl shadow-md" data-aos = "fade-up">
                         <Message message = {message} type = {type} alert = {alert}/>
                         <div className = "flex gap-4">
                             <div className = "h-full w-10 gap-4 flex flex-col">

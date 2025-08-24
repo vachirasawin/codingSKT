@@ -1,10 +1,12 @@
 "use client";
 
 // import from Next.js
-import React from "react";
+import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // import from components
 import Navbar from "../components/Navbar";
@@ -14,6 +16,10 @@ import Footer from "../components/Footer";
 
 function page() {
     const { data: session } = useSession();
+
+    useEffect(() => {
+        AOS.init({ duration: 500 });
+    }, []);
 
     const contentsML = [
         {
@@ -185,6 +191,18 @@ function page() {
             width: "800",
             height: "720",
             link: "https://react.dev/",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "AOS",
+            image: "aos",
+            extension: "png",
+            content: "Library JavaScript ที่ทำให้มีการเคลื่อนไหวเมื่อเลื่อนหน้าเว็บไซต์",
+            description: "version 2.3.4",
+            width: "1280",
+            height: "770",
+            link: "https://michalsnik.github.io/aos/",
             symbol: "-",
             main: "-"
         },
@@ -556,7 +574,7 @@ function page() {
                 <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4">
                     <div className = "w-lg flex flex-col gap-8 max-md:gap-4">
                         <div className = "flex flex-col gap-7 max-md:gap-4">
-                            <div>
+                            <div data-aos = "fade-up">
                                 <h1 className = "text-5xl max-md:text-3xl font-bold text-[#171717]">
                                     <span>coding</span>
                                     <span className = "text-[#1d9dda]">S</span>
@@ -566,7 +584,7 @@ function page() {
                                 <h2 className = "text-md max-md:text-xs font-medium">AI พยากรณ์ช่วงของเกรดในอนาคตจากข้อมูลเกรดเดิม</h2>
                                 <div className = "w-36 border-2 border-blue-500 rounded-md mt-2"></div>
                             </div>
-                            <div className = "text-[#9497a1] text-xl max-md:text-base">
+                            <div className = "text-[#9497a1] text-xl max-md:text-base" data-aos = "fade-up">
                                 <p>
                                     การพยากรณ์ช่วงของเกรดในอนาคตของผู้เรียนโดยแสดงผลเป็นช่วงโดยมีจุดต่ำสุดและจุดสูงสุด
                                 </p>
@@ -579,13 +597,13 @@ function page() {
                             </div>
                         </div>
                         {session && (
-                            <div className = "flex gap-2 max-md:flex-col">
+                            <div className = "flex gap-2 max-md:flex-col" data-aos = "fade-up">
                                 <Link href = "/add information" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-[#171717] text-white hover:bg-white hover:text-[#171717] h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Add Information</Link>
                                 <Link href = "/profile" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-white text-[#171717] hover:bg-[#171717] hover:text-white h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Profile</Link>
                             </div>
                         )}
                     </div>
-                    <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI"/>
+                    <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
             </div>
             <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-56"/>

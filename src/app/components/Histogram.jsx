@@ -1,12 +1,18 @@
 // import from Next.js
-import React from "react";
+import React, { useEffect } from "react";
 import "../globals.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Histogram({ data }) {
     const maxHeight = 384;
 
+    useEffect(() => {
+        AOS.init({ duration: 500 });
+    }, []);
+
     return (
-        <div className = "px-4">
+        <div className = "px-4" data-aos = "fade-up">
             <div className = "container mx-auto justify-self-center py-24 max-md:py-4 flex items-center justify-center">
                 <div className = "flex gap-2 overflow-x-auto overflow-y-hidden styleScrollbar max-w-full w-full min-w-0">
                     <div className = "h-96 text-[12px] text-[#9497a1] font-medium flex flex-col">

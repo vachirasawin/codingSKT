@@ -1,11 +1,17 @@
 // import from Next.js
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Grid({ data }) {
     const dataLength = data.length;
+    
+    useEffect(() => {
+        AOS.init({ duration: 500 });
+    }, []);
 
     return (
-        <div className = "px-4 border-b border-[#ececec]">
+        <div className = "px-4 border-b border-[#ececec]" data-aos = "fade-up">
             <div className = "container mx-auto justify-self-center py-24 max-md:py-4 flex items-center justify-start overflow-x-auto styleScrollbar">
                 <div>
                     <div className = "flex">

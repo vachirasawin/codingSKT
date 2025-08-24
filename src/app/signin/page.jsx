@@ -1,13 +1,15 @@
 "use client";
 
 // import from Next.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // import from components
 import Navbar from "../components/Navbar";
@@ -16,7 +18,11 @@ import Message from "../components/Message";
 function page() {
     const { data: session } = useSession();
     if (session) redirect ("/");
-
+        
+    useEffect(() => {
+        AOS.init({ duration: 500 });
+    }, []);
+    
     const router = useRouter();
 
     //Define input field
@@ -71,7 +77,7 @@ function page() {
             <Navbar signIn/>
             <div className = "p-4">
                 <form onSubmit = {handleSubmit} className = "container mx-auto justify-self-center flex flex-col items-center gap-4 h-[calc(100vh-12rem)] mt-24 justify-center">
-                    <div className = "bg-white rounded-2xl shadow-md">
+                    <div className = "bg-white rounded-2xl shadow-md" data-aos = "fade-up">
                         <div className = "flex flex-col gap-4 p-4 md:p-8">
                             <Message message = {message} type = {type} alert = {alert}/>
                             <div className = "flex flex-col gap-2">
