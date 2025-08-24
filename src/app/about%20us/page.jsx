@@ -364,11 +364,11 @@ function page() {
             main: "-"
         },
         {
-            title: "Speed Insights",
+            title: "Vercel Speed Insights",
             image: "vercel",
             extension: "png",
             content: "Feature ใน Vercel ที่ให้ข้อมูลความเร็วในการโหลดเว็บไซต์",
-            description: "",
+            description: "version 1.2.0",
             width: "360",
             height: "360",
             link: "https://vercel.com/docs/speed-insights",
