@@ -207,6 +207,18 @@ function page() {
             main: "-"
         },
         {
+            title: "Chart.js",
+            image: "chartjs",
+            extension: "svg",
+            content: "Library JavaScript ที่ทำให้มีการเคลื่อนไหวเมื่อเลื่อนหน้าเว็บไซต์",
+            description: "version 4.5.0",
+            width: "192",
+            height: "192",
+            link: "https://www.chartjs.org/",
+            symbol: "-",
+            main: "-"
+        },
+        {
             title: "Tailwind CSS",
             image: "tailwindcss",
             extension: "png",
