@@ -39,7 +39,7 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                                 )}
                                 <div className = "flex flex-col gap-4">
                                     <div className = "flex flex-col">
-                                        <h1 className = {`text-xl font-bold ${content.main === "true" && "text-blue-500"}`}>{content.title}</h1>
+                                        <h1 className = {`text-xl font-bold ${content.main === "true" && "text-blue-500"}`} dangerouslySetInnerHTML={{ __html: content.title }}></h1>
                                         <p className = "text-[#9497a1] text-xs font-medium">{content.description}</p>
                                     </div>
                                     <p className = "font-normal text-[#9497a1]">{content.content}</p>
