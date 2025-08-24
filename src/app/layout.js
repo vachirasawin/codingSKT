@@ -1,5 +1,6 @@
 import "./globals.css";
 import { AuthProvider } from "./Provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "codingSKT",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className = "antialiased">
         <AuthProvider>{children}</AuthProvider>
+        <SpeedInsights/>
       </body>
     </html>
   );

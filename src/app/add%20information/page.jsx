@@ -7,7 +7,6 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // import from components
 import Navbar from "../components/Navbar";

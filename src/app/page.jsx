@@ -9,7 +9,6 @@ import Navbar from "./components/Navbar";
 import Info from "./components/Info";
 import Title from "./components/Title";
 import Footer from "./components/Footer";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 function page() {
     const { data: session } = useSession();
