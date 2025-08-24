@@ -12,7 +12,7 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
 
     return (
         <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]">
-            <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8`}>
+            <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8 justify-center items-center`}>
                 <div className = "flex justify-center w-full" data-aos = "fade-up">
                     <div className = "flex flex-col gap-2 text-center w-full justify-center items-center">
                         <div className = {`flex justify-center items-center gap-2.5 ${inverse && "flex-row-reverse flex-wrap-reverse"} flex-wrap`}>
@@ -24,7 +24,7 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                         <p className = "text-[#9497a1] text-lg max-md:text-sm w-lg max-sm:w-full">{description}</p>
                     </div>
                 </div>
-                <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8 text-[#171717]" data-aos = "fade-up">
+                <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8 text-[#171717] max-w-full" data-aos = "fade-up">
                     {contents.map((content, index) => (
                         <div key = {content.title} className = "shadow-md bg-white rounded-lg">
                             <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 max-w-72 ${h}`}>
