@@ -459,7 +459,7 @@ function page() {
             main: "-"
         },
         {
-            title: "R<sup>2</sup> Error",
+            title: "R<sup>2</sup>&nbspError",
             image: "sklearn",
             extension: "png",
             content: "Library ที่จะดูว่าโมเดลอธิบายความสัมพันธ์ได้ดีแค่ไหน",

@@ -27,10 +27,12 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                 <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8 text-[#171717]" data-aos = "fade-up">
                     {contents.map((content, index) => (
                         <div key = {content.title} className = "shadow-md bg-white rounded-lg">
-                            <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 ${h}`}>
+                            <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 max-w-72 ${h}`}>
                                 {content.image !== "-" ? (
-                                    <div className = "border border-[#ececec] w-16 h-16 flex justify-center items-center rounded-xl aspect-square">
-                                        <Image src = {`/${content.image}.${content.extension}`} alt = {content.title} width = {content.width} height = {content.height} unoptimized className = "object-contain w-8"/>
+                                    <div className = "border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square px-4">
+                                        <div className = "w-8 h-8 relative">
+                                            <Image src = {`/${content.image}.${content.extension}`} alt = {content.title} unoptimized fill className = "object-contain"/>
+                                        </div>
                                     </div>
                                 ) : content.symbol !== "-" && (
                                     <div className = "border border-[#ececec] w-16 h-16 flex justify-center items-center rounded-xl aspect-square text-xl">
@@ -48,12 +50,12 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                             {content.link !== "-" && (
                                 downloadType ? (
                                     downloadTitle ? (
-                                        <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium">Download {downloadTitle}</a>
+                                        <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${downloadTitle}` }}></a>
                                     ) : (
-                                        <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium">Download {content.title}</a>
+                                        <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.title}` }}></a>
                                     )
                                 ) : (
-                                    <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium">Go to {content.title}</Link>
+                                    <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Go to ${content.title}` }}></Link>
                                 )
                             )}
                         </div>
