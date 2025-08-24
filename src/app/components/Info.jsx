@@ -67,7 +67,7 @@ function Info() {
     
     return (
         <div className = "px-4 border-b border-[#ececec] bg-white">
-            <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-4 py-24 max-md:py-4">
+            <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-4 max-md:pb-4">
                 <div className = "w-lg flex flex-col gap-8 max-md:gap-4">
                     <div className = "flex flex-col gap-7 max-md:gap-4">
                         <div data-aos = "fade-up">
