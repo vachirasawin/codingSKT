@@ -32,14 +32,14 @@ function Histogram({ data }) {
                                 const heightUpper = (data.upper - data.lower) * (maxHeight / 4);
                                 
                                 return (
-                                    <div key = {index}>
+                                    <div key = {index} data-aos = "fade-up" data-aos-delay = {index * 100} data-aos-duration = "500">
                                         <div className = "bg-[#ffffff] w-12 rounded-t-xl border-2 border-b-0 border-[#606470] flex justify-center items-center min-md:hover:text-[#171717] min-md:text-transparent text-[#171717] transition-all duration-200 font-medium text-xs" style = {{ height: `${heightUpper}px` }}>{data.upper}</div>
                                         <div className = "bg-[#ececec] w-12 border-x-2 border-[#606470] flex justify-center items-center min-md:hover:text-[#171717] min-md:text-transparent text-[#171717] transition-all duration-200 font-medium text-xs" style = {{ height: `${heightLower}px` }}>{data.lower}</div>
                                     </div>
                                 )
                             })}
                         </div>
-                        <div className = "border-l border-transparent min-w-fit pt-2 px-4 flex gap-12">
+                        <div className = "border-l border-transparent min-w-fit pt-2 px-4 flex gap-12 bg-[#f7f7f7] z-10">
                             {data.map((data, index) => (
                                 <div className = "w-12 text-center flex flex-col items-center gap-2" key = {index}>
                                     <i className = {`${(data.title === "Thai" || data.title === "English") && "fa-solid fa-language"} ${data.title === "Math" && "fa-solid fa-calculator"} ${(data.title === "Science" || data.title === "Physics") && "fa-solid fa-atom"} ${data.title === "Chemistry" && "fa-solid fa-flask"} ${data.title === "Biology" && "fa-solid fa-microscope"} ${data.title === "Computer" && "fa-solid fa-computer"} ${data.title === "Robot" && "fa-solid fa-robot"} ${data.title === "Project" && "fa-solid fa-diagram-project"} ${data.title === "Social" && "fa-solid fa-people-group"} ${(data.title === "Social" && data.description === "History / Buddhism") && "fa-solid fa-dharmachakra"} ${data.title === "Health" && "fa-solid fa-book-medical"} ${data.title === "PE" && "fa-solid fa-dumbbell"} ${data.title === "Art" && "fa-solid fa-palette"} ${data.title === "Subject" && "fa-solid fa-book"} ${data.title === "Career" && "hidden"} text-sm`}></i>
