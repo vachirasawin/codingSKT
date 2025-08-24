@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // import from components
 import Navbar from "../components/Navbar";
@@ -359,6 +360,18 @@ function page() {
             width: "360",
             height: "360",
             link: "https://vercel.com/",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Speed Insights",
+            image: "vercel",
+            extension: "png",
+            content: "Feature ใน Vercel ที่ให้ข้อมูลความเร็วในการโหลดเว็บไซต์",
+            description: "",
+            width: "360",
+            height: "360",
+            link: "https://vercel.com/docs/speed-insights",
             symbol: "-",
             main: "-"
         },
