@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 
 function Card({ contents, title, subTitle, description, h, inverse, downloadType, downloadTitle }) {
     useEffect(() => {
-        AOS.init({ duration: 500 });
+        AOS.init({ duration: 1000 });
     }, []);
 
     return (

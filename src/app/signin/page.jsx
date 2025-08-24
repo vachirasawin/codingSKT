@@ -20,7 +20,7 @@ function page() {
     if (session) redirect ("/");
         
     useEffect(() => {
-        AOS.init({ duration: 500 });
+        AOS.init({ duration: 1000 });
     }, []);
     
     const router = useRouter();

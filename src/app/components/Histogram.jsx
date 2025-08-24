@@ -8,7 +8,7 @@ function Histogram({ data }) {
     const maxHeight = 384;
 
     useEffect(() => {
-        AOS.init({ duration: 500 });
+        AOS.init({ duration: 1000 });
     }, []);
 
     return (

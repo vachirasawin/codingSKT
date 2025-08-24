@@ -15,7 +15,7 @@ function Info() {
     const { data: session } = useSession();
 
     useEffect(() => {
-        AOS.init({ duration: 500 });
+        AOS.init({ duration: 1000 });
     }, []);
 
     const datas = [

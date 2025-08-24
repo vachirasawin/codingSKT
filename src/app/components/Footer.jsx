@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 
 function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs }) {
     useEffect(() => {
-        AOS.init({ duration: 500 });
+        AOS.init({ duration: 1000 });
     }, []);
 
     return (
@@ -23,7 +23,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 24.08.25.1</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 24.08.25.2</p>
                 </div>
                 <div className = "flex gap-8">
                     <div className = "flex flex-col gap-4">
