@@ -62,11 +62,25 @@ const authOptions = {
                 token.lastName = user.lastName || null;
                 token.username = user.username || null;
                 token.email = user.email;
-            } else if (account?.provider === "google" || account?.provider === "github" || account?.provider === "facebook") {
-                token.id = user.id;
-                token.name = user.name;
-                token.email = user.email;
-                token.picture = user.image;
+            } else {
+                let dbUser = await User.findOne({ email: user.email });
+
+                if (!dbUser) {
+                    dbUser = await User.create({
+                        email: user.email,
+                        firstName: user.name.split(" ")[0] || "",
+                        lastName: user.name.split(" ").slice(1).join(" ") || "",
+                        username: user.email.split("@")[0],
+                        password: "",
+                        typeInfo: account.provider,
+                    });
+                }
+
+                token.id = dbUser._id.toString();
+                token.firstName = dbUser.firstName;
+                token.lastName = dbUser.lastName;
+                token.username = dbUser.username;
+                token.email = dbUser.email;
             }
             return token;
         },
