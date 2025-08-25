@@ -122,7 +122,7 @@ function page() {
                             <div className = "flex flex-col gap-4 max-md:w-full max-md:items-center">
                                 <Image src = {image} unoptimized width = {1000} height = {1000} alt = "Profile" className = "w-48"/>
                                 <label className="w-48 flex justify-center items-center text-center font-medium py-2 text-xs border-2 border-[#9497a1] bg-[#ececec] rounded-xl cursor-pointer">
-                                    Add Image
+                                    Add Image {session.user.id}
                                     <input type="file" className="hidden" onChange={handleImageChange} accept="image/*"/>
                                 </label>
                                 <div className = "flex flex-col gap-2 max-md:flex-row w-48">
