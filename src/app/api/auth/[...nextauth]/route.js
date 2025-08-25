@@ -56,31 +56,35 @@ const authOptions = {
     },
     callbacks: {
         async jwt({ token, user, account }) {
-            if (account?.provider === "credentials") {
-                token.id = user._id;
-                token.firstName = user.firstName || null;
-                token.lastName = user.lastName || null;
-                token.username = user.username || null;
-                token.email = user.email;
-            } else {
-                let dbUser = await User.findOne({ email: user.email });
+            if (account) {
+                await connectMongoDB();
 
-                if (!dbUser) {
-                    dbUser = await User.create({
-                        email: user.email,
-                        firstName: user.name.split(" ")[0] || "",
-                        lastName: user.name.split(" ").slice(1).join(" ") || "",
-                        username: user.email.split("@")[0],
-                        password: "",
-                        typeInfo: account.provider,
-                    });
+                if (account?.provider === "credentials") {
+                    token.id = user._id;
+                    token.firstName = user.firstName || null;
+                    token.lastName = user.lastName || null;
+                    token.username = user.username || null;
+                    token.email = user.email;
+                } else {
+                    let dbUser = await User.findOne({ email: user.email });
+
+                    if (!dbUser) {
+                        dbUser = await User.create({
+                            email: user.email,
+                            firstName: user.name.split(" ")[0] || "",
+                            lastName: user.name.split(" ").slice(1).join(" ") || "",
+                            username: user.email.split("@")[0],
+                            password: "",
+                            typeInfo: account.provider,
+                        });
+                    }
+
+                    token.id = dbUser._id.toString();
+                    token.firstName = dbUser.firstName;
+                    token.lastName = dbUser.lastName;
+                    token.email = dbUser.email;
+                    token.picture = dbUser.image;
                 }
-
-                token.id = dbUser._id.toString();
-                token.firstName = dbUser.firstName;
-                token.lastName = dbUser.lastName;
-                token.username = dbUser.username;
-                token.email = dbUser.email;
             }
             return token;
         },
@@ -89,10 +93,7 @@ const authOptions = {
             session.user.firstName = token.firstName || null;
             session.user.lastName = token.lastName || null;
             session.user.username = token.username || null;
-
-            session.user.name = token.name || null;
             session.user.email = token.email || null;
-            session.user.image = token.picture || null;
 
             return session;
         },
