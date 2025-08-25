@@ -33,7 +33,7 @@ function page() {
 
     useEffect(() => {
         if (session?.user) {
-            setFirstName(session.user.firstName || "");
+            setFirstName(session.user.name || "");
             setLastName(session.user.lastName || "");
             setUsername(session.user.username || "");
             setEmail(session.user.email || "");
