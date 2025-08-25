@@ -33,7 +33,7 @@ function page() {
 
     useEffect(() => {
         if (session?.user) {
-            const name = session.user.name.split(" - ")
+            const name = session.user.name.split(" ")
             setFirstName(name[0] || "");
             setLastName(name[1] || "");
             setUsername(session.user.username || "");
