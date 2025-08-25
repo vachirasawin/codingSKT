@@ -24,12 +24,7 @@ function page() {
     //Define input field
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     useEffect(() => {
         if (session?.user) {
@@ -59,15 +54,8 @@ function page() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (password != confirmPassword) {
-            setAlert(true);
-            setMessage("Passwords do not match.");
-            setType("error");
-            return;
-        }
         
-        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        if (!firstName || !lastName || !email) {
             setAlert(true);
             setMessage("Please complete all inputs.");
             setType("error");
@@ -115,6 +103,7 @@ function page() {
                                         <input value = {email} onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
                                     </div>
                                 </div>
+                                <p>{session.user.id}</p>
                             </div>
                         </div>
                     </div>
