@@ -33,10 +33,15 @@ function page() {
 
     useEffect(() => {
         if (session?.user) {
-            const name = session.user.name.split(" ")
-            setFirstName(name[0] || "");
-            setLastName(name[1] || "");
-            setUsername(session.user.username || "");
+            if (session.user.firstName || session.user.lastName) {
+                setFirstName(session.user.firstName || "");
+                setLastName(session.user.lastName || "");
+            } else if (session.user.name) {
+                const parts = session.user.name.split(" ");
+                setFirstName(parts[0] || "");
+                setLastName(parts.slice(1).join(" ") || "");
+            }
+
             setEmail(session.user.email || "");
         }
     }, [session]);
@@ -62,7 +67,7 @@ function page() {
             return;
         }
         
-        if (!firstName || !lastName || !username || !email || !password || !confirmPassword) {
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
             setAlert(true);
             setMessage("Please complete all inputs.");
             setType("error");
@@ -101,24 +106,13 @@ function page() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className = "flex gap-4 max-md:flex-col">
-                                    <div className = "flex flex-col gap-2">
-                                        <p className = "font-semibold">Username</p>
-                                        <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
-                                            <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
-                                                <i className = "fa-solid fa-user"></i>
-                                            </div>
-                                            <input value = {username} onChange = {(e) => {setUsername(e.target.value); resetAlert();}} type = "text" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Username"/>
+                                <div className = "flex flex-col gap-2">
+                                    <p className = "font-semibold">Email</p>
+                                    <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
+                                        <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
+                                            <i className = "fa-solid fa-at"></i>
                                         </div>
-                                    </div>
-                                    <div className = "flex flex-col gap-2">
-                                        <p className = "font-semibold">Email</p>
-                                        <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
-                                            <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
-                                                <i className = "fa-solid fa-at"></i>
-                                            </div>
-                                            <input value = {email} onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
-                                        </div>
+                                        <input value = {email} onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
                                     </div>
                                 </div>
                             </div>

@@ -24,7 +24,6 @@ function page() {
     //Define input field
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -45,7 +44,7 @@ function page() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!firstName || !lastName || !username || !email || !password || !confirmPassword) {
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
             setAlert(true);
             setMessage("Please complete all inputs.");
             setType("error");
@@ -67,19 +66,6 @@ function page() {
         };
 
         try {
-            const responseCheckUsername = await fetch("/api/checkUsername", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({ username })
-            });
-            const { userUsername } = await responseCheckUsername.json();
-            if (userUsername) {
-                setAlert(true);
-                setMessage("Username already exists.");
-                setType("error");
-                return;
-            };
-
             const responseCheckEmail = await fetch("/api/checkEmail", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
@@ -96,7 +82,7 @@ function page() {
             const response = await fetch("/api/register", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({ firstName, lastName, username, email, password, typeInfo : "registration" })
+                body: JSON.stringify({ firstName, lastName, email, password, typeInfo : "registration" })
             });
             if (response.ok) {
                 const form = e.target;
@@ -134,24 +120,13 @@ function page() {
                                     </div>
                                 </div>
                             </div>
-                            <div className = "flex gap-4 max-md:flex-col">
-                                <div className = "flex flex-col gap-2">
-                                    <p className = "font-semibold">Username</p>
-                                    <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
-                                        <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
-                                            <i className = "fa-solid fa-user"></i>
-                                        </div>
-                                        <input onChange = {(e) => {setUsername(e.target.value); resetAlert();}} type = "text" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Username"/>
+                            <div className = "flex flex-col gap-2">
+                                <p className = "font-semibold">Email</p>
+                                <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
+                                    <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
+                                        <i className = "fa-solid fa-at"></i>
                                     </div>
-                                </div>
-                                <div className = "flex flex-col gap-2">
-                                    <p className = "font-semibold">Email</p>
-                                    <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
-                                        <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
-                                            <i className = "fa-solid fa-at"></i>
-                                        </div>
-                                        <input onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
-                                    </div>
+                                    <input onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
                                 </div>
                             </div>
                             <div className = "flex gap-4 max-md:flex-col">
