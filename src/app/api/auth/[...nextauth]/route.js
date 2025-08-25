@@ -56,33 +56,17 @@ const authOptions = {
     },
     callbacks: {
         async jwt({ token, user, account }) {
-            await connectMongoDB();
-
             if (account?.provider === "credentials") {
-                token.id = user._id.toString();
+                token.id = user._id;
                 token.firstName = user.firstName || null;
                 token.lastName = user.lastName || null;
                 token.username = user.username || null;
                 token.email = user.email;
-            } else {
-                let dbUser = await User.findOne({ email: user.email });
-
-                if (!dbUser) {
-                    dbUser = await User.create({
-                        email: user.email,
-                        firstName: user.name.split(" ")[0] || "",
-                        lastName: user.name.split(" ").slice(1).join(" ") || "",
-                        username: user.email.split("@")[0],
-                        password: "",
-                        typeInfo: account.provider,
-                    });
-                }
-
-                token.id = dbUser._id.toString();
-                token.firstName = dbUser.firstName || null;
-                token.lastName = dbUser.lastName || null;
-                token.username = dbUser.username || null;
-                token.email = dbUser.email;
+            } else if (account?.provider === "google" || account?.provider === "github" || account?.provider === "facebook") {
+                token.id = user.id;
+                token.name = user.name;
+                token.email = user.email;
+                token.picture = user.image;
             }
             return token;
         },
@@ -91,7 +75,10 @@ const authOptions = {
             session.user.firstName = token.firstName || null;
             session.user.lastName = token.lastName || null;
             session.user.username = token.username || null;
+
+            session.user.name = token.name || null;
             session.user.email = token.email || null;
+            session.user.image = token.picture || null;
 
             return session;
         },

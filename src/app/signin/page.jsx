@@ -3,7 +3,6 @@
 // import from Next.js
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
