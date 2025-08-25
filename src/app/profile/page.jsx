@@ -22,14 +22,23 @@ function page() {
     }, []);
 
     //Define input field
-    const [firstName, setFirstName] = useState(session?.user?.firstName);
-    const [lastName, setLastName] = useState(session?.user?.lastName);
-    const [username, setUsername] = useState(session?.user?.username);
-    const [email, setEmail] = useState(session?.user?.email);
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    useEffect(() => {
+        if (session?.user) {
+            setFirstName(session.user.firstName || "");
+            setLastName(session.user.lastName || "");
+            setUsername(session.user.username || "");
+            setEmail(session.user.email || "");
+        }
+    }, [session]);
 
     //Define alert message
     const [message, setMessage] = useState("");
@@ -69,7 +78,7 @@ function page() {
                         <Message message = {message} type = {type} alert = {alert}/>
                         <div className = "flex justify-center items-center gap-8 max-md:flex-col max-md:w-full">
                             <div className = "flex flex-col gap-4 max-md:w-full max-md:items-center">
-                                <Image src = "/logo.png" unoptimized width = {1000} height = {1000} alt = "Profile" className = "w-48"/>
+                                <Image src = "/profile.png" unoptimized width = {1000} height = {1000} alt = "Profile" className = "w-48"/>
                                 <div className = "flex flex-col gap-2 max-md:flex-row w-full">
                                     <button type = "submit" onClick = {() => {resetAlert();}} className = "w-full py-2 bg-[#171717] border-2 border-[#171717] hover:bg-white hover:text-[#171717] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center">Edit Profile</button>
                                     <button type = "reset" onClick = {() => {setShowPassword(false); setShowConfirmPassword (false); resetAlert();}} className = "w-full py-2 bg-[#f55555] border-2 border-[#f55555] hover:bg-white hover:text-[#f55555] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center">Cancel</button>
@@ -81,13 +90,13 @@ function page() {
                                     <div className = "flex flex-col gap-2">
                                         <p className = "font-semibold">First Name</p>
                                         <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
-                                            <input onChange = {(e) => {setFirstName(e.target.value); resetAlert();}} type = "text" className = "w-60 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "First Name"/>
+                                            <input value = {firstName} onChange = {(e) => {setFirstName(e.target.value); resetAlert();}} type = "text" className = "w-60 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "First Name"/>
                                         </div>
                                     </div>
                                     <div className = "flex flex-col gap-2">
                                         <p className = "font-semibold">Last Name</p>
                                         <div className = "border border-[#ececec] rounded-xl flex h-12 focus-within:border-blue-500 transition-all duration-200 bg-white">
-                                            <input onChange = {(e) => {setLastName(e.target.value); resetAlert();}} type = "text" className = "w-60 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Last Name"/>
+                                            <input value = {lastName} onChange = {(e) => {setLastName(e.target.value); resetAlert();}} type = "text" className = "w-60 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Last Name"/>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +107,7 @@ function page() {
                                             <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
                                                 <i className = "fa-solid fa-user"></i>
                                             </div>
-                                            <input onChange = {(e) => {setUsername(e.target.value); resetAlert();}} type = "text" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Username"/>
+                                            <input value = {username} onChange = {(e) => {setUsername(e.target.value); resetAlert();}} type = "text" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Username"/>
                                         </div>
                                     </div>
                                     <div className = "flex flex-col gap-2">
@@ -107,7 +116,7 @@ function page() {
                                             <div className = "w-12 flex justify-center items-center border-r border-[#ececec]">
                                                 <i className = "fa-solid fa-at"></i>
                                             </div>
-                                            <input onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
+                                            <input value = {email} onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-48 max-md:w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
                                         </div>
                                     </div>
                                 </div>
