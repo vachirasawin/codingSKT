@@ -267,6 +267,18 @@ function page() {
             main: "-"
         },
         {
+            title: "Cloudinary",
+            image: "cloudinary",
+            extension: "png",
+            content: "ฐานข้อมูลแบบ MongoDB แบบคลาวด์",
+            description: "version 6.16.0",
+            width: "800",
+            height: "526",
+            link: "https://cloudinary.com/",
+            symbol: "-",
+            main: "-"
+        },
+        {
             title: "BCrypt HASH",
             image: "bcrypt",
             extension: "webp",

@@ -25,6 +25,9 @@ function page() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
+    const [image, setImage] = useState(session.user.profileImageUrl || "/profile.png");
+    const [imageFile, setImageFile] = useState(null);
+    const id = session.user.id;
 
     useEffect(() => {
         if (session?.user) {
@@ -52,6 +55,28 @@ function page() {
         setType("");
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImage(URL.createObjectURL(file));
+            setImageFile(file);
+        }
+    }
+
+    const handleReset = async (e) => {
+        if (session.user.firstName || session.user.lastName) {
+            setFirstName(session.user.firstName || "");
+            setLastName(session.user.lastName || "");
+        } else if (session.user.name) {
+            const parts = session.user.name.split(" ");
+            setFirstName(parts[0] || "");
+            setLastName(parts.slice(1).join(" ") || "");
+        }
+
+        setEmail(session.user.email || "");
+        setImage(session.user.profileImageUrl || "/profile.png");
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         
@@ -60,6 +85,29 @@ function page() {
             setMessage("Please complete all inputs.");
             setType("error");
             return;
+        }
+
+        if (imageFile) {
+            const formData = new FormData();
+            formData.append("image", imageFile);
+            formData.append("userId", session.user.id);
+
+            const response = await fetch("/api/profile/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                setImage(data.user.profileImageUrl);
+                setMessage("Profile updated successfully!");
+                setType("success");
+                setAlert(true);
+            } else {
+                setMessage(data.message || "Error uploading image");
+                setType("error");
+                setAlert(true);
+            }
         }
     }
 
@@ -72,10 +120,14 @@ function page() {
                         <Message message = {message} type = {type} alert = {alert}/>
                         <div className = "flex justify-center items-center gap-8 max-md:flex-col max-md:w-full">
                             <div className = "flex flex-col gap-4 max-md:w-full max-md:items-center">
-                                <Image src = "/profile.png" unoptimized width = {1000} height = {1000} alt = "Profile" className = "w-48"/>
-                                <div className = "flex flex-col gap-2 max-md:flex-row w-full">
+                                <Image src = {image} unoptimized width = {1000} height = {1000} alt = "Profile" className = "w-48"/>
+                                <label className="w-48 flex justify-center items-center text-center font-medium py-2 text-xs border-2 border-[#9497a1] bg-[#ececec] rounded-xl cursor-pointer">
+                                    Add Image
+                                    <input type="file" className="hidden" onChange={handleImageChange} accept="image/*"/>
+                                </label>
+                                <div className = "flex flex-col gap-2 max-md:flex-row w-48">
                                     <button type = "submit" onClick = {() => {resetAlert();}} className = "w-full py-2 bg-[#171717] border-2 border-[#171717] hover:bg-white hover:text-[#171717] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center">Edit Profile</button>
-                                    <button type = "reset" onClick = {() => {setShowPassword(false); setShowConfirmPassword (false); resetAlert();}} className = "w-full py-2 bg-[#f55555] border-2 border-[#f55555] hover:bg-white hover:text-[#f55555] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center">Cancel</button>
+                                    <button type = "reset" onClick = {() => {handleReset(); resetAlert();}} className = "w-full py-2 bg-[#f55555] border-2 border-[#f55555] hover:bg-white hover:text-[#f55555] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center">Cancel</button>
                                 </div>
                             </div>
                             <div className = "md:w-0.5 md:h-full h-0.5 w-full bg-[#ececec] rounded-xl"></div>
@@ -103,7 +155,6 @@ function page() {
                                         <input value = {email} onChange = {(e) => {setEmail(e.target.value); resetAlert();}} type = "email" className = "w-full px-2 outline-none font-medium text-sm" placeholder = "Email Address"/>
                                     </div>
                                 </div>
-                                <p>{session.user.id}</p>
                             </div>
                         </div>
                     </div>
