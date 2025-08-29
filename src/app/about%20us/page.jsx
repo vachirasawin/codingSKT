@@ -32,7 +32,7 @@ function page() {
             height: "-",
             link: "/machine-learning.pdf",
             symbol: "-",
-            main: "-"
+            main: "true"
         },
         {
             title: "Regression",
@@ -44,7 +44,7 @@ function page() {
             height: "-",
             link: "/machine-learning.pdf",
             symbol: "-",
-            main: "true",
+            main: "-",
         },
         {
             title: "Clustering",
@@ -462,7 +462,7 @@ function page() {
             title: "Logistic Regression",
             image: "sklearn",
             extension: "png",
-            content: "โมเดล Machine Learning แบบ Regression เชิงเส้น",
+            content: "โมเดล Machine Learning แบบ Classification ถดถอย",
             description: "scikit-learn | version 1.7.0",
             width: "254",
             height: "183",
