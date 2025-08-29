@@ -99,7 +99,7 @@ function Info() {
                         </div>
                     )}
                 </div>
-                <Histogram data = {displayData}/>
+                <Histogram data = {displayData} bg = "bg-white"/>
             </div>
         </div>
     )

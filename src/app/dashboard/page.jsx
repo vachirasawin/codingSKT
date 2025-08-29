@@ -132,7 +132,7 @@ function page() {
             <Navbar dashboard/>
             <Title/>
             <Grid data = {datas}/>
-            <Histogram data = {datas}/>
+            <Histogram data = {datas} bg = "bg-[#f7f7f7]"/>
             <Footer dashboard session = {session}/>
         </div>
     )

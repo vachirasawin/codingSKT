@@ -4,7 +4,7 @@ import "../globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function Histogram({ data }) {
+function Histogram({ data, bg }) {
     const maxHeight = 384;
 
     useEffect(() => {
@@ -39,7 +39,7 @@ function Histogram({ data }) {
                                 )
                             })}
                         </div>
-                        <div className = "border-l border-transparent min-w-fit pt-2 px-4 flex gap-12 bg-[#f7f7f7] z-10">
+                        <div className = {`border-l border-transparent min-w-fit pt-2 px-4 flex gap-12 z-10 ${bg}`}>
                             {data.map((data, index) => (
                                 <div className = "w-12 text-center flex flex-col items-center gap-2" key = {index}>
                                     <i className = {`${(data.title === "Thai" || data.title === "English") && "fa-solid fa-language"} ${data.title === "Math" && "fa-solid fa-calculator"} ${(data.title === "Science" || data.title === "Physics") && "fa-solid fa-atom"} ${data.title === "Chemistry" && "fa-solid fa-flask"} ${data.title === "Biology" && "fa-solid fa-microscope"} ${data.title === "Computer" && "fa-solid fa-computer"} ${data.title === "Robot" && "fa-solid fa-robot"} ${data.title === "Project" && "fa-solid fa-diagram-project"} ${data.title === "Social" && "fa-solid fa-people-group"} ${(data.title === "Social" && data.description === "History / Buddhism") && "fa-solid fa-dharmachakra"} ${data.title === "Health" && "fa-solid fa-book-medical"} ${data.title === "PE" && "fa-solid fa-dumbbell"} ${data.title === "Art" && "fa-solid fa-palette"} ${data.title === "Subject" && "fa-solid fa-book"} ${data.title === "Career" && "hidden"} text-sm`}></i>
