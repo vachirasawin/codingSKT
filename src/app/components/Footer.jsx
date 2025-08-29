@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "aos/dist/aos.css";
 
-function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news }) {
     return (
         <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]">
             <div className = "container mx-auto justify-self-center flex flex-wrap gap-4 justify-around py-8 max-md:py-4 text-white">
@@ -39,6 +39,14 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                 </>
                             )}
                             <Link href = "/privacy policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
+                        </div>
+                    </div>
+                    <div className = "flex flex-col gap-4">
+                        <h1 className = "font-semibold text-sm">Information</h1>
+                        <div className = "flex flex-col gap-2 text-xs font-medium text-[#9497a1]">
+                            <Link href = "/user guide" className = {`${userGuide && "text-white"}`}>User Guide</Link>
+                            <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQ</Link>
+                            <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4">
