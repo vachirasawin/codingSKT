@@ -2,16 +2,11 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs }) {
-    useEffect(() => {
-        AOS.init({ duration: 1000 });
-    }, []);
-
     return (
-        <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]" data-aos = "fade-up">
+        <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]">
             <div className = "container mx-auto justify-self-center flex flex-wrap gap-4 justify-around py-8 max-md:py-4 text-white">
                 <div className = "flex flex-col gap-2">
                     <div className = "flex items-center gap-2">
@@ -23,7 +18,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 28.08.25.1</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 29.08.25.1</p>
                 </div>
                 <div className = "flex gap-8">
                     <div className = "flex flex-col gap-4">
