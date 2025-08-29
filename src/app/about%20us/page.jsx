@@ -447,50 +447,14 @@ function page() {
             main: "-"
         },
         {
-            title: "Linear Regression",
+            title: "Logistic Regression",
             image: "sklearn",
             extension: "png",
             content: "โมเดล Machine Learning แบบ Regression เชิงเส้น",
             description: "scikit-learn | version 1.7.0",
             width: "254",
             height: "183",
-            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Mean Squared Error",
-            image: "sklearn",
-            extension: "png",
-            content: "Library ที่แสดงค่าที่ทำนายห่างจากความจริงแค่ไหน",
-            description: "scikit-learn | version 1.7.0",
-            width: "254",
-            height: "183",
-            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "R<sup>2</sup>&nbspError",
-            image: "sklearn",
-            extension: "png",
-            content: "Library ที่จะดูว่าโมเดลอธิบายความสัมพันธ์ได้ดีแค่ไหน",
-            description: "scikit-learn | version 1.7.0",
-            width: "254",
-            height: "183",
-            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "SimpleImputer",
-            image: "sklearn",
-            extension: "png",
-            content: "Library สำหรับเติมค่าข้อมูลที่ขาดหายในตาราง",
-            description: "scikit-learn | version 1.7.0",
-            width: "254",
-            height: "183",
-            link: "https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html",
             symbol: "-",
             main: "-"
         },

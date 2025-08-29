@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import AOS from "aos";
