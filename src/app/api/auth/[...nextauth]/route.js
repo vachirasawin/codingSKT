@@ -66,7 +66,14 @@ const authOptions = {
                 token.id = user.id;
                 token.name = user.name;
                 token.email = user.email;
-                token.picture = user.image;
+
+                if (account?.provider === "google" && user?.image) {
+                    token.picture = user.image.replace("=s96-c", "=s512-c");
+                } else if (account?.provider === "github" && user?.image) {
+                    token.picture = `${user.image}&s=512`;
+                } else if (account?.provider === "facebook" && user?.image) {
+                    token.picture = `https://graph.facebook.com/${account.id}/picture?type=large&width=512&height=512`;
+                }
             }
             return token;
         },
