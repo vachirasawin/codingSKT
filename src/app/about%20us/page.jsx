@@ -270,7 +270,7 @@ function page() {
             title: "Cloudinary",
             image: "cloudinary",
             extension: "png",
-            content: "ฐานข้อมูลแบบ MongoDB แบบคลาวด์",
+            content: "Cloud Service สำหรับจัดการไฟล์รูปภาพและวิดีโอ",
             description: "version 6.16.0",
             width: "800",
             height: "526",
