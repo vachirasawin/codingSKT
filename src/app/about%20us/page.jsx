@@ -31,7 +31,7 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-",
+            symbol: "fa-solid fa-brain",
             main: "true"
         },
         {
@@ -43,7 +43,7 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-",
+            symbol: "fa-solid fa-brain",
             main: "-",
         },
         {
@@ -55,7 +55,7 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-",
+            symbol: "fa-solid fa-brain",
             main: "-"
         },
         {
@@ -67,7 +67,7 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-",
+            symbol: "fa-solid fa-brain",
             main: "-"
         },
         {
@@ -79,7 +79,7 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-",
+            symbol: "fa-solid fa-brain",
             main: "-"
         },
         {
@@ -91,7 +91,7 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-",
+            symbol: "fa-solid fa-brain",
             main: "-"
         },
         {
@@ -103,7 +103,7 @@ function page() {
             width: "-",
             height: "-",
             link: "/machine-learning.pdf",
-            symbol: "-",
+            symbol: "fa-solid fa-brain",
             main: "-"
         }
     ];
