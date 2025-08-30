@@ -642,7 +642,7 @@ function page() {
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
             </div>
-            <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-56"/>
+            <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsDevelopers} title = "Developers" subTitle = "-" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsSoftware} title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
