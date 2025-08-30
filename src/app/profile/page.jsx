@@ -74,7 +74,7 @@ function page() {
         }
 
         setEmail(session.user.email || "");
-        setImage(session.user.profileImageUrl || "/profile.png");
+        setImage(session.user.image || "/profile.png");
     }
 
     const handleSubmit = async (e) => {
@@ -99,7 +99,7 @@ function page() {
 
             const data = await response.json();
             if (response.ok) {
-                setImage(data.user.profileImageUrl);
+                setImage(data.user.image);
                 setMessage("Profile updated successfully!");
                 setType("success");
                 setAlert(true);
