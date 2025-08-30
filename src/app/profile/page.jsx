@@ -25,7 +25,7 @@ function page() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [image, setImage] = useState(session.user.profileImageUrl || "/profile.png");
+    const [image, setImage] = useState(session.user.image || "/profile.png");
     const [imageFile, setImageFile] = useState(null);
     const id = session.user.id;
 
