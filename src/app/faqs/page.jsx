@@ -4,7 +4,6 @@
 import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -67,12 +66,6 @@ function page() {
                                 </p>
                             </div>
                         </div>
-                        {session && (
-                            <div className = "flex gap-2 max-md:flex-col" data-aos = "fade-up">
-                                <Link href = "/add information" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-[#171717] text-white hover:bg-white hover:text-[#171717] h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Add Information</Link>
-                                <Link href = "/profile" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-white text-[#171717] hover:bg-[#171717] hover:text-white h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Profile</Link>
-                            </div>
-                        )}
                     </div>
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
