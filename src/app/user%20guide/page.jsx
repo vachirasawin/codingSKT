@@ -11,7 +11,7 @@ import "aos/dist/aos.css";
 // import from components
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
-import Card from "../components/Card";
+import TitleFooter from "../components/TitleFooter";
 import Footer from "../components/Footer";
 
 function page() {
@@ -21,89 +21,17 @@ function page() {
         AOS.init({ duration: 1000 });
     }, []);
 
-    const contentsML = [
+    const contents = [
         {
-            title: "Classification",
+            title: "Title",
             image: "-",
             extension: "-",
-            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปหมวดหมู่ (Class) โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ไม่ต่อเนื่อง",
-            description: "Supervised Learning",
+            content: "Content",
+            description: "Description",
             width: "-",
             height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "true"
-        },
-        {
-            title: "Regression",
-            image: "-",
-            extension: "-",
-            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปตัวเลขต่อเนื่อง โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ต่อเนื่อง",
-            description: "Supervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-",
-        },
-        {
-            title: "Clustering",
-            image: "-",
-            extension: "-",
-            content: "แบ่งข้อมูลออกเป็นกลุ่ม (Clusters) ตามคุณสมบัติ (Feature) ที่คล้ายกันเพื่อหาความสัมพันธ์แฝงในข้อมูล",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Dimensionality Reduction",
-            image: "-",
-            extension: "-",
-            content: "การลดจำนวนคุณสมบัติ (Features) ของข้อมูลให้เหลือเท่าที่จำเป็น เพื่อทำให้ประมวลผลเร็วขึ้น",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Association Rule Learning",
-            image: "-",
-            extension: "-",
-            content: "การหาความสัมพันธ์ระหว่างรายการข้อมูล (สิ่งใดเกิดร่วมกันบ่อย)",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Model-Based",
-            image: "-",
-            extension: "-",
-            content: "Agent พยายามสร้าง Model เพื่อทำนายสิ่งที่จะเกิดเมื่อทำบางสิ่ง",
-            description: "Reinforcement Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Model-Free",
-            image: "-",
-            extension: "-",
-            content: "Agent เรียนรู้การกระทำที่ดีที่สุดโดยไม่ต้องสร้าง Model",
-            description: "Reinforcement Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
+            link: "-",
+            symbol: "-",
             main: "-"
         }
     ];
@@ -112,6 +40,7 @@ function page() {
         <div>
             <Navbar/>
             <Title/>
+            <TitleFooter title = "User Guide" description = "คู่มือการใช้งานเว็บแอปพลิเคชัน"/>
             <div className = "px-4 border-b border-[#ececec] bg-white">
                 <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4">
                     <div className = "w-lg flex flex-col gap-8 max-md:gap-4">
@@ -148,7 +77,6 @@ function page() {
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
             </div>
-            <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-80"/>
             <Footer userGuide session = {session}/>
         </div>
     )

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "aos/dist/aos.css";
 
-function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyNotice, userGuide, faq, news, ourTeam }) {
     const [quickLink, setQuickLink] = useState(false);
     const [information, setInformation] = useState(false);
     const [contactInfo, setContactInfo] = useState(false);
@@ -47,7 +47,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                     <Link href = "/signup" className = {`${signUp && "text-white"}`}>Sign Up</Link>
                                 </>
                             )}
-                            <Link href = "/privacy policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
+                            <Link href = "/privacy notice" className = {`${privacyNotice && "text-white"}`}>Privacy Notice</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">

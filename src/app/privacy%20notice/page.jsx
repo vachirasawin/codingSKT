@@ -21,89 +21,29 @@ function page() {
         AOS.init({ duration: 1000 });
     }, []);
 
-    const contentsML = [
+    const contents = [
         {
-            title: "Classification",
+            title: "Train-Test AI",
             image: "-",
             extension: "-",
-            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปหมวดหมู่ (Class) โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ไม่ต่อเนื่อง",
-            description: "Supervised Learning",
+            content: "ใช้ข้อมูลส่วนตัวทางการเรียน ได้แก่ ชื่อวิชา เกรดเฉลี่ยรายวิชา หน่วยกิตรายวิชา หน่วยกิตที่เรียน หน่วยกิตที่ได้ เกรดเฉลี่ยรวม โดยไม่มีการระบุชื่อ",
+            description: "การฝึกและสอนโมเดล",
             width: "-",
             height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "true"
-        },
-        {
-            title: "Regression",
-            image: "-",
-            extension: "-",
-            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปตัวเลขต่อเนื่อง โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ต่อเนื่อง",
-            description: "Supervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-",
-        },
-        {
-            title: "Clustering",
-            image: "-",
-            extension: "-",
-            content: "แบ่งข้อมูลออกเป็นกลุ่ม (Clusters) ตามคุณสมบัติ (Feature) ที่คล้ายกันเพื่อหาความสัมพันธ์แฝงในข้อมูล",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
+            link: "-",
             symbol: "fa-solid fa-brain",
             main: "-"
         },
         {
-            title: "Dimensionality Reduction",
+            title: "User Data for Prediction",
             image: "-",
             extension: "-",
-            content: "การลดจำนวนคุณสมบัติ (Features) ของข้อมูลให้เหลือเท่าที่จำเป็น เพื่อทำให้ประมวลผลเร็วขึ้น",
-            description: "Unsupervised Learning",
+            content: "ใช้ข้อมูลส่วนของผู้ใช้ ได้แก่ ชื่อวิชา เกรดเฉลี่ยรายวิชา หน่วยกิตรายวิชา หน่วยกิตที่เรียน หน่วยกิตที่ได้ เกรดเฉลี่ยรวม โดยไม่มีการระบุชื่อ",
+            description: "การใช้ข้อมูลของผู้ใช้เพื่อการพยากรณ์",
             width: "-",
             height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Association Rule Learning",
-            image: "-",
-            extension: "-",
-            content: "การหาความสัมพันธ์ระหว่างรายการข้อมูล (สิ่งใดเกิดร่วมกันบ่อย)",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Model-Based",
-            image: "-",
-            extension: "-",
-            content: "Agent พยายามสร้าง Model เพื่อทำนายสิ่งที่จะเกิดเมื่อทำบางสิ่ง",
-            description: "Reinforcement Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Model-Free",
-            image: "-",
-            extension: "-",
-            content: "Agent เรียนรู้การกระทำที่ดีที่สุดโดยไม่ต้องสร้าง Model",
-            description: "Reinforcement Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
+            link: "-",
+            symbol: "fa-solid fa-database",
             main: "-"
         }
     ];
@@ -148,8 +88,8 @@ function page() {
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
             </div>
-            <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-80"/>
-            <Footer privacyPolicy session = {session}/>
+            <Card contents = {contents} title = "Privacy Notice" description = "ข้อกำหนดการใช้ข้อมูลส่วนตัวของผู้เรียนและผู้ใช้" h = "h-86"/>
+            <Footer privacyNotice session = {session}/>
         </div>
     )
 }

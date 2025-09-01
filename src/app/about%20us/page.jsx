@@ -107,56 +107,6 @@ function page() {
             main: "-"
         }
     ];
-    const contentsDevelopers = [
-        {
-            title: "Mr. Tiyasak Armedeenlamyan",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum dolor sit amet consectetur.",
-            description: "นายติยศักดิ์ อามีดีนลามยาน",
-            width: "1000",
-            height: "1000",
-            link: "-",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Mr. Ratchanon Tribawonkul",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum dolor sit amet consectetur.",
-            description: "นายรัชชานนท์ ตรีบวรกุล",
-            width: "1000",
-            height: "1000",
-            link: "-",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Mr. Vachirasawin Mahantaphalanon",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum dolor sit amet consectetur.",
-            description: "นายวชิรัศวิน มหันตพลานนท์",
-            width: "1000",
-            height: "1000",
-            link: "-",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Mr. Aiyakarn phorphakwaen",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum dolor sit amet consectetur.",
-            description: "นายอัยการ เพราะผักแว่น",
-            width: "1000",
-            height: "1000",
-            link: "-",
-            symbol: "-",
-            main: "-"
-        }
-    ];
     const contentsSoftware = [
         {
             title: "Node.js",
@@ -643,7 +593,6 @@ function page() {
                 </div>
             </div>
             <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-80"/>
-            <Card contents = {contentsDevelopers} title = "Developers" subTitle = "-" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsSoftware} title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsReport} title = "Report" subTitle = "Project" inverse downloadType description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-64"/>
