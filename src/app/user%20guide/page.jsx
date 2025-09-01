@@ -37,7 +37,7 @@ function page() {
     
     return (
         <div>
-            <Navbar/>
+            <Navbar userGuide/>
             <Title/>
             <TitleFooter title = "User Guide" description = "คู่มือการใช้งานเว็บแอปพลิเคชัน"/>
             <div className = "px-4 border-b border-[#ececec] bg-white">

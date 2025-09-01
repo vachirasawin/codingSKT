@@ -65,7 +65,7 @@ function page() {
     
     return (
         <div>
-            <Navbar/>
+            <Navbar ourTeam/>
             <Title/>
             <TitleFooter title = "Our Team" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต"/>
             <div className = "px-4 border-b border-[#ececec] bg-white">

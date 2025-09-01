@@ -49,7 +49,7 @@ function page() {
     
     return (
         <div>
-            <Navbar/>
+            <Navbar privacyNotice/>
             <Title/>
             <div className = "px-4 border-b border-[#ececec] bg-white">
                 <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4">

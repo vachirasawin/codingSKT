@@ -37,7 +37,7 @@ function page() {
     
     return (
         <div>
-            <Navbar/>
+            <Navbar faq/>
             <Title/>
             <TitleFooter title = "FAQs" description = "คำถามที่พบบ่อย"/>
             <div className = "px-4 border-b border-[#ececec] bg-white">
