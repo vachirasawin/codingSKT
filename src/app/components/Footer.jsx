@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "aos/dist/aos.css";
 
-function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyNotice, userGuide, faq, news, ourTeam }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models }) {
     const [quickLink, setQuickLink] = useState(false);
     const [information, setInformation] = useState(false);
     const [contactInfo, setContactInfo] = useState(false);
@@ -22,7 +22,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 1.9.25.1</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 2.9.25.1</p>
                 </div>
                 <div className = "flex gap-8 max-md:flex-col max-md:gap-4">
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
@@ -47,7 +47,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                     <Link href = "/signup" className = {`${signUp && "text-white"}`}>Sign Up</Link>
                                 </>
                             )}
-                            <Link href = "/privacy notice" className = {`${privacyNotice && "text-white"}`}>Privacy Notice</Link>
+                            <Link href = "/privacy policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
@@ -62,6 +62,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQ</Link>
                             <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
                             <Link href = "/our team" className = {`${ourTeam && "text-white"}`}>Our Team</Link>
+                            <Link href = "/models" className = {`${models && "text-white"}`}>Models</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">

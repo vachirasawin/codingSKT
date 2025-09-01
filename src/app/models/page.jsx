@@ -22,52 +22,52 @@ function page() {
 
     const contentsTeam = [
         {
-            title: "Mr. Tiyasak Armedeenlamyan",
-            image: "AI",
-            extension: "jpg",
+            title: "Linear Regression",
+            image: "Linear-Regression",
+            extension: "png",
             content: "Content",
             description: "Description",
-            width: "2000",
-            height: "1300",
+            width: "2373",
+            height: "1311",
             reverse: false
         },
         {
-            title: "Mr. Ratchanon Tribawonkul",
-            image: "AI",
-            extension: "jpg",
+            title: "Polynomial Regression",
+            image: "Polynomial-Regression",
+            extension: "png",
             content: "Content",
             description: "Description",
-            width: "2000",
-            height: "1300",
+            width: "2373",
+            height: "1311",
             reverse: true
         },
         {
-            title: "Mr. Vachirasawin Mahantaphalanon",
-            image: "AI",
-            extension: "jpg",
+            title: "Regularized Linear Regression (Ridge)",
+            image: "Regularized-Linear-Regression_Ridge",
+            extension: "png",
             content: "Content",
             description: "Description",
-            width: "2000",
-            height: "1300",
+            width: "2373",
+            height: "1311",
             reverse: false
         },
         {
-            title: "Mr. Aiyakarn phorphakwaen",
-            image: "AI",
-            extension: "jpg",
+            title: "Decision Tree Regression",
+            image: "Decision-Tree-Regression",
+            extension: "png",
             content: "Content",
             description: "Description",
-            width: "2000",
-            height: "1300",
+            width: "2373",
+            height: "1311",
             reverse: true
         }
     ];
     
     return (
         <div>
-            <Navbar ourTeam/>
+            <Navbar models/>
             <Title/>
-            <TitleFooter title = "Our Team" description = "ผู้พัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต"/>
+            <TitleFooter title = "Models" description = "โมเดลการพยากรณ์ช่วงของผลการเรียนของผู้เรียนในอนาคต"/>
             <div className = "px-4 bg-white">
                 {contentsTeam.map((content, index) => (
                     <div className =  {`container border-b border-[#ececec] mx-auto justify-self-center flex ${content.reverse ? "flex-row-reverse" : "flex-row"} justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4`} key = {content.title}>
@@ -88,11 +88,13 @@ function page() {
                                 </p>
                             </div>
                         </div>
-                        <Image src = {`/${content.image}.${content.extension}`} unoptimized width = {content.width} height = {content.height} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = {content.title} data-aos = "fade-up"/>
+                        <div className = "w-max h-max p-4 rounded-2xl shadow-md bg-white" data-aos = "fade-up">
+                            <Image src = {`/${content.image}.${content.extension}`} unoptimized width = {content.width} height = {content.height} className = "object-contain w-lg max-lg:w-full" alt = {content.title}/>
+                        </div>
                     </div>
                 ))}
             </div>
-            <Footer ourTeam session = {session}/>
+            <Footer models session = {session}/>
         </div>
     )
 }
