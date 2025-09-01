@@ -32,7 +32,7 @@ function page() {
             height: "-",
             link: "/machine-learning.pdf",
             symbol: "fa-solid fa-brain",
-            main: "true"
+            main: "-"
         },
         {
             title: "Regression",
@@ -44,7 +44,7 @@ function page() {
             height: "-",
             link: "/machine-learning.pdf",
             symbol: "fa-solid fa-brain",
-            main: "-",
+            main: "true",
         },
         {
             title: "Clustering",
@@ -385,18 +385,6 @@ function page() {
             main: "-"
         },
         {
-            title: "NumPy",
-            image: "numpy",
-            extension: "png",
-            content: "Library สำหนับใช้คำนวณตัวเลขและจัดการข้อมูลเชิงตัวเลข",
-            description: "version 2.3.1",
-            width: "2336",
-            height: "2500",
-            link: "https://numpy.org/",
-            symbol: "-",
-            main: "-"
-        },
-        {
             title: "Train Test Split",
             image: "sklearn",
             extension: "png",
@@ -409,14 +397,38 @@ function page() {
             main: "-"
         },
         {
-            title: "Logistic Regression",
+            title: "Linear Regression",
             image: "sklearn",
             extension: "png",
-            content: "โมเดล Machine Learning แบบ Classification ถดถอย",
+            content: "โมเดล Machine Learning แบบ Regression เชิงเส้น",
             description: "scikit-learn | version 1.7.0",
             width: "254",
             height: "183",
-            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Mean Squared Error",
+            image: "sklearn",
+            extension: "png",
+            content: "Library สำหรับแสดงความคลาดเคลื่อน",
+            description: "scikit-learn | version 1.7.0",
+            width: "254",
+            height: "183",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "R<sup>2</sup>",
+            image: "sklearn",
+            extension: "png",
+            content: "Library สำหรับแสดงความแม่นยำ",
+            description: "scikit-learn | version 1.7.0",
+            width: "254",
+            height: "183",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html",
             symbol: "-",
             main: "-"
         },
