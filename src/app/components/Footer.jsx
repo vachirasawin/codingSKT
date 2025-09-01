@@ -32,7 +32,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                 <i className = "fa-solid fa-angle-down"></i>
                             </div>
                         </div>
-                        <div className = {`flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${quickLink ? "max-md:flex" : "max-md:hidden"}`}>
+                        <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${quickLink ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/" className = {`${home && "text-white"}`}>Home</Link>
                             <Link href = "/about us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
                             {session ? (
@@ -57,7 +57,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                 <i className = "fa-solid fa-angle-down"></i>
                             </div>
                         </div>
-                        <div className = {`flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${information ? "max-md:flex" : "max-md:hidden"}`}>
+                        <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${information ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/user guide" className = {`${userGuide && "text-white"}`}>User Guide</Link>
                             <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQ</Link>
                             <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
@@ -71,7 +71,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                 <i className = "fa-solid fa-angle-down"></i>
                             </div>
                         </div>
-                        <div className = {`flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${contactInfo ? "max-md:flex" : "max-md:hidden"}`}>
+                        <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${contactInfo ? "max-md:flex" : "max-md:hidden"}`}>
                             <p>tiyasak.srm@sk-thonburi.ac.th</p>
                             <p>ratchanon.tri@sk-thonburi.ac.th</p>
                             <p>vachirasawin.mah@sk-thonburi.ac.th</p>
