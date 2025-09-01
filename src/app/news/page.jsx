@@ -39,7 +39,7 @@ function page() {
         <div>
             <Navbar/>
             <Title/>
-            <TitleFooter title = "FAQs" description = "ข่าวการอัพเดท"/>
+            <TitleFooter title = "News" description = "ข่าวการอัพเดท"/>
             <div className = "px-4 border-b border-[#ececec] bg-white">
                 <div className = "container mx-auto justify-self-center flex justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4">
                     <div className = "w-lg flex flex-col gap-8 max-md:gap-4">
