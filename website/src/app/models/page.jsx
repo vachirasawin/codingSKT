@@ -24,7 +24,7 @@ function page() {
     const contents = [
         {
             title: "Linear Regression",
-            image: "Linear-Regression",
+            image: "LinearRegression",
             extension: "png",
             content: "Content",
             description: "การถดถอยเชิงเส้น",
@@ -37,7 +37,7 @@ function page() {
         },
         {
             title: "Polynomial Regression",
-            image: "Polynomial-Regression",
+            image: "PolynomialRegression",
             extension: "png",
             content: "Content",
             description: "การถดถอยเชิงพหุคณิต",
@@ -50,7 +50,7 @@ function page() {
         },
         {
             title: "Regularized Linear Regression (Ridge)",
-            image: "Regularized-Linear-Regression",
+            image: "RegularizedLinearRegression_Ridge",
             extension: "png",
             content: "Content",
             description: "การถดถอยเชิงเส้นแบบมีการปรับค่าลงโทษ",
@@ -63,7 +63,7 @@ function page() {
         },
         {
             title: "Decision Tree Regression",
-            image: "Decision-Tree-Regression",
+            image: "DecisionTreeRegression",
             extension: "png",
             content: "Content",
             description: "การถดถอยแบบต้นไม้ตัดสินใจ",
