@@ -1,11 +1,8 @@
 {
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/models/page": "app/models/page.js",
-  "/about%20us/page": "app/about%20us/page.js",
-  "/user%20guide/page": "app/user%20guide/page.js",
-  "/faqs/page": "app/faqs/page.js",
-  "/privacy%20policy/page": "app/privacy%20policy/page.js",
-  "/page": "app/page.js",
-  "/our%20team/page": "app/our%20team/page.js",
-  "/news/page": "app/news/page.js"
+  "/linear%20regression/page": "app/linear%20regression/page.js",
+  "/polynomial%20regression/page": "app/polynomial%20regression/page.js",
+  "/regularized%20linear%20regression%20(ridge)/page": "app/regularized%20linear%20regression%20(ridge)/page.js",
+  "/decision%20tree%20regression/page": "app/decision%20tree%20regression/page.js"
 }

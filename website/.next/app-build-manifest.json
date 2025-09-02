@@ -23,41 +23,29 @@
       "static/css/app/models/page.css",
       "static/chunks/app/models/page.js"
     ],
-    "/about%20us/page": [
+    "/linear%20regression/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/about%20us/page.css",
-      "static/chunks/app/about%20us/page.js"
+      "static/css/app/linear%20regression/page.css",
+      "static/chunks/app/linear%20regression/page.js"
     ],
-    "/user%20guide/page": [
+    "/polynomial%20regression/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/user%20guide/page.css",
-      "static/chunks/app/user%20guide/page.js"
+      "static/css/app/polynomial%20regression/page.css",
+      "static/chunks/app/polynomial%20regression/page.js"
     ],
-    "/faqs/page": [
+    "/regularized%20linear%20regression%20(ridge)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/faqs/page.css",
-      "static/chunks/app/faqs/page.js"
+      "static/css/app/regularized%20linear%20regression%20(ridge)/page.css",
+      "static/chunks/app/regularized%20linear%20regression%20(ridge)/page.js"
     ],
-    "/privacy%20policy/page": [
+    "/decision%20tree%20regression/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/privacy%20policy/page.css",
-      "static/chunks/app/privacy%20policy/page.js"
-    ],
-    "/news/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/news/page.css",
-      "static/chunks/app/news/page.js"
-    ],
-    "/our%20team/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/our%20team/page.css",
-      "static/chunks/app/our%20team/page.js"
+      "static/css/app/decision%20tree%20regression/page.css",
+      "static/chunks/app/decision%20tree%20regression/page.js"
     ]
   }
 }

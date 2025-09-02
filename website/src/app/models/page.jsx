@@ -35,7 +35,7 @@ function page() {
             reverse: false,
             highlight: "เหมาะกับการพยากรณ์เบื้องต้นข้อมูลเป็นลักษณะกราฟเส้นตรง",
             weakness: "อาจพยากรณ์ผลคลาดเคลื่อนถ้าข้อมูลไม่เป็นลักษณะกราฟเส้นตรง",
-            link: ""
+            link: "linear regression"
         },
         {
             title: "Polynomial Regression",
@@ -48,7 +48,7 @@ function page() {
             reverse: true,
             highlight: "เหมาะกับการพยากรณ์ที่ข้อมูลเป็นลักษณะกราฟเพิ่ม/ลด",
             weakness: "ถ้าเลือกเลขชี้กำลัง (degree) ของ features สูงไปทำให้เรียนรู้มากเกินไป แต่ถ้าน้อยไปทำให้เรียนรู้น้อยเกินไป",
-            link: ""
+            link: "polynomial regression"
         },
         {
             title: "Regularized Linear Regression (Ridge)",
@@ -61,7 +61,7 @@ function page() {
             reverse: false,
             highlight: "ลดความซับซ้อนของโมเดล ทำงานได้ดีกว่า Linear Regression ถ้า features บางตัวคล้ายกัน",
             weakness: "ถ้าข้อมูลไม่ซับซ้อนก็ไม่ต่างจาก Linear Regression",
-            link: ""
+            link: "regularized linear regression (ridge)"
         },
         {
             title: "Decision Tree Regression",
@@ -74,7 +74,7 @@ function page() {
             reverse: true,
             highlight: "จับความสัมพันธ์ซับซ้อนและไม่เชิงเส้นได้ดี",
             weakness: "ไม่เสถียร ไม่เหมาะกับข้อมูลต่อเนื่อง",
-            link: ""
+            link: "decision tree regression"
         }
     ];
     const contentsReviews = [
