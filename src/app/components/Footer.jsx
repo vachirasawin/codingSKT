@@ -47,7 +47,6 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                     <Link href = "/signup" className = {`${signUp && "text-white"}`}>Sign Up</Link>
                                 </>
                             )}
-                            <Link href = "/privacy policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
@@ -63,6 +62,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
                             <Link href = "/our team" className = {`${ourTeam && "text-white"}`}>Our Team</Link>
                             <Link href = "/models" className = {`${models && "text-white"}`}>Models</Link>
+                            <Link href = "/privacy policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">

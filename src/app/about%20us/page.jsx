@@ -13,6 +13,7 @@ import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+import ReviewInbox from "../components/ReviewInbox";
 
 function page() {
     const { data: session } = useSession();
@@ -563,6 +564,56 @@ function page() {
             symbol: "fa-solid fa-book"
         }
     ];
+    const contentsReviews = [
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        }
+    ]
 
     return (
         <div>
@@ -608,6 +659,8 @@ function page() {
             <Card contents = {contentsSoftware} title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsReport} title = "Report" subTitle = "Project" inverse downloadType description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-64"/>
+            <Card contents = {contentsReviews} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96"/>
+            <ReviewInbox/>
             <Footer aboutUs session = {session}/>
         </div>
     )
