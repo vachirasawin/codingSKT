@@ -6,28 +6,22 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/page": [
+    "/models/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/models/page.css",
+      "static/chunks/app/models/page.js"
     ],
     "/api/auth/[...nextauth]/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/api/auth/[...nextauth]/route.js"
     ],
-    "/privacy%20policy/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/privacy%20policy/page.css",
-      "static/chunks/app/privacy%20policy/page.js"
-    ],
-    "/models/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/models/page.css",
-      "static/chunks/app/models/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/our%20team/page": [
       "static/chunks/webpack.js",
@@ -35,17 +29,17 @@
       "static/css/app/our%20team/page.css",
       "static/chunks/app/our%20team/page.js"
     ],
-    "/news/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/news/page.css",
-      "static/chunks/app/news/page.js"
-    ],
     "/faqs/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/faqs/page.css",
       "static/chunks/app/faqs/page.js"
+    ],
+    "/user%20guide/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/user%20guide/page.css",
+      "static/chunks/app/user%20guide/page.js"
     ]
   }
 }

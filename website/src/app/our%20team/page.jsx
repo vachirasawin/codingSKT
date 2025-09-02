@@ -26,7 +26,7 @@ function page() {
             image: "AI",
             extension: "jpg",
             content: "Content",
-            description: "Description",
+            description: "นายติยศักดิ์ อามีดีนลามยาน",
             width: "2000",
             height: "1300",
             reverse: false
@@ -36,7 +36,7 @@ function page() {
             image: "AI",
             extension: "jpg",
             content: "Content",
-            description: "Description",
+            description: "นายรัชชานนท์ ตรีบวรกุล",
             width: "2000",
             height: "1300",
             reverse: true
@@ -46,7 +46,7 @@ function page() {
             image: "AI",
             extension: "jpg",
             content: "Content",
-            description: "Description",
+            description: "นายวชิรัศวิน มหันตพลานนท์",
             width: "2000",
             height: "1300",
             reverse: false
@@ -56,7 +56,7 @@ function page() {
             image: "AI",
             extension: "jpg",
             content: "Content",
-            description: "Description",
+            description: "นายอัยการ เพราะผักแว่น",
             width: "2000",
             height: "1300",
             reverse: true
@@ -75,12 +75,9 @@ function page() {
                             <div className = "flex flex-col gap-7 max-md:gap-4">
                                 <div data-aos = "fade-up">
                                     <h1 className = "text-5xl max-md:text-3xl font-bold text-[#171717]">
-                                        <span>coding</span>
-                                        <span className = "text-[#1d9dda]">S</span>
-                                        <span className = "text-[#df69a0]">K</span>
-                                        <span>T</span>
+                                        {content.title}
                                     </h1>
-                                    <h2 className = "text-md max-md:text-xs font-medium">{content.title}</h2>
+                                    <h2 className = "text-md max-md:text-xs font-medium">{content.description}</h2>
                                     <div className = "w-36 border-2 border-blue-500 rounded-md mt-2"></div>
                                 </div>
                                 <p className = "text-[#9497a1] text-xl max-md:text-base" data-aos = "fade-up">

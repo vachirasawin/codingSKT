@@ -59,7 +59,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                         </div>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${information ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/user guide" className = {`${userGuide && "text-white"}`}>User Guide</Link>
-                            <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQ</Link>
+                            <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQs</Link>
                             <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
                             <Link href = "/our team" className = {`${ourTeam && "text-white"}`}>Our Team</Link>
                             <Link href = "/models" className = {`${models && "text-white"}`}>Models</Link>
