@@ -42,25 +42,25 @@
 - 
 - Highlights (+): เหมาะกับการพยากรณ์เบื้องต้นข้อมูลเป็นลักษณะกราฟเส้นตรง
 - Weakness (-): อาจพยากรณ์ผลคลาดเคลื่อนถ้าข้อมูลไม่เป็นลักษณะกราฟเส้นตรง
-![Linear Regression Graph](modelGraph/Linear-Regression.png)
+![Linear Regression Graph](modelGraph/LinearRegression.png)
 
 # Polynomial Regression | การถดถอยเชิงพหุคณิต
 - 
 - Highlights (+): เหมาะกับการพยากรณ์ที่ข้อมูลเป็นลักษณะกราฟเพิ่ม/ลด
 - Weakness (-): ถ้าเลือกเลขชี้กำลัง (degree) ของ features สูงไปทำให้เรียนรู้มากเกินไป แต่ถ้าน้อยไปทำให้เรียนรู้น้อยเกินไป
-![Polynomial Regression](modelGraph/Polynomial-Regression.png)
+![Polynomial Regression](modelGraph/PolynomialRegression.png)
 
 # Regularized Linear Regression (Ridge) | การถดถอยเชิงเส้นแบบมีการปรับค่าลงโทษ
 - 
 - Highlights (+): ลดความซับซ้อนของโมเดล ทำงานได้ดีกว่า Linear Regression ถ้า features บางตัวคล้ายกัน
 - Weakness (-): ถ้าข้อมูลไม่ซับซ้อนก็ไม่ต่างจาก Linear Regression
-![Regularized Linear Regression (Ridge)](modelGraph/Regularized-Linear-Regression.png)
+![Regularized Linear Regression (Ridge)](modelGraph/RegularizedLinearRegression_Ridge.png)
 
 # Decision Tree Regression | การถดถอยแบบต้นไม้ตัดสินใจ
 - 
 - Highlights (+): จับความสัมพันธ์ซับซ้อนและไม่เชิงเส้นได้ดี
 - Weakness (-): ไม่เสถียร ไม่เหมาะกับข้อมูลต่อเนื่อง
-![Decision Tree Regression](modelGraph/Decision-Tree-Regression.png)
+![Decision Tree Regression](modelGraph/DecisionTreeRegression.png)
 
 # Source
 - https://pandas.pydata.org/
