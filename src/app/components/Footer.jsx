@@ -22,7 +22,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 2.9.25.1</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 3.9.25.1</p>
                 </div>
                 <div className = "flex gap-8 max-md:flex-col max-md:gap-4">
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
@@ -59,7 +59,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                         </div>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${information ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/user guide" className = {`${userGuide && "text-white"}`}>User Guide</Link>
-                            <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQ</Link>
+                            <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQs</Link>
                             <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
                             <Link href = "/our team" className = {`${ourTeam && "text-white"}`}>Our Team</Link>
                             <Link href = "/models" className = {`${models && "text-white"}`}>Models</Link>
