@@ -43,7 +43,7 @@ function page() {
         },
         {
             title: "Regularized Linear Regression (Ridge)",
-            image: "Regularized-Linear-Regression_Ridge",
+            image: "Regularized-Linear-Regression",
             extension: "png",
             content: "Content",
             description: "Description",
