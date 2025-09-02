@@ -17,51 +17,51 @@ function page() {
 
     const contents = [
         {
-            title: "หัวข้อการรีวิว",
+            title: "first name & last name",
             image: "logo",
             extension: "png",
-            content: "รีวิว",
-            description: "first name & last name",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
             link: "-"
         },
         {
-            title: "หัวข้อการรีวิว",
+            title: "first name & last name",
             image: "logo",
             extension: "png",
-            content: "รีวิว",
-            description: "first name & last name",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
             link: "-"
         },
         {
-            title: "หัวข้อการรีวิว",
+            title: "first name & last name",
             image: "logo",
             extension: "png",
-            content: "รีวิว",
-            description: "first name & last name",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
             link: "-"
         },
         {
-            title: "หัวข้อการรีวิว",
+            title: "first name & last name",
             image: "logo",
             extension: "png",
-            content: "รีวิว",
-            description: "first name & last name",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
             link: "-"
         },
         {
-            title: "หัวข้อการรีวิว",
+            title: "first name & last name",
             image: "logo",
             extension: "png",
-            content: "รีวิว",
-            description: "first name & last name",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
             link: "-"
         },
         {
-            title: "หัวข้อการรีวิว",
+            title: "first name & last name",
             image: "logo",
             extension: "png",
-            content: "รีวิว",
-            description: "first name & last name",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
             link: "-"
         }
     ]
@@ -71,7 +71,7 @@ function page() {
             <Navbar home/>
             <Title/>
             <Info/>
-            <Card contents = {contents} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "84"/>
+            <Card contents = {contents} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96"/>
             <ReviewInbox/>
             <Footer home session = {session}/>
         </div>

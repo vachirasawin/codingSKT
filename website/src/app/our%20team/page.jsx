@@ -12,6 +12,8 @@ import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 import TitleFooter from "../components/TitleFooter";
+import ReviewInbox from "../components/ReviewInbox";
+import Card from "../components/Card";
 
 function page() {
     const { data: session } = useSession();
@@ -62,6 +64,56 @@ function page() {
             reverse: true
         }
     ];
+    const contentsReviews = [
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        },
+        {
+            title: "first name & last name",
+            image: "logo",
+            extension: "png",
+            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
+            description: "ชื่อจริงและนามสกุล",
+            link: "-"
+        }
+    ]
     
     return (
         <div>
@@ -89,6 +141,8 @@ function page() {
                     </div>
                 ))}
             </div>
+            <Card contents = {contentsReviews} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96"/>
+            <ReviewInbox/>
             <Footer ourTeam session = {session}/>
         </div>
     )
