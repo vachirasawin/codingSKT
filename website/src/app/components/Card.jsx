@@ -1,34 +1,62 @@
 // import from Next.js
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-function Card({ contents, title, description }) {
+function Card({ contents, title, subTitle, description, h, inverse, downloadType, downloadTitle }) {
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
     return (
-        <div className = "px-4 border-b border-[#ececec] bg-[#f1f6fa]">
-            <div className = {`container mx-auto justify-self-center flex flex-col gap-8 py-24 max-md:py-4`}>
-                <div className = "flex justify-center w-full">
-                    <div className = "flex flex-col gap-2 text-center w-lg">
-                        <h1 className = "text-2xl font-bold">{title}</h1>
-                        <p className = "text-[#9497a1]">{description}</p>
+        <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]">
+            <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8 justify-center items-center`}>
+                <div className = "flex justify-center w-full" data-aos = "fade-up">
+                    <div className = "flex flex-col gap-2 text-center w-full justify-center items-center">
+                        <div className = {`flex justify-center items-center gap-2.5 ${inverse && "flex-row-reverse flex-wrap-reverse"} flex-wrap`}>
+                            <h1 className = "text-4xl font-bold max-md:text-2x text-blue-500">{title}</h1>
+                            {subTitle !== "-" && (
+                                <h1 className = "text-4xl font-bold max-md:text-2x">{subTitle}</h1>
+                            )}
+                        </div>
+                        <p className = "text-[#9497a1] text-lg max-md:text-sm w-lg max-sm:w-full">{description}</p>
                     </div>
                 </div>
-                <div className = "flex overflow-x-auto hide-scrollbar gap-4">
+                <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8 text-[#171717] max-w-full" data-aos = "fade-up">
                     {contents.map((content, index) => (
                         <div key = {content.title} className = "shadow-md bg-white rounded-lg">
-                            <div className = "py-11 px-8 flex flex-col gap-7 min-w-64 h-72">
-                                {content.image !== "-" && (
-                                    <div className = "border border-[#ececec] w-16 h-16 flex justify-center items-center rounded-xl">
-                                        <Image src = {`/${content.image}.${content.extension}`} alt = {content.title} width = {content.width} height = {content.height} unoptimized className = "object-contain w-8"/>
+                            <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 max-w-72 ${h}`}>
+                                {content.image !== "-" ? (
+                                    <div className = "border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square px-4">
+                                        <div className = "w-8 h-8 relative">
+                                            <Image src = {`/${content.image}.${content.extension}`} alt = {content.title} unoptimized fill className = "object-contain"/>
+                                        </div>
+                                    </div>
+                                ) : content.symbol !== "-" && (
+                                    <div className = "border border-[#ececec] w-16 h-16 flex justify-center items-center rounded-xl aspect-square text-xl">
+                                        <i className = {content.symbol}></i>
                                     </div>
                                 )}
                                 <div className = "flex flex-col gap-4">
-                                    <h1 className = "text-xl font-bold">{content.title}</h1>
-                                    <p className = "font-sans text-[#9497a1]">{content.description}</p>
+                                    <div className = "flex flex-col">
+                                        <h1 className = {`text-xl font-bold ${content.main === "true" && "text-blue-500"}`} dangerouslySetInnerHTML={{ __html: content.title }}></h1>
+                                        <p className = "text-[#9497a1] text-xs font-medium">{content.description}</p>
+                                    </div>
+                                    <p className = "font-normal text-[#9497a1]">{content.content}</p>
                                 </div>
                             </div>
                             {content.link !== "-" && (
-                                <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium">Go to {content.title}</Link>
+                                downloadType ? (
+                                    downloadTitle ? (
+                                        <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${downloadTitle}` }}></a>
+                                    ) : (
+                                        <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.title}` }}></a>
+                                    )
+                                ) : (
+                                    <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Go to ${content.title}` }}></Link>
+                                )
                             )}
                         </div>
                     ))}

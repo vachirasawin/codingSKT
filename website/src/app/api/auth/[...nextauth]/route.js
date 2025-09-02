@@ -55,29 +55,46 @@ const authOptions = {
         strategy: "jwt",
     },
     callbacks: {
-        async jwt({ token, user }) {
-            if (user) {
+        async jwt({ token, user, account }) {
+            if (account?.provider === "credentials") {
                 token.id = user._id;
                 token.firstName = user.firstName || null;
                 token.lastName = user.lastName || null;
                 token.username = user.username || null;
                 token.email = user.email;
+            } else if (account?.provider === "google" || account?.provider === "github" || account?.provider === "facebook") {
+                token.id = user.id;
+                token.name = user.name;
+                token.email = user.email;
+
+                if (account?.provider === "google" && user?.image) {
+                    token.picture = user.image.replace("=s96-c", "=s512-c");
+                } else if (account?.provider === "github" && user?.image) {
+                    token.picture = `${user.image}&s=512`;
+                } else if (account?.provider === "facebook" && user?.image) {
+                    token.picture = `https://graph.facebook.com/${account.id}/picture?type=large&width=512&height=512`;
+                }
             }
             return token;
         },
         async session({ session, token }) {
             session.user.id = token.id;
-            session.user.firstName = token.firstName;
-            session.user.lastName = token.lastName;
-            session.user.username = token.username;
-            session.user.email = token.email;
+            session.user.firstName = token.firstName || null;
+            session.user.lastName = token.lastName || null;
+            session.user.username = token.username || null;
+
+            session.user.name = token.name || null;
+            session.user.email = token.email || null;
+            session.user.image = token.picture || null;
+
             return session;
         },
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        signIn: "/sign%20in"
-    }
+        signIn: "/signin"
+    },
+    debug: process.env.NODE_ENV === "development"
 }
 
 const handler = NextAuth(authOptions);

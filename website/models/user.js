@@ -25,7 +25,11 @@ const userSchema = new Schema (
         typeInfo: {
             type: String,
             required: true
-        }
+        },
+        profileImageUrl: {
+            type: String,
+            default: "/profile.png",
+        },
     }, { timestamps: true } 
 )
 

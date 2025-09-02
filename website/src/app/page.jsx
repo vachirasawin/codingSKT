@@ -8,15 +8,17 @@ import { useSession } from "next-auth/react";
 import Navbar from "./components/Navbar";
 import Info from "./components/Info";
 import Title from "./components/Title";
+import Footer from "./components/Footer";
 
 function page() {
     const { data: session } = useSession();
     
     return (
         <div>
-            <Navbar home session = {session}/>
+            <Navbar home/>
             <Title/>
             <Info/>
+            <Footer home session = {session}/>
         </div>
     )
 }
