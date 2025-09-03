@@ -6,24 +6,68 @@
 - Regularized Linear Regression (Ridge)
 - Decision Tree Regression
 
+# Input from User to API
+    const inputs = [
+        ["subject1", credit1, subject1_1, subject1_2, subject1_3, subject1_4, subject1_5],
+        ["subject2", credit2, subject2_1, subject2_2, subject2_3, subject2_4, subject2_5],
+        ["subject3", credit3, subject3_1, subject3_2, subject3_3, subject3_4, subject3_5]
+    ]
+
+# Process of Converting Input to Array in API
+- Define list
+
+    let credits_studied = [[], [], [], [], []]
+    let credits_earned = [[], [], [], [], []]
+    let gpa = [[], [], [], [], []]
+    let api = []
+
+- Fill credit in credits_studied[] & credits_earned[]
+
+    for (let i = 0; i < inputs.length; i++) {
+        for (let j = 0; j < credits_studied.length; j++) {
+            credits_studied[j].push(inputs[i][1]);
+            credits_earned[j].push(inputs[i][1]);
+        }
+    }
+
+- Fill gpa in gpa[]
+
+    for i in range(len(inputs)):
+        for j in range(len(gpa)):
+            gpa[j].append(inputs[i][j + 2])
+
+- Transform credit to credit earned in credits_earned[]
+
+    for i in range(len(credits_earned)):
+        for j in range(len(credits_earned[i])):
+            credits_earned[i][j] = credits_earned[i][j] * (1 if gpa[i][j] > 0 else 0)
+
+- Sum credits_studied[] & credits_earned[]
+
+    for i in range(len(credits_studied)):
+        credits_studied[i] = sum(credits_studied[i])
+        credits_earned[i] = sum(credits_earned[i])
+
+- Fill gpa[] & credits_studied[] & credits_earned[] in api[]
+
+    for i in range(len(gpa)):
+        api.append(gpa[i] + [credits_studied[i], credits_earned[i]])
+            
 # Data set (Features: 2D | Labels: 1D)
 ## GPA 1
-	Features = ["Thai_1", "English_basic_1", "English_add_1", ..., "credits_studied_1", credit_earned_1"]
-    Labels = "gpa_1"
-## GPA 2
-	Features = ["Thai_2", "English_basic_2", "English_add_2", ..., "credits_studied_2", credit_earned_2"]
+    Features = ["Thai_1", "English_basic_1", "English_add_1", ..., "credits_studied_1", credit_earned_1"]
     Labels = "gpa_2"
-## GPA 3
-	Features = ["Thai_3", "English_basic_3", "English_add_3", ..., "credits_studied_3", credit_earned_3"]
+## GPA 2
+    Features = ["Thai_2", "English_basic_2", "English_add_2", ..., "credits_studied_2", credit_earned_2", "gpa_2"]
     Labels = "gpa_3"
-## GPA 4
-	Features = ["Thai_4", "English_basic_4", "English_add_4", ..., "credits_studied_4", credit_earned_4"]
+## GPA 3
+    Features = ["Thai_3", "English_basic_3", "English_add_3", ..., "credits_studied_3", credit_earned_3", "gpa_3"]
     Labels = "gpa_4"
-## GPA 5
-	Features = ["Thai_5", "English_basic_5", "English_add_5", ..., "credits_studied_5", credit_earned_5"]
+## GPA 4
+    Features = ["Thai_4", "English_basic_4", "English_add_4", ..., "credits_studied_4", credit_earned_4", "gpa_4"]
     Labels = "gpa_5"
-## GPA 6
-	Features = ["Thai_6", "English_basic_6", "English_add_6", ..., "credits_studied_6", credit_earned_6"]
+## GPA 5
+    Features = ["Thai_5", "English_basic_5", "English_add_5", ..., "credits_studied_5", credit_earned_5", "gpa_5"]
     Labels = "gpa_6"
 
 # Library / Function
