@@ -1,7 +1,7 @@
 "use client";
 
 // import from Next.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
 // import from components
@@ -11,6 +11,7 @@ import Title from "./components/Title";
 import Footer from "./components/Footer";
 import ReviewInbox from "./components/ReviewInbox";
 import ReviewCard from "./components/ReviewCard";
+import Count from "./components/Count";
 
 function page() {
     const { data: session } = useSession();
@@ -25,6 +26,7 @@ function page() {
             <Navbar home/>
             <Title/>
             <Info/>
+            <Count/>
             <ReviewCard/>
             <ReviewInbox/>
             <Footer home typeAdmin session = {session}/>

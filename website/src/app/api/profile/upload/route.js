@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
 import User from "../../../../../models/user";
-import { connectMongoDB } from "../../../../../lib/mongodb";
+import { connectMongoDB } from "../../../../../lib/mongoose";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

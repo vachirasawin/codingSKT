@@ -18,8 +18,8 @@ const reviewSchema = new Schema (
             type: String,
             required: true
         }
-    }, { timestamps: true } 
+    }, { timestamps: true, collection: "reviews" } 
 )
 
-const Review = mongoose.models.Review || mongoose.model("Review", reviewSchema);
+const Review = mongoose.models.Review || mongoose.model("Review", reviewSchema, "reviews");
 export default Review;
