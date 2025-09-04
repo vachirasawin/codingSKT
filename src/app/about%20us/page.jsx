@@ -14,100 +14,20 @@ import Title from "../components/Title";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import ReviewInbox from "../components/ReviewInbox";
+import ReviewCard from "../components/ReviewCard";
 
 function page() {
     const { data: session } = useSession();
+    
+    let typeAdmin = false;
+    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
+        typeAdmin = true;
+    };
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
 
-    const contentsML = [
-        {
-            title: "Classification",
-            image: "-",
-            extension: "-",
-            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปหมวดหมู่ (Class) โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ไม่ต่อเนื่อง",
-            description: "Supervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Regression",
-            image: "-",
-            extension: "-",
-            content: "ใช้กับปัญหาที่คำตอบอยู่ในรูปตัวเลขต่อเนื่อง โดยผลลัพธ์ที่นำไปสอนต้องเป็นค่าที่ต่อเนื่อง",
-            description: "Supervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "true",
-        },
-        {
-            title: "Clustering",
-            image: "-",
-            extension: "-",
-            content: "แบ่งข้อมูลออกเป็นกลุ่ม (Clusters) ตามคุณสมบัติ (Feature) ที่คล้ายกันเพื่อหาความสัมพันธ์แฝงในข้อมูล",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Dimensionality Reduction",
-            image: "-",
-            extension: "-",
-            content: "การลดจำนวนคุณสมบัติ (Features) ของข้อมูลให้เหลือเท่าที่จำเป็น เพื่อทำให้ประมวลผลเร็วขึ้น",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Association Rule Learning",
-            image: "-",
-            extension: "-",
-            content: "การหาความสัมพันธ์ระหว่างรายการข้อมูล (สิ่งใดเกิดร่วมกันบ่อย)",
-            description: "Unsupervised Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Model-Based",
-            image: "-",
-            extension: "-",
-            content: "Agent พยายามสร้าง Model เพื่อทำนายสิ่งที่จะเกิดเมื่อทำบางสิ่ง",
-            description: "Reinforcement Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        },
-        {
-            title: "Model-Free",
-            image: "-",
-            extension: "-",
-            content: "Agent เรียนรู้การกระทำที่ดีที่สุดโดยไม่ต้องสร้าง Model",
-            description: "Reinforcement Learning",
-            width: "-",
-            height: "-",
-            link: "/machine-learning.pdf",
-            symbol: "fa-solid fa-brain",
-            main: "-"
-        }
-    ];
     const contentsSoftware = [
         {
             title: "Node.js",
@@ -564,56 +484,6 @@ function page() {
             symbol: "fa-solid fa-book"
         }
     ];
-    const contentsReviews = [
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        }
-    ]
 
     return (
         <div>
@@ -655,13 +525,12 @@ function page() {
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
             </div>
-            <Card contents = {contentsML} subTitle = "Why We Use" title = "Supervised Learning" inverse downloadType downloadTitle = "reference source" description = "ทำไมถึงเลือกใช้ Supervised Learning เพื่อพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-80"/>
             <Card contents = {contentsSoftware} title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-72"/>
             <Card contents = {contentsHardware} title = "Hardware" subTitle = "We Use" description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-74"/>
             <Card contents = {contentsReport} title = "Report" subTitle = "Project" inverse downloadType description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-64"/>
-            <Card contents = {contentsReviews} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96"/>
+            <ReviewCard/>
             <ReviewInbox/>
-            <Footer aboutUs session = {session}/>
+            <Footer aboutUs typeAdmin session = {session}/>
         </div>
     )
 }

@@ -13,10 +13,15 @@ import Title from "../components/Title";
 import Footer from "../components/Footer";
 import TitleFooter from "../components/TitleFooter";
 import ReviewInbox from "../components/ReviewInbox";
-import Card from "../components/Card";
+import ReviewCard from "../components/ReviewCard";
 
 function page() {
     const { data: session } = useSession();
+
+    let typeAdmin = false;
+    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
+        typeAdmin = true;
+    };
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -36,56 +41,6 @@ function page() {
             main: "-"
         }
     ];
-    const contentsReviews = [
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        }
-    ]
     
     return (
         <div>
@@ -122,9 +77,9 @@ function page() {
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
             </div>
-            <Card contents = {contentsReviews} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96"/>
+            <ReviewCard/>
             <ReviewInbox/>
-            <Footer faq session = {session}/>
+            <Footer typeAdmin faq session = {session}/>
         </div>
     )
 }

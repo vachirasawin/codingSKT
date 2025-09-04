@@ -1,14 +1,17 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { connectMongoDB } from "../../../../../lib/mongodb";
+import { connectMongoDB } from "../../../../../lib/mongoose";
 import User from "../../../../../models/user";
 import bcrypt from "bcryptjs";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import clientPromise from "../../../../../lib/mongodb";
 
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import FacebookProvider from "next-auth/providers/facebook";
 
 const authOptions = {
+    adapter: MongoDBAdapter(clientPromise),
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -62,6 +65,7 @@ const authOptions = {
                 token.lastName = user.lastName || null;
                 token.username = user.username || null;
                 token.email = user.email;
+                token.picture = user.profileImageUrl || null;
             } else if (account?.provider === "google" || account?.provider === "github" || account?.provider === "facebook") {
                 token.id = user.id;
                 token.name = user.name;

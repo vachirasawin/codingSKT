@@ -58,8 +58,8 @@ function page() {
 
     const handleAddInput = () => {
         setInputs(prev => {
-            const gpaCount = prev[0].length - 4;
-            const newInput = ["", "", "", "", ...Array(gpaCount).fill("")];
+            const gpaCount = prev[0].length - 2;
+            const newInput = ["", "", ...Array(gpaCount).fill("")];
             return [...prev, newInput];
         });
     };
@@ -81,9 +81,9 @@ function page() {
     };
     const handleReset = () => {
         setInputs([
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""]
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
         ]);
         resetAlert();
     };
@@ -91,7 +91,7 @@ function page() {
     const handleAddGPA = () => {
         setInputs(prevInputs =>
             prevInputs.map(row => {
-                const gpaCount = row.length - 4;
+                const gpaCount = row.length - 2;
                 if (gpaCount < 5) {
                     return [...row, ""];
                 }
@@ -102,10 +102,10 @@ function page() {
     const handleRemoveGPA = () => {
         setInputs((prevInputs) =>
             prevInputs.map(row => {
-                if (row.length > 5) {
+                if (row.length > 3) {
                     return row.slice(0, -1);
                 }
-                return row; 
+                return row;
             })
         );
     };
@@ -145,41 +145,43 @@ function page() {
                                 </div>
                             </div>
                             <div className = "flex overflow-x-auto styleScrollbar">
-                                {inputs.map((input, index) => (
-                                    <div key = {index} className = {`border border-[#ececec] rounded-lg ${(index === 0 && inputs.length > 1) && "rounded-r-none border-r-0"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-none border-r-0"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
-                                        <div className = "w-28">
-                                            <Listbox value = {`${inputs[index][0]}${inputs[index][1] ? ` - ${inputs[index][1]}` : ""}`} onChange = {(val) => {const parts = val.split(" - "); const title = parts[0] || ""; const description = parts[1] || ""; handleInput(index, 0, title); handleInput(index, 1, description); resetAlert();}}>
-                                                <Listbox.Button className = "w-28 h-14 absolute opacity-0"/>
-                                                <Listbox.Options className = "absolute bg-white border border-[#ececec] text-sm text-center rounded-xl max-h-60 overflow-y-auto styleScrollbar outline-none mt-14">
-                                                    {subject.map((subject, i) => (
-                                                        <Listbox.Option key = {i} value = {subject[0]} className = {({ active })  => `cursor-pointer px-4 py-2 trnasition-all duration-100 ${active ? "bg-blue-500 text-white" : "text-[#171717]"}`}>
-                                                            {subject[0]}
-                                                        </Listbox.Option>
-                                                    ))}
-                                                </Listbox.Options>
-                                            </Listbox>
-                                            <div className = {`bg-[#171717] flex flex-col justify-center items-center h-14 rounded-t-lg ${input[0] === "" ? "text-[#9497a1]" : "text-white"} ${(index === 0 && inputs.length > 1) && "rounded-r-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-t-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
-                                                <div className = "w-full outline-none text-xs gap-2 flex justify-center items-center">
-                                                    <i className = {`${(input[0] === "Thai" || input[0] === "English") && "fa-solid fa-language"} ${input[0] === "Math" && "fa-solid fa-calculator"} ${(input[0] === "Science" || input[0] === "Physics") && "fa-solid fa-atom"} ${input[0] === "Chemistry" && "fa-solid fa-flask"} ${input[0] === "Biology" && "fa-solid fa-microscope"} ${input[0] === "Computer" && "fa-solid fa-computer"} ${input[0] === "Robot" && "fa-solid fa-robot"} ${input[0] === "Project" && "fa-solid fa-diagram-project"} ${input[0] === "Social" && "fa-solid fa-people-group"} ${(input[0] === "Social" && input[1] === "History / Buddhism") && "fa-solid fa-dharmachakra"} ${input[0] === "Health" && "fa-solid fa-book-medical"} ${input[0] === "PE" && "fa-solid fa-dumbbell"} ${input[0] === "Art" && "fa-solid fa-palette"} ${input[0] === "Career" && "hidden"}`}></i>
-                                                    <h1 className = "text-base font-medium">{input[0] || "Subject"}</h1>
+                                {inputs.map((input, index) => {
+                                    const parts = input[0] ? input[0].split(" - ") : ["", ""];
+                                    return (
+                                        <div key = {index} className = {`border border-[#ececec] rounded-lg ${(index === 0 && inputs.length > 1) && "rounded-r-none border-r-0"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-none border-r-0"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
+                                            <div className = "w-28">
+                                                <Listbox value = {`${inputs[index][0]}`} onChange = {(val) => {const parts = val.split(" - "); const title = parts[0] || ""; const description = parts[1] || ""; handleInput(index, 0, description ? `${title} - ${description}` : title); resetAlert();}}>
+                                                    <Listbox.Button className = "w-28 h-14 absolute opacity-0"/>
+                                                    <Listbox.Options className = "absolute bg-white border border-[#ececec] text-sm text-center rounded-xl max-h-60 overflow-y-auto styleScrollbar outline-none mt-14">
+                                                        {subject.map((subject, i) => (
+                                                            <Listbox.Option key = {i} value = {subject[0]} className = {({ active })  => `cursor-pointer px-4 py-2 trnasition-all duration-100 ${active ? "bg-blue-500 text-white" : "text-[#171717]"}`}>
+                                                                {subject[0]}
+                                                            </Listbox.Option>
+                                                        ))}
+                                                    </Listbox.Options>
+                                                </Listbox>
+                                                <div className = {`bg-[#171717] flex flex-col justify-center items-center h-14 rounded-t-lg ${input[0] === "" ? "text-[#9497a1]" : "text-white"} ${(index === 0 && inputs.length > 1) && "rounded-r-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-t-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
+                                                    <div className = "w-full outline-none text-xs gap-2 flex justify-center items-center">
+                                                        <i className = {`${(parts[0] === "Thai" || parts[0] === "English") && "fa-solid fa-language"} ${parts[0] === "Math" && "fa-solid fa-calculator"} ${(parts[0] === "Science" || parts[0] === "Physics") && "fa-solid fa-atom"} ${parts[0] === "Chemistry" && "fa-solid fa-flask"} ${parts[0] === "Biology" && "fa-solid fa-microscope"} ${parts[0] === "Computer" && "fa-solid fa-computer"} ${parts[0] === "Robot" && "fa-solid fa-robot"} ${parts[0] === "Project" && "fa-solid fa-diagram-project"} ${parts[0] === "Social" && "fa-solid fa-people-group"} ${(parts[0] === "Social" && parts[1] === "History / Buddhism") && "fa-solid fa-dharmachakra"} ${parts[0] === "Health" && "fa-solid fa-book-medical"} ${parts[0] === "PE" && "fa-solid fa-dumbbell"} ${parts[0] === "Art" && "fa-solid fa-palette"} ${parts[0] === "Career" && "hidden"}`}></i>
+                                                        <h1 className = "text-base font-medium">{parts[0] || "Subject"}</h1>
+                                                    </div>
+                                                    {parts[1] !== "" && (
+                                                        <div className = "w-full text-[10px] font-medium outline-none text-center">{parts[1]}</div>
+                                                    )}
                                                 </div>
-                                                {input[1] !== "" && (
-                                                    <div className = "w-full text-[10px] font-medium outline-none text-center">{input[1]}</div>
-                                                )}
-                                            </div>
-                                            <div className = "w-full">
-                                                <input type = "number" value = {input[2]} onChange = {(e) => handleInput(index, 2, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = "Credit Studied"/>
-                                                <input type = "number" value = {input[3]} onChange = {(e) => handleInput(index, 3, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = "Credit Earned"/>
-                                                {input.slice(4).map((value, i) => (
-                                                    <input type = "number" key = {i} value = {value} onChange = {(e) => handleInput(index, i + 4, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = {`GPA ${i + 1}`}/>
-                                                ))}
-                                            </div>
-                                            <div onClick = {() => {handleRemoveInput(inputs.length - 1); resetAlert();}} className = {`bg-[#f55555] text-center text-sm font-medium text-white py-1 rounded-b-lg ${(index === 0 && inputs.length > 1) && "rounded-br-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-b-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-bl-none"}`}>
-                                                <i className = "fa-solid fa-xmark"></i>
+                                                <div className = "w-full">
+                                                    <input type = "number" value = {input[1]} onChange = {(e) => handleInput(index, 1, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = "Credit"/>
+                                                    {input.slice(2).map((value, i) => (
+                                                        <input type = "number" key = {i} value = {value} onChange = {(e) => handleInput(index, i + 2, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = {`GPA ${i + 1}`}/>
+                                                    ))}
+                                                </div>
+                                                <div onClick = {() => {handleRemoveInput(inputs.length - 1); resetAlert();}} className = {`bg-[#f55555] text-center text-sm font-medium text-white py-1 rounded-b-lg ${(index === 0 && inputs.length > 1) && "rounded-br-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-b-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-bl-none"}`}>
+                                                    <i className = "fa-solid fa-xmark"></i>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
                         <div className = "flex gap-4 justify-center items-center">

@@ -6,15 +6,13 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Link from "next/link";
 
 // import from components
-import Navbar from "../components/Navbar";
-import Title from "../components/Title";
-import Footer from "../components/Footer";
-import TitleFooter from "../components/TitleFooter";
-import ReviewInbox from "../components/ReviewInbox";
-import ReviewCard from "../components/ReviewCard";
+import Navbar from "../../components/Navbar";
+import Title from "../../components/Title";
+import Footer from "../../components/Footer";
+import TitleFooter from "../../components/TitleFooter";
+import Card from "../../components/Card";
 
 function page() {
     const { data: session } = useSession();
@@ -30,45 +28,6 @@ function page() {
 
     const contents = [
         {
-            title: "Linear Regression",
-            image: "LinearRegression",
-            extension: "png",
-            content: "Content",
-            description: "การถดถอยเชิงเส้น",
-            width: "2373",
-            height: "1311",
-            reverse: false,
-            highlight: "เหมาะกับการพยากรณ์เบื้องต้นข้อมูลเป็นลักษณะกราฟเส้นตรง",
-            weakness: "อาจพยากรณ์ผลคลาดเคลื่อนถ้าข้อมูลไม่เป็นลักษณะกราฟเส้นตรง",
-            link: "models/linear regression"
-        },
-        {
-            title: "Polynomial Regression",
-            image: "PolynomialRegression",
-            extension: "png",
-            content: "Content",
-            description: "การถดถอยเชิงพหุคณิต",
-            width: "2373",
-            height: "1311",
-            reverse: true,
-            highlight: "เหมาะกับการพยากรณ์ที่ข้อมูลเป็นลักษณะกราฟเพิ่ม/ลด",
-            weakness: "ถ้าเลือกเลขชี้กำลัง (degree) ของ features สูงไปทำให้เรียนรู้มากเกินไป แต่ถ้าน้อยไปทำให้เรียนรู้น้อยเกินไป",
-            link: "models/polynomial regression"
-        },
-        {
-            title: "Regularized Linear Regression (Ridge)",
-            image: "RegularizedLinearRegression_Ridge",
-            extension: "png",
-            content: "Content",
-            description: "การถดถอยเชิงเส้นแบบมีการปรับค่าลงโทษ",
-            width: "2373",
-            height: "1311",
-            reverse: false,
-            highlight: "ลดความซับซ้อนของโมเดล ทำงานได้ดีกว่า Linear Regression ถ้า features บางตัวคล้ายกัน",
-            weakness: "ถ้าข้อมูลไม่ซับซ้อนก็ไม่ต่างจาก Linear Regression",
-            link: "models/regularized linear regression (ridge)"
-        },
-        {
             title: "Decision Tree Regression",
             image: "DecisionTreeRegression",
             extension: "png",
@@ -79,15 +38,72 @@ function page() {
             reverse: true,
             highlight: "จับความสัมพันธ์ซับซ้อนและไม่เชิงเส้นได้ดี",
             weakness: "ไม่เสถียร ไม่เหมาะกับข้อมูลต่อเนื่อง",
-            link: "models/decision tree regression"
+            link: ""
         }
     ];
+    const contentsEvaluation = [
+        {
+            title: "Predict GPA 2",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 42.62261%</p><p>MSE 0.2209653</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-2"
+        },
+        {
+            title: "Predict GPA 3",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 38.97409%</p><p>MSE 1.7692480</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-3"
+        },
+        {
+            title: "Predict GPA 4",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 97.58661%</p><p>MSE 0.0747075</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-4"
+        },
+        {
+            title: "Predict GPA 5",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 98.41933%</p><p>MSE 0.0367035</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-5"
+        },
+        {
+            title: "Predict GPA 6",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 98.05441%</p><p>MSE 0.0427507</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-6"
+        }
+    ]
     
     return (
         <div>
-            <Navbar models/>
+            <Navbar decisionTreeRegression/>
             <Title/>
-            <TitleFooter title = "Models" description = "โมเดลการพยากรณ์ช่วงของผลการเรียนของผู้เรียนในอนาคต"/>
+            <TitleFooter title = "Decision Tree Regression" description = "การถดถอยแบบต้นไม้ตัดสินใจ"/>
             <div className = "px-4 bg-white">
                 {contents.map((content, index) => (
                     <div className =  {`container border-b border-[#ececec] mx-auto justify-self-center flex ${content.reverse ? "flex-row-reverse" : "flex-row"} justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4`} key = {content.title}>
@@ -121,14 +137,6 @@ function page() {
                                     </div>
                                 )}
                             </div>
-                            <div className = "flex gap-2 max-md:flex-col" data-aos = "fade-up">
-                                <Link href = {`/${content.link}`} className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-[#171717] text-white hover:bg-white hover:text-[#171717] h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Learn More</Link>
-                                {session ? (
-                                    <Link href = "/dashboard" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-white text-[#171717] hover:bg-[#171717] hover:text-white h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Dashboard</Link>
-                                ) : (
-                                    <Link href = "/signin" className = "shadow-md w-1/2 max-md:w-full border-2 border-[#171717] bg-white text-[#171717] hover:bg-[#171717] hover:text-white h-12 max-md:h-10 flex justify-center items-center rounded-xl font-medium text-sm transition-all duration-200">Sign In</Link>
-                                )}
-                            </div>
                         </div>
                         <div className = "w-max h-max p-4 rounded-2xl shadow-md bg-white" data-aos = "fade-up">
                             <Image src = {`/${content.image}.${content.extension}`} unoptimized width = {content.width} height = {content.height} className = "object-contain w-lg max-lg:w-full" alt = {content.title}/>
@@ -136,9 +144,8 @@ function page() {
                     </div>
                 ))}
             </div>
-            <ReviewCard/>
-            <ReviewInbox/>
-            <Footer models session = {session}/>
+            <Card contents = {contentsEvaluation} subTitle = "Model" title = "Evaluation" inverse description = "ประเมินผลโมเดล" h = "h-68"/>
+            <Footer typeAdmin decisionTreeRegression session = {session}/>
         </div>
     )
 }

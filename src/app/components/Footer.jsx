@@ -1,12 +1,13 @@
 // import from Next.js
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "aos/dist/aos.css";
 
-function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models, linearRegression, polynomialRegression, regularizedLinearRegressionRidge, decisionTreeRegression, admin, typeAdmin }) {
     const [quickLink, setQuickLink] = useState(false);
     const [information, setInformation] = useState(false);
+    const [modelsPage, setModelsPage] = useState(false);
     const [contactInfo, setContactInfo] = useState(false);
 
     return (
@@ -22,7 +23,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 3.9.25.1</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 5.9.25.1</p>
                 </div>
                 <div className = "flex gap-8 max-md:flex-col max-md:gap-4">
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
@@ -37,9 +38,12 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <Link href = "/about us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
                             {session ? (
                                 <>
-                                    <Link href = "/add information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
+                                    <Link href = "/add%20information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
                                     <Link href = "/profile" className = {`${profile && "text-white"}`}>Profile</Link>
                                     <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
+                                    {typeAdmin && (
+                                        <Link href = "/admin" className = {`${admin && "text-white"}`}>Admin</Link>
+                                    )}
                                 </>
                             ) : (
                                 <>
@@ -57,12 +61,26 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             </div>
                         </div>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${information ? "max-md:flex" : "max-md:hidden"}`}>
-                            <Link href = "/user guide" className = {`${userGuide && "text-white"}`}>User Guide</Link>
+                            <Link href = "/user%20guide" className = {`${userGuide && "text-white"}`}>User Guide</Link>
                             <Link href = "/faqs" className = {`${faq && "text-white"}`}>FAQs</Link>
                             <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
-                            <Link href = "/our team" className = {`${ourTeam && "text-white"}`}>Our Team</Link>
+                            <Link href = "/our%20team" className = {`${ourTeam && "text-white"}`}>Our Team</Link>
+                            <Link href = "/privacy%20policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
+                        </div>
+                    </div>
+                    <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
+                        <div className = "flex justify-between items-center">
+                            <h1 className = "font-semibold text-sm">Models</h1>
+                            <div className = {`md:hidden h-4 w-4 flex justify-center items-center transition-all duration-500 ${modelsPage && "rotate-180"}`} onClick = {() => setModelsPage(!modelsPage)}>
+                                <i className = "fa-solid fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${modelsPage ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/models" className = {`${models && "text-white"}`}>Models</Link>
-                            <Link href = "/privacy policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
+                            <Link href = "/models/linear%20regression" className = {`${linearRegression && "text-white"}`}>Linear Regression</Link>
+                            <Link href = "/models/polynomial%20regression" className = {`${polynomialRegression && "text-white"}`}>Polynomial Regression</Link>
+                            <Link href = "/models/regularized%20linear%20regression%20(ridge)" className = {`${regularizedLinearRegressionRidge && "text-white"}`}>Regularized Linear Regression (Ridge)</Link>
+                            <Link href = "/models/decision%20tree%20regression" className = {`${decisionTreeRegression && "text-white"}`}>Decision Tree Regression</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
