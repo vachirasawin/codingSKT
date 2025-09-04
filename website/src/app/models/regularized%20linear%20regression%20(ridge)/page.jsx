@@ -6,7 +6,6 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Link from "next/link";
 
 // import from components
 import Navbar from "../../components/Navbar";

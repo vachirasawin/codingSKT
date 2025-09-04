@@ -22,6 +22,12 @@ function page() {
     useEffect(() => {
         AOS.init({ duration: 1000 });   
     }, []);
+
+    useEffect(() => {
+        if (!session || session.user.email !== "vachirasawin.mah@gmail.com") {
+            router.push("/");
+        }
+    }, [session, router])
     
     return (
         <div>

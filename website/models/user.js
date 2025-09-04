@@ -27,8 +27,7 @@ const userSchema = new Schema (
             required: true
         },
         profileImageUrl: {
-            type: String,
-            default: "/profile.png",
+            type: String
         },
     }, { timestamps: true } 
 )

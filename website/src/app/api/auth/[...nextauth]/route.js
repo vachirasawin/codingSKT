@@ -62,6 +62,7 @@ const authOptions = {
                 token.lastName = user.lastName || null;
                 token.username = user.username || null;
                 token.email = user.email;
+                token.picture = user.profileImageUrl || null;
             } else if (account?.provider === "google" || account?.provider === "github" || account?.provider === "facebook") {
                 token.id = user.id;
                 token.name = user.name;

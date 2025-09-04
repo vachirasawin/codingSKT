@@ -6,14 +6,13 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Link from "next/link";
 
 // import from components
-import Navbar from "../components/Navbar";
-import Title from "../components/Title";
-import Footer from "../components/Footer";
-import TitleFooter from "../components/TitleFooter";
-import Card from "../components/Card";
+import Navbar from "../../components/Navbar";
+import Title from "../../components/Title";
+import Footer from "../../components/Footer";
+import TitleFooter from "../../components/TitleFooter";
+import Card from "../../components/Card";
 
 function page() {
     const { data: session } = useSession();

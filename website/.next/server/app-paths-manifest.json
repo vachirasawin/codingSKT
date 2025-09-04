@@ -1,6 +1,8 @@
 {
-  "/api/review/route": "app/api/review/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/review/route": "app/api/review/route.js",
   "/page": "app/page.js",
-  "/models/linear%20regression/page": "app/models/linear%20regression/page.js"
+  "/signin/page": "app/signin/page.js",
+  "/profile/page": "app/profile/page.js"
 }
