@@ -14,6 +14,7 @@ import Footer from "../components/Footer";
 import TitleFooter from "../components/TitleFooter";
 import ReviewInbox from "../components/ReviewInbox";
 import ReviewCard from "../components/ReviewCard";
+import Count from "../components/Count";
 
 function page() {
     const { data: session } = useSession();
@@ -77,6 +78,7 @@ function page() {
                     <Image src = "/AI.jpg" unoptimized width = {2000} height = {1300} className = "object-contain w-lg max-lg:w-full rounded-2xl shadow-md" alt = "AI" data-aos = "fade-up"/>
                 </div>
             </div>
+            <Count/>
             <ReviewCard/>
             <ReviewInbox/>
             <Footer typeAdmin faq session = {session}/>

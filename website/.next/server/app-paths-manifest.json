@@ -1,8 +1,12 @@
 {
-  "/api/reviews/route": "app/api/reviews/route.js",
   "/api/users/route": "app/api/users/route.js",
+  "/api/reviews/route": "app/api/reviews/route.js",
   "/api/review/route": "app/api/review/route.js",
   "/api/views/[slug]/route": "app/api/views/[slug]/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/about%20us/page": "app/about%20us/page.js",
+  "/user%20guide/page": "app/user%20guide/page.js",
+  "/faqs/page": "app/faqs/page.js",
+  "/models/page": "app/models/page.js",
+  "/models/linear%20regression/page": "app/models/linear%20regression/page.js"
 }

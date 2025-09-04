@@ -13,6 +13,7 @@ import Title from "../../components/Title";
 import Footer from "../../components/Footer";
 import TitleFooter from "../../components/TitleFooter";
 import Card from "../../components/Card";
+import Count from "@/app/components/Count";
 
 function page() {
     const { data: session } = useSession();
@@ -144,6 +145,7 @@ function page() {
                     </div>
                 ))}
             </div>
+            <Count/>
             <Card contents = {contentsEvaluation} subTitle = "Model" title = "Evaluation" inverse description = "ประเมินผลโมเดล" h = "h-68"/>
             <Footer typeAdmin regularizedLinearRegressionRidge session = {session}/>
         </div>
