@@ -136,12 +136,12 @@
 ![Decision Tree Regression](modelGraph/DecisionTreeRegression.png)
 
 # Project Report
-- [Introduction]((https://codingskt.vercel.app/introduction.pdf)): บทที่ 1 บทนำ
-- [Chapter 2]((https://codingskt.vercel.app/system-analysis.pdf)): บทที่ 2 XXX
-- [System Analysis]((https://codingskt.vercel.app/system-analysis.pdf)): บทที่ 3 การวิเคราะห์ระบบ
-- [Chapter 4]((https://codingskt.vercel.app/system-analysis.pdf)): บทที่ 4 XXX
-- [Chapter 5]((https://codingskt.vercel.app/system-analysis.pdf)): บทที่ 5 XXX
-- [Chapter 6]((https://codingskt.vercel.app/system-analysis.pdf)): บทที่ 6 XXX
+- [Introduction](https://codingskt.vercel.app/introduction.pdf): บทที่ 1 บทนำ
+- [Chapter 2](https://codingskt.vercel.app/system-analysis.pdf): บทที่ 2 XXX
+- [System Analysis](https://codingskt.vercel.app/system-analysis.pdf): บทที่ 3 การวิเคราะห์ระบบ
+- [Chapter 4](https://codingskt.vercel.app/system-analysis.pdf): บทที่ 4 XXX
+- [Chapter 5](https://codingskt.vercel.app/system-analysis.pdf): บทที่ 5 XXX
+- [Chapter 6](https://codingskt.vercel.app/system-analysis.pdf): บทที่ 6 XXX
 
 # Source
 - https://pandas.pydata.org/
