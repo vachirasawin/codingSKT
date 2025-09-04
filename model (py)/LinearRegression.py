@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 # Data preprocessing & Data cleansing & Handling Missing Values
-data = pd.read_csv("C:\\Users\\vachi\\OneDrive\\Desktop\\codingSKT\\dataset.csv")
+data = pd.read_csv("C:\\Users\\DELL\\Desktop\\codingSKT\\dataset.csv")
 data = data.drop(columns = ["gen", "code", "robot_5", "project_2", "project_3", "project_4", "project_5", "project_6", "career_5", "career_6"])
 data = data.drop(0)
 data = data.replace("-", pd.NA)

@@ -14,15 +14,13 @@
     ]
 
 # Process of Converting Input to Array in API
-- Define list
-
+    <!-- Define list -->
     let credits_studied = [[], [], [], [], []]
     let credits_earned = [[], [], [], [], []]
     let gpa = [[], [], [], [], []]
     let api = []
 
-- Fill credit in credits_studied[] & credits_earned[]
-
+    <!-- Fill credit in credits_studied[] & credits_earned[] -->
     for (let i = 0; i < inputs.length; i++) {
         for (let j = 0; j < credits_studied.length; j++) {
             credits_studied[j].push(inputs[i][1]);
@@ -30,26 +28,22 @@
         }
     }
 
-- Fill gpa in gpa[]
-
+    <!-- Fill gpa in gpa[] -->
     for i in range(len(inputs)):
         for j in range(len(gpa)):
             gpa[j].append(inputs[i][j + 2])
 
-- Transform credit to credit earned in credits_earned[]
-
+    <!-- Transform credit to credit earned in credits_earned[] -->
     for i in range(len(credits_earned)):
         for j in range(len(credits_earned[i])):
             credits_earned[i][j] = credits_earned[i][j] * (1 if gpa[i][j] > 0 else 0)
 
-- Sum credits_studied[] & credits_earned[]
-
+    <!-- Sum credits_studied[] & credits_earned[] -->
     for i in range(len(credits_studied)):
         credits_studied[i] = sum(credits_studied[i])
         credits_earned[i] = sum(credits_earned[i])
 
-- Fill gpa[] & credits_studied[] & credits_earned[] in api[]
-
+    <!-- Fill gpa[] & credits_studied[] & credits_earned[] in api[] -->
     for i in range(len(gpa)):
         api.append(gpa[i] + [credits_studied[i], credits_earned[i]])
             

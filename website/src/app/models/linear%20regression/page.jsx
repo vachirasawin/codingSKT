@@ -9,13 +9,19 @@ import "aos/dist/aos.css";
 import Link from "next/link";
 
 // import from components
-import Navbar from "../components/Navbar";
-import Title from "../components/Title";
-import Footer from "../components/Footer";
-import TitleFooter from "../components/TitleFooter";
+import Navbar from "../../components/Navbar";
+import Title from "../../components/Title";
+import Footer from "../../components/Footer";
+import TitleFooter from "../../components/TitleFooter";
+import Card from "../../components/Card";
 
 function page() {
     const { data: session } = useSession();
+
+    let typeAdmin = false;
+    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
+        typeAdmin = true;
+    };
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -23,25 +29,82 @@ function page() {
 
     const contents = [
         {
-            title: "Polynomial Regression",
-            image: "PolynomialRegression",
+            title: "Linear Regression",
+            image: "LinearRegression",
             extension: "png",
             content: "Content",
-            description: "การถดถอยเชิงพหุคณิต",
+            description: "การถดถอยเชิงเส้น",
             width: "2373",
             height: "1311",
-            reverse: true,
-            highlight: "เหมาะกับการพยากรณ์ที่ข้อมูลเป็นลักษณะกราฟเพิ่ม/ลด",
-            weakness: "ถ้าเลือกเลขชี้กำลัง (degree) ของ features สูงไปทำให้เรียนรู้มากเกินไป แต่ถ้าน้อยไปทำให้เรียนรู้น้อยเกินไป",
+            reverse: false,
+            highlight: "เหมาะกับการพยากรณ์เบื้องต้นข้อมูลเป็นลักษณะกราฟเส้นตรง",
+            weakness: "อาจพยากรณ์ผลคลาดเคลื่อนถ้าข้อมูลไม่เป็นลักษณะกราฟเส้นตรง",
             link: ""
         }
     ];
+    const contentsEvaluation = [
+        {
+            title: "Predict GPA 2",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 84.77472%</p><p>MSE 0.0230229</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-2"
+        },
+        {
+            title: "Predict GPA 3",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 46.88010%</p><p>MSE 1.5400387</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-3"
+        },
+        {
+            title: "Predict GPA 4",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 98.49838%</p><p>MSE 0.0406720</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-4"
+        },
+        {
+            title: "Predict GPA 5",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 98.92722%</p><p>MSE 0.0249101</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-5"
+        },
+        {
+            title: "Predict GPA 6",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 98.58638%</p><p>MSE 0.0310617</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-6"
+        }
+    ]
     
     return (
         <div>
-            <Navbar polynomialRegression/>
+            <Navbar linearRegression/>
             <Title/>
-            <TitleFooter title = "Polynomial Regression" description = "การถดถอยเชิงพหุคณิต"/>
+            <TitleFooter title = "Linear Regression" description = "การถดถอยเชิงเส้น"/>
             <div className = "px-4 bg-white">
                 {contents.map((content, index) => (
                     <div className =  {`container border-b border-[#ececec] mx-auto justify-self-center flex ${content.reverse ? "flex-row-reverse" : "flex-row"} justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4`} key = {content.title}>
@@ -82,7 +145,8 @@ function page() {
                     </div>
                 ))}
             </div>
-            <Footer polynomialRegression session = {session}/>
+            <Card contents = {contentsEvaluation} subTitle = "Model" title = "Evaluation" inverse description = "ประเมินผลโมเดล" h = "h-68"/>
+            <Footer typeAdmin linearRegression session = {session}/>
         </div>
     )
 }

@@ -1,8 +1,6 @@
 {
+  "/api/review/route": "app/api/review/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/models/page": "app/models/page.js",
-  "/linear%20regression/page": "app/linear%20regression/page.js",
-  "/polynomial%20regression/page": "app/polynomial%20regression/page.js",
-  "/regularized%20linear%20regression%20(ridge)/page": "app/regularized%20linear%20regression%20(ridge)/page.js",
-  "/decision%20tree%20regression/page": "app/decision%20tree%20regression/page.js"
+  "/page": "app/page.js",
+  "/models/linear%20regression/page": "app/models/linear%20regression/page.js"
 }

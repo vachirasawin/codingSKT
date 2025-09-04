@@ -14,10 +14,15 @@ import Title from "../components/Title";
 import Footer from "../components/Footer";
 import TitleFooter from "../components/TitleFooter";
 import ReviewInbox from "../components/ReviewInbox";
-import Card from "../components/Card";
+import ReviewCard from "../components/ReviewCard";
 
 function page() {
     const { data: session } = useSession();
+
+    let typeAdmin = false;
+    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
+        typeAdmin = true;
+    };
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -35,7 +40,7 @@ function page() {
             reverse: false,
             highlight: "เหมาะกับการพยากรณ์เบื้องต้นข้อมูลเป็นลักษณะกราฟเส้นตรง",
             weakness: "อาจพยากรณ์ผลคลาดเคลื่อนถ้าข้อมูลไม่เป็นลักษณะกราฟเส้นตรง",
-            link: "linear regression"
+            link: "models/linear regression"
         },
         {
             title: "Polynomial Regression",
@@ -48,7 +53,7 @@ function page() {
             reverse: true,
             highlight: "เหมาะกับการพยากรณ์ที่ข้อมูลเป็นลักษณะกราฟเพิ่ม/ลด",
             weakness: "ถ้าเลือกเลขชี้กำลัง (degree) ของ features สูงไปทำให้เรียนรู้มากเกินไป แต่ถ้าน้อยไปทำให้เรียนรู้น้อยเกินไป",
-            link: "polynomial regression"
+            link: "models/polynomial regression"
         },
         {
             title: "Regularized Linear Regression (Ridge)",
@@ -61,7 +66,7 @@ function page() {
             reverse: false,
             highlight: "ลดความซับซ้อนของโมเดล ทำงานได้ดีกว่า Linear Regression ถ้า features บางตัวคล้ายกัน",
             weakness: "ถ้าข้อมูลไม่ซับซ้อนก็ไม่ต่างจาก Linear Regression",
-            link: "regularized linear regression (ridge)"
+            link: "models/regularized linear regression (ridge)"
         },
         {
             title: "Decision Tree Regression",
@@ -74,57 +79,7 @@ function page() {
             reverse: true,
             highlight: "จับความสัมพันธ์ซับซ้อนและไม่เชิงเส้นได้ดี",
             weakness: "ไม่เสถียร ไม่เหมาะกับข้อมูลต่อเนื่อง",
-            link: "decision tree regression"
-        }
-    ];
-    const contentsReviews = [
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
-        },
-        {
-            title: "first name & last name",
-            image: "logo",
-            extension: "png",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos error rem cum. Obcaecati, quo.",
-            description: "ชื่อจริงและนามสกุล",
-            link: "-"
+            link: "models/decision tree regression"
         }
     ];
     
@@ -181,7 +136,7 @@ function page() {
                     </div>
                 ))}
             </div>
-            <Card contents = {contentsReviews} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96"/>
+            <ReviewCard/>
             <ReviewInbox/>
             <Footer models session = {session}/>
         </div>

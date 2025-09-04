@@ -12,40 +12,21 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
+    "/api/review/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/review/route.js"
+    ],
     "/api/auth/[...nextauth]/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/api/auth/[...nextauth]/route.js"
     ],
-    "/models/page": [
+    "/models/linear%20regression/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/models/page.css",
-      "static/chunks/app/models/page.js"
-    ],
-    "/linear%20regression/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/linear%20regression/page.css",
-      "static/chunks/app/linear%20regression/page.js"
-    ],
-    "/polynomial%20regression/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/polynomial%20regression/page.css",
-      "static/chunks/app/polynomial%20regression/page.js"
-    ],
-    "/regularized%20linear%20regression%20(ridge)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/regularized%20linear%20regression%20(ridge)/page.css",
-      "static/chunks/app/regularized%20linear%20regression%20(ridge)/page.js"
-    ],
-    "/decision%20tree%20regression/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/decision%20tree%20regression/page.css",
-      "static/chunks/app/decision%20tree%20regression/page.js"
+      "static/css/app/models/linear%20regression/page.css",
+      "static/chunks/app/models/linear%20regression/page.js"
     ]
   }
 }

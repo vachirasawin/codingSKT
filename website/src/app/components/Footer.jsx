@@ -1,10 +1,11 @@
 // import from Next.js
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "aos/dist/aos.css";
+import { useSession } from "next-auth/react";
 
-function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models, linearRegression, polynomialRegression, regularizedLinearRegressionRidge, decisionTreeRegression }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models, linearRegression, polynomialRegression, regularizedLinearRegressionRidge, decisionTreeRegression, admin, typeAdmin }) {
     const [quickLink, setQuickLink] = useState(false);
     const [information, setInformation] = useState(false);
     const [modelsPage, setModelsPage] = useState(false);
@@ -41,6 +42,9 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                     <Link href = "/add information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
                                     <Link href = "/profile" className = {`${profile && "text-white"}`}>Profile</Link>
                                     <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
+                                    {typeAdmin && (
+                                        <Link href = "/admin" className = {`${admin && "text-white"}`}>Admin</Link>
+                                    )}
                                 </>
                             ) : (
                                 <>
@@ -74,10 +78,10 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                         </div>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${modelsPage ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/models" className = {`${models && "text-white"}`}>Models</Link>
-                            <Link href = "/linear regression" className = {`${linearRegression && "text-white"}`}>Linear Regression</Link>
-                            <Link href = "/polynomial regression" className = {`${polynomialRegression && "text-white"}`}>Polynomial Regression</Link>
-                            <Link href = "/regularized linear regression (ridge)" className = {`${regularizedLinearRegressionRidge && "text-white"}`}>Regularized Linear Regression (Ridge)</Link>
-                            <Link href = "/decision tree regression" className = {`${decisionTreeRegression && "text-white"}`}>Decision Tree Regression</Link>
+                            <Link href = "/models/linear regression" className = {`${linearRegression && "text-white"}`}>Linear Regression</Link>
+                            <Link href = "/models/polynomial regression" className = {`${polynomialRegression && "text-white"}`}>Polynomial Regression</Link>
+                            <Link href = "/models/regularized linear regression (ridge)" className = {`${regularizedLinearRegressionRidge && "text-white"}`}>Regularized Linear Regression (Ridge)</Link>
+                            <Link href = "/models/decision tree regression" className = {`${decisionTreeRegression && "text-white"}`}>Decision Tree Regression</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">

@@ -9,13 +9,19 @@ import "aos/dist/aos.css";
 import Link from "next/link";
 
 // import from components
-import Navbar from "../components/Navbar";
-import Title from "../components/Title";
-import Footer from "../components/Footer";
-import TitleFooter from "../components/TitleFooter";
+import Navbar from "../../components/Navbar";
+import Title from "../../components/Title";
+import Footer from "../../components/Footer";
+import TitleFooter from "../../components/TitleFooter";
+import Card from "../../components/Card";
 
 function page() {
     const { data: session } = useSession();
+
+    let typeAdmin = false;
+    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
+        typeAdmin = true;
+    };
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -23,25 +29,82 @@ function page() {
 
     const contents = [
         {
-            title: "Decision Tree Regression",
-            image: "DecisionTreeRegression",
+            title: "Regularized Linear Regression (Ridge)",
+            image: "RegularizedLinearRegression_Ridge",
             extension: "png",
             content: "Content",
-            description: "การถดถอยแบบต้นไม้ตัดสินใจ",
+            description: "การถดถอยเชิงเส้นแบบมีการปรับค่าลงโทษ",
             width: "2373",
             height: "1311",
-            reverse: true,
-            highlight: "จับความสัมพันธ์ซับซ้อนและไม่เชิงเส้นได้ดี",
-            weakness: "ไม่เสถียร ไม่เหมาะกับข้อมูลต่อเนื่อง",
+            reverse: false,
+            highlight: "ลดความซับซ้อนของโมเดล ทำงานได้ดีกว่า Linear Regression ถ้า features บางตัวคล้ายกัน",
+            weakness: "ถ้าข้อมูลไม่ซับซ้อนก็ไม่ต่างจาก Linear Regression",
             link: ""
         }
     ];
+    const contentsEvaluation = [
+        {
+            title: "Predict GPA 2",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 82.46430%</p><p>MSE 0.0675357</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-2"
+        },
+        {
+            title: "Predict GPA 3",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 26.89610%</p><p>MSE 2.1998024</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-3"
+        },
+        {
+            title: "Predict GPA 4",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 98.50032%</p><p>MSE 0.0406195</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-4"
+        },
+        {
+            title: "Predict GPA 5",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 98.96122%</p><p>MSE 0.0241206</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-5"
+        },
+        {
+            title: "Predict GPA 6",
+            image: "-",
+            extension: "-",
+            content: "<p>R<sup>2</sup> 99.75269%</p><p>MSE 0.0050803</p>",
+            description: "R<sup>2</sup> | Mean Squared Error",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-6"
+        }
+    ]
     
     return (
         <div>
-            <Navbar decisionTreeRegression/>
+            <Navbar regularizedLinearRegressionRidge/>
             <Title/>
-            <TitleFooter title = "Decision Tree Regression" description = "การถดถอยแบบต้นไม้ตัดสินใจ"/>
+            <TitleFooter title = "Regularized Linear Regression (Ridge)" description = "การถดถอยเชิงเส้นแบบมีการปรับค่าลงโทษ"/>
             <div className = "px-4 bg-white">
                 {contents.map((content, index) => (
                     <div className =  {`container border-b border-[#ececec] mx-auto justify-self-center flex ${content.reverse ? "flex-row-reverse" : "flex-row"} justify-around flex-wrap-reverse items-center gap-16 max-md:gap-8 py-24 max-md:py-4`} key = {content.title}>
@@ -82,7 +145,8 @@ function page() {
                     </div>
                 ))}
             </div>
-            <Footer decisionTreeRegression session = {session}/>
+            <Card contents = {contentsEvaluation} subTitle = "Model" title = "Evaluation" inverse description = "ประเมินผลโมเดล" h = "h-68"/>
+            <Footer typeAdmin regularizedLinearRegressionRidge session = {session}/>
         </div>
     )
 }
