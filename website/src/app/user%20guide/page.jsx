@@ -13,7 +13,6 @@ import Title from "../components/Title";
 import TitleFooter from "../components/TitleFooter";
 import Footer from "../components/Footer";
 import ReviewInbox from "../components/ReviewInbox";
-import Card from "../components/Card";
 import ReviewCard from "../components/ReviewCard";
 
 function page() {

@@ -15,10 +15,10 @@
 
 # Process of Converting Input to Array in API
     <!-- Define list -->
-    let credits_studied = [[], [], [], [], []]
-    let credits_earned = [[], [], [], [], []]
-    let gpa = [[], [], [], [], []]
-    let api = []
+    let credits_studied = [[], [], [], [], []];
+    let credits_earned = [[], [], [], [], []];
+    let gpa = [[], [], [], [], []];
+    let api = [];
 
     <!-- Fill credit in credits_studied[] & credits_earned[] -->
     for (let i = 0; i < inputs.length; i++) {
@@ -29,23 +29,29 @@
     }
 
     <!-- Fill gpa in gpa[] -->
-    for i in range(len(inputs)):
-        for j in range(len(gpa)):
-            gpa[j].append(inputs[i][j + 2])
+    for (let i = 0; i < inputs.length; i++) {
+        for (let j = 0; j < gpa.length; j++) {
+            gpa[j].push(inputs[i][j + 2]);
+        }
+    }
 
     <!-- Transform credit to credit earned in credits_earned[] -->
-    for i in range(len(credits_earned)):
-        for j in range(len(credits_earned[i])):
-            credits_earned[i][j] = credits_earned[i][j] * (1 if gpa[i][j] > 0 else 0)
+    for (let i = 0; i < credits_earned.length; i++) {
+        for (let j = 0, j < credits_earned[i].length; j++) {
+            credits_earned[i][j] = credits_earned[i][j] * (1 if gpa[i][j] > 0 else 0);
+        }
+    }
 
     <!-- Sum credits_studied[] & credits_earned[] -->
-    for i in range(len(credits_studied)):
-        credits_studied[i] = sum(credits_studied[i])
-        credits_earned[i] = sum(credits_earned[i])
+    for (let i = 0; i < credits_studied.length; i++) {
+        credits_studied[i] = credits_studied[i].reduce((a, b) => a + b, 0);
+        credits_earned[i] = credits_earned[i].reduce((a, b) => a + b, 0);
+    }
 
     <!-- Fill gpa[] & credits_studied[] & credits_earned[] in api[] -->
-    for i in range(len(gpa)):
-        api.append(gpa[i] + [credits_studied[i], credits_earned[i]])
+    for (let i = 0; i < gpa.length; i++) {
+        api.push(gpa[i] + [credits_studied[i], credits_earned[i]]);
+    }
             
 # Data set (Features: 2D | Labels: 1D)
 ## GPA 1

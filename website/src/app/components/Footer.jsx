@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "aos/dist/aos.css";
-import { useSession } from "next-auth/react";
 
 function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models, linearRegression, polynomialRegression, regularizedLinearRegressionRidge, decisionTreeRegression, admin, typeAdmin }) {
     const [quickLink, setQuickLink] = useState(false);
