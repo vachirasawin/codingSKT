@@ -37,35 +37,17 @@
       "static/chunks/main-app.js",
       "static/chunks/app/api/auth/[...nextauth]/route.js"
     ],
-    "/about%20us/page": [
+    "/about-us/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/about%20us/page.css",
-      "static/chunks/app/about%20us/page.js"
+      "static/css/app/about-us/page.css",
+      "static/chunks/app/about-us/page.js"
     ],
-    "/user%20guide/page": [
+    "/add-information/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/user%20guide/page.css",
-      "static/chunks/app/user%20guide/page.js"
-    ],
-    "/faqs/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/faqs/page.css",
-      "static/chunks/app/faqs/page.js"
-    ],
-    "/models/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/models/page.css",
-      "static/chunks/app/models/page.js"
-    ],
-    "/models/linear%20regression/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/models/linear%20regression/page.css",
-      "static/chunks/app/models/linear%20regression/page.js"
+      "static/css/app/add-information/page.css",
+      "static/chunks/app/add-information/page.js"
     ]
   }
 }

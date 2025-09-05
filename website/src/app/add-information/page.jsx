@@ -21,9 +21,9 @@ function page() {
     }, []);
 
     const [inputs, setInputs] = useState([
-        ["", "", "", "", ""],
-        ["", "", "", "", ""],
-        ["", "", "", "", ""]
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
     ]);
     const [subject, setSubjects] = useState([
         ["Thai"],
@@ -76,8 +76,6 @@ function page() {
             updated[index][fieldIndex] = value;
             return updated;
         });
-
-        console.log(inputs)
     };
     const handleReset = () => {
         setInputs([
@@ -112,20 +110,48 @@ function page() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        const cleanedInputs = inputs.map((input) =>
-            input.map((value) => (value === "" ? "-" : value))
-        );
 
-        const hasIncomplete = cleanedInputs.some((input) =>
-            input[0] === "-" || input[2] === "-" || input[3] === "-" || input[4] === "-"
-        );
-        if (hasIncomplete) {
-            setAlert(true);
-            setMessage("Please complete all required fields.");
-            setType("error");
-            return;
+        let credits_studied = [[], [], [], [], []];
+        let credits_earned = [[], [], [], [], []];
+        let gpa = [[], [], [], [], []];
+        let api = [];
+
+        // Fill credit in credits_studied[] & credits_earned[]
+        for (let i = 0; i < inputs.length; i++) {
+            for (let j = 0; j < credits_studied.length; j++) {
+                credits_studied[j].push(inputs[i][1]);
+                credits_earned[j].push(inputs[i][1]);
+            }
         }
+        // Fill gpa in gpa[]
+        for (let i = 0; i < inputs.length; i++) {
+            for (let j = 0; j < gpa.length; j++) {
+                gpa[j].push(inputs[i][j + 2]);
+            }
+        }
+        // Transform credit to credit studied in credits_studied[]
+        for (let i = 0; i < credits_studied.length; i++) {
+            for (let j = 0; j < credits_studied[i].length; j++) {
+                credits_studied[i][j] = credits_studied[i][j] * 1;
+            }
+        }
+        // Transform credit to credit earned in credits_earned[]
+        for (let i = 0; i < credits_earned.length; i++) {
+            for (let j = 0; j < credits_earned[i].length; j++) {
+                credits_earned[i][j] = credits_earned[i][j] * (gpa[i][j] > 0 ? 1 : 0);
+            }
+        }
+        // Sum credits_studied[] & credits_earned[]
+        for (let i = 0; i < credits_studied.length; i++) {
+            credits_studied[i] = credits_studied[i].reduce((a, b) => a + b, 0);
+            credits_earned[i] = credits_earned[i].reduce((a, b) => a + b, 0);
+        }
+        // Fill gpa[] & credits_studied[] & credits_earned[] in api[]
+        for (let i = 0; i < gpa.length; i++) {
+            api.push([...gpa[i].map(Number), credits_studied[i], credits_earned[i]]);
+        }
+        // Handling Missing Values
+        api = api.filter(row => !row.some(value => isNaN(value)));
     }
 
     return (

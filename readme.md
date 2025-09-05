@@ -76,10 +76,17 @@
         }
     }
 
+    <!-- Transform credit to credit studied in credits_studied[] -->
+    for (let i = 0; i < credits_studied.length; i++) {
+        for (let j = 0; j < credits_studied[i].length; j++) {
+            credits_studied[i][j] = credits_studied[i][j] * 1;
+        }
+    }
+
     <!-- Transform credit to credit earned in credits_earned[] -->
     for (let i = 0; i < credits_earned.length; i++) {
-        for (let j = 0, j < credits_earned[i].length; j++) {
-            credits_earned[i][j] = credits_earned[i][j] * (1 if gpa[i][j] > 0 else 0);
+        for (let j = 0; j < credits_earned[i].length; j++) {
+            credits_earned[i][j] = credits_earned[i][j] * (gpa[i][j] > 0 ? 1 : 0);
         }
     }
 
@@ -89,10 +96,13 @@
         credits_earned[i] = credits_earned[i].reduce((a, b) => a + b, 0);
     }
 
-    <!-- Fill gpa[] & credits_studied[] & credits_earned[] in api[] -->
+    <!-- // Fill gpa[] & credits_studied[] & credits_earned[] in api[] -->
     for (let i = 0; i < gpa.length; i++) {
-        api.push(gpa[i] + [credits_studied[i], credits_earned[i]]);
+        api.push([...gpa[i].map(Number), credits_studied[i], credits_earned[i]]);
     }
+
+    <!-- Handling Missing Values -->
+    api = api.filter(row => !row.some(value => isNaN(value)));
             
 # Data set (Features: 2D | Labels: 1D)
 ## Predict GPA 2
