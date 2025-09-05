@@ -14,7 +14,7 @@ import Message from "../components/Message";
 
 function page() {
     const { data: session } = useSession();
-    //if (!session) redirect ("/");
+    if (!session) redirect ("/");
         
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -25,26 +25,27 @@ function page() {
         ["", "", ""],
         ["", "", ""]
     ]);
-    const [subject, setSubjects] = useState([
-        ["Thai"],
-        ["English - Basic"],
-        ["English - Additional"],
-        ["Math - Basic"],
-        ["Math - Additional"],
-        ["Science"],
-        ["Physics"],
-        ["Chemistry"],
-        ["Biology"],
-        ["Computer"],
-        ["Robot"],
-        ["Project"],
-        ["Social"],
-        ["Social - History / Buddhism"],
-        ["Health"],
-        ["PE"],
-        ["Art"],
-        ["Career"]
-    ]);
+    const allSubjects = [
+        "Thai",
+        "English - Basic",
+        "English - Additional",
+        "Math - Basic",
+        "Math - Additional",
+        "Science",
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Computer",
+        "Robot",
+        "Project",
+        "Social",
+        "Social - History / Buddhism",
+        "Health",
+        "PE",
+        "Art",
+        "Career"
+    ];
+    const [selectedSubjects, setSelectedSubjects] = useState([]);
 
     const [message, setMessage] = useState("");
     const [type, setType] = useState("");
@@ -65,7 +66,8 @@ function page() {
     };
     const handleRemoveInput = (indexToRemove) => {
         setInputs(prev => {
-            if (prev.length <= 1) return prev;
+            const removedSubject = prev[indexToRemove][0];
+            setSelectedSubjects(prevSel => prevSel.filter(s => s !== removedSubject));
             return prev.filter((_, index) => index !== indexToRemove);
         });
     };
@@ -77,6 +79,7 @@ function page() {
             return updated;
         });
     };
+
     const handleReset = () => {
         setInputs([
             ["", "", ""],
@@ -111,11 +114,20 @@ function page() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i][0] === "" || inputs[i][1] === "") {
+                setAlert(true);
+                setMessage("Please complete all inputs.");
+                setType("error");
+                return;
+            }
+        }
+
+        // Define array credits_studied & credits_earned & gpa & api
         let credits_studied = [[], [], [], [], []];
         let credits_earned = [[], [], [], [], []];
         let gpa = [[], [], [], [], []];
         let api = [];
-
         // Fill credit in credits_studied[] & credits_earned[]
         for (let i = 0; i < inputs.length; i++) {
             for (let j = 0; j < credits_studied.length; j++) {
@@ -176,12 +188,12 @@ function page() {
                                     return (
                                         <div key = {index} className = {`border border-[#ececec] rounded-lg ${(index === 0 && inputs.length > 1) && "rounded-r-none border-r-0"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-none border-r-0"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
                                             <div className = "w-28">
-                                                <Listbox value = {`${inputs[index][0]}`} onChange = {(val) => {const parts = val.split(" - "); const title = parts[0] || ""; const description = parts[1] || ""; handleInput(index, 0, description ? `${title} - ${description}` : title); resetAlert();}}>
+                                                <Listbox value = {`${inputs[index][0]}`} onChange = {(val) => {handleInput(index, 0, val); setSelectedSubjects(prev => {const prevValue = inputs[index][0]; let updated = prev.filter(s => s !== prevValue); return [...updated, val];}); resetAlert();}}>
                                                     <Listbox.Button className = "w-28 h-14 absolute opacity-0"/>
                                                     <Listbox.Options className = "absolute bg-white border border-[#ececec] text-sm text-center rounded-xl max-h-60 overflow-y-auto styleScrollbar outline-none mt-14">
-                                                        {subject.map((subject, i) => (
-                                                            <Listbox.Option key = {i} value = {subject[0]} className = {({ active })  => `cursor-pointer px-4 py-2 trnasition-all duration-100 ${active ? "bg-blue-500 text-white" : "text-[#171717]"}`}>
-                                                                {subject[0]}
+                                                        {allSubjects.filter(subject => !selectedSubjects.includes(subject)).map((subject, i) => (
+                                                            <Listbox.Option key = {i} value = {subject} className = {({ active })  => `cursor-pointer px-4 py-2 trnasition-all duration-100 ${active ? "bg-blue-500 text-white" : "text-[#171717]"}`}>
+                                                                {subject}
                                                             </Listbox.Option>
                                                         ))}
                                                     </Listbox.Options>
@@ -201,7 +213,7 @@ function page() {
                                                         <input type = "number" key = {i} value = {value} onChange = {(e) => handleInput(index, i + 2, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = {`GPA ${i + 1}`}/>
                                                     ))}
                                                 </div>
-                                                <div onClick = {() => {handleRemoveInput(inputs.length - 1); resetAlert();}} className = {`bg-[#f55555] text-center text-sm font-medium text-white py-1 rounded-b-lg ${(index === 0 && inputs.length > 1) && "rounded-br-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-b-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-bl-none"}`}>
+                                                <div onClick = {() => {handleRemoveInput(inputs); resetAlert();}} className = {`bg-[#f55555] text-center text-sm font-medium text-white py-1 rounded-b-lg ${(index === 0 && inputs.length > 1) && "rounded-br-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-b-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-bl-none"}`}>
                                                     <i className = "fa-solid fa-xmark"></i>
                                                 </div>
                                             </div>

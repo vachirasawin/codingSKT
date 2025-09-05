@@ -55,7 +55,7 @@
     ]
 
 # Process of Converting Input to Array in API
-    <!-- Define list -->
+    <!-- Define array credits_studied & credits_earned & gpa & api -->
     let credits_studied = [[], [], [], [], []];
     let credits_earned = [[], [], [], [], []];
     let gpa = [[], [], [], [], []];
