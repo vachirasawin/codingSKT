@@ -2,9 +2,7 @@
 
 // import from Next.js
 import React, { useState, useEffect } from "react";
-import { Listbox } from "@headlessui/react";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -14,38 +12,34 @@ import Message from "../components/Message";
 
 function page() {
     const { data: session } = useSession();
-    if (!session) redirect ("/");
+    //if (!session) redirect ("/");
         
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
 
+    const [predictedGPA, setPredictedGPA] = useState(null);
+
     const [inputs, setInputs] = useState([
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""]
+        ["Thai", "", "", "", "", "", ""],
+        ["English - Basic", "", "", "", "", "", ""],
+        ["English - Additional", "", "", "", "", "", ""],
+        ["Math - Basic", "", "", "", "", "", ""],
+        ["Math - Additional", "", "", "", "", "", ""],
+        ["Science", "", "", "", "", "", ""],
+        ["Physics", "", "", "", "", "", ""],
+        ["Chemistry", "", "", "", "", "", ""],
+        ["Biology", "", "", "", "", "", ""],
+        ["Computer", "", "", "", "", "", ""],
+        ["Robot", "", "", "", "", "", ""],
+        ["Project", "", "", "", "", "", ""],
+        ["Social", "", "", "", "", "", ""],
+        ["Social - History / Buddhism", "", "", "", "", "", ""],
+        ["Health", "", "", "", "", "", ""],
+        ["PE", "", "", "", "", "", ""],
+        ["Art", "", "", "", "", "", ""],
+        ["Career", "", "", "", "", "", ""]
     ]);
-    const allSubjects = [
-        "Thai",
-        "English - Basic",
-        "English - Additional",
-        "Math - Basic",
-        "Math - Additional",
-        "Science",
-        "Physics",
-        "Chemistry",
-        "Biology",
-        "Computer",
-        "Robot",
-        "Project",
-        "Social",
-        "Social - History / Buddhism",
-        "Health",
-        "PE",
-        "Art",
-        "Career"
-    ];
-    const [selectedSubjects, setSelectedSubjects] = useState([]);
 
     const [message, setMessage] = useState("");
     const [type, setType] = useState("");
@@ -56,114 +50,155 @@ function page() {
         setMessage("");
         setType("");
     };
-
-    const handleAddInput = () => {
-        setInputs(prev => {
-            const gpaCount = prev[0].length - 2;
-            const newInput = ["", "", ...Array(gpaCount).fill("")];
-            return [...prev, newInput];
-        });
-    };
-    const handleRemoveInput = (indexToRemove) => {
-        setInputs(prev => {
-            const removedSubject = prev[indexToRemove][0];
-            setSelectedSubjects(prevSel => prevSel.filter(s => s !== removedSubject));
-            return prev.filter((_, index) => index !== indexToRemove);
-        });
-    };
     
     const handleInput = (index, fieldIndex, value) => {
-        setInputs(prev => {
-            const updated = [...prev];
-            updated[index][fieldIndex] = value;
-            return updated;
-        });
+        const newInputs = [...inputs];
+        newInputs[index] = [...newInputs[index]]
+        newInputs[index][fieldIndex] = value;
+        setInputs(newInputs);
+
+        resetAlert();
     };
 
     const handleReset = () => {
         setInputs([
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""]
+            ["Thai", "", "", "", "", "", ""],
+            ["English - Basic", "", "", "", "", "", ""],
+            ["English - Additional", "", "", "", "", "", ""],
+            ["Math - Basic", "", "", "", "", "", ""],
+            ["Math - Additional", "", "", "", "", "", ""],
+            ["Science", "", "", "", "", "", ""],
+            ["Physics", "", "", "", "", "", ""],
+            ["Chemistry", "", "", "", "", "", ""],
+            ["Biology", "", "", "", "", "", ""],
+            ["Computer", "", "", "", "", "", ""],
+            ["Robot", "", "", "", "", "", ""],
+            ["Project", "", "", "", "", "", ""],
+            ["Social", "", "", "", "", "", ""],
+            ["Social - History / Buddhism", "", "", "", "", "", ""],
+            ["Health", "", "", "", "", "", ""],
+            ["PE", "", "", "", "", "", ""],
+            ["Art", "", "", "", "", "", ""],
+            ["Career", "", "", "", "", "", ""]
         ]);
         resetAlert();
     };
 
-    const handleAddGPA = () => {
-        setInputs(prevInputs =>
-            prevInputs.map(row => {
-                const gpaCount = row.length - 2;
-                if (gpaCount < 5) {
-                    return [...row, ""];
+    useEffect(() => {
+        const fetchData = async () => {
+            if (!session?.user?.id) return;
+
+            try {
+                const response = await fetch(`/api/modelData/?userID=${session.user.id}`);
+                const data = await response.json();
+                if (data) {
+                    setInputs(data.dataset);
                 }
-                return row;
-            })
-        );
-    };
-    const handleRemoveGPA = () => {
-        setInputs((prevInputs) =>
-            prevInputs.map(row => {
-                if (row.length > 3) {
-                    return row.slice(0, -1);
-                }
-                return row;
-            })
-        );
-    };
+            } catch (error) {
+                setAlert(true);
+                setMessage("Error fetching previous inputs:", error);
+                setType("error");
+            }
+        };
+        fetchData();
+    }, [session?.user?.id]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         for (let i = 0; i < inputs.length; i++) {
-            if (inputs[i][0] === "" || inputs[i][1] === "") {
-                setAlert(true);
-                setMessage("Please complete all inputs.");
-                setType("error");
-                return;
+            for (let j = 1; j < inputs[i].length; j++) {
+                if (inputs[i][j] === "") inputs[i][j] = "0";
             }
         }
 
-        // Define array credits_studied & credits_earned & gpa & api
         let credits_studied = [[], [], [], [], []];
         let credits_earned = [[], [], [], [], []];
+        let credits_studied_SUM = [[], [], [], [], []];
+        let credits_earned_SUM = [[], [], [], [], []];
+        let gpaSubjects = [[], [], [], [], []];
         let gpa = [[], [], [], [], []];
         let api = [];
-        // Fill credit in credits_studied[] & credits_earned[]
+
         for (let i = 0; i < inputs.length; i++) {
             for (let j = 0; j < credits_studied.length; j++) {
                 credits_studied[j].push(inputs[i][1]);
                 credits_earned[j].push(inputs[i][1]);
+                gpaSubjects[j].push(inputs[i][j + 2]);
             }
         }
-        // Fill gpa in gpa[]
-        for (let i = 0; i < inputs.length; i++) {
-            for (let j = 0; j < gpa.length; j++) {
-                gpa[j].push(inputs[i][j + 2]);
-            }
-        }
-        // Transform credit to credit studied in credits_studied[]
+
         for (let i = 0; i < credits_studied.length; i++) {
             for (let j = 0; j < credits_studied[i].length; j++) {
                 credits_studied[i][j] = credits_studied[i][j] * 1;
+                gpaSubjects[i][j] = Number(gpaSubjects[i][j]);
+                credits_earned[i][j] = credits_earned[i][j] * (gpaSubjects[i][j] > 0 ? 1 : 0);
             }
         }
-        // Transform credit to credit earned in credits_earned[]
-        for (let i = 0; i < credits_earned.length; i++) {
-            for (let j = 0; j < credits_earned[i].length; j++) {
-                credits_earned[i][j] = credits_earned[i][j] * (gpa[i][j] > 0 ? 1 : 0);
-            }
-        }
-        // Sum credits_studied[] & credits_earned[]
-        for (let i = 0; i < credits_studied.length; i++) {
-            credits_studied[i] = credits_studied[i].reduce((a, b) => a + b, 0);
-            credits_earned[i] = credits_earned[i].reduce((a, b) => a + b, 0);
-        }
-        // Fill gpa[] & credits_studied[] & credits_earned[] in api[]
+
         for (let i = 0; i < gpa.length; i++) {
-            api.push([...gpa[i].map(Number), credits_studied[i], credits_earned[i]]);
+            for (let j = 0; j < gpaSubjects.length; j++) {
+                gpa[i].push(Number(gpaSubjects[i][j]) * Number(credits_studied[i][j]));
+            }
         }
-        // Handling Missing Values
-        api = api.filter(row => !row.some(value => isNaN(value)));
+
+        for (let i = 0; i < credits_studied.length; i++) {
+            credits_studied_SUM[i] = credits_studied[i].reduce((a, b) => a + b, 0);
+            credits_earned_SUM[i] = credits_earned[i].reduce((a, b) => a + b, 0);
+            gpa[i] = gpa[i].reduce((a, b) => a + (isNaN(b) ? 0 : b), 0);
+        }
+
+        for (let i = 0; i < gpa.length; i++) {
+            gpa[i] = Number((gpa[i] / credits_studied_SUM[i]).toFixed(2));
+            gpaSubjects[i] = gpaSubjects[i].map(Number);
+            api.push([...gpaSubjects[i], credits_studied_SUM[i], credits_earned_SUM[i], gpa[i]]);
+        }
+
+        const apiData = api.flat();
+
+        for (let i = 0; i < api.length; i++) {
+            if (isNaN(api[i])) api[i] = 0;
+        }
+        for (let i = 0; i < gpa.length; i++) {
+            if (isNaN(gpa[i])) gpa[i] = 0;
+        }
+
+        for (let i = 0; i < gpaSubjects.length; i++) {
+            if (gpaSubjects[i].reduce((a, b) => a + b, 0) === 0) {
+                for (let j = 0; j < credits_studied[i].length; j++) {
+                    credits_studied[i][j] = 0;
+                }
+
+                credits_studied_SUM[i] = 0;
+            }
+        }
+
+        try {
+            const response = await fetch("/api/modelData/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", },
+                body: JSON.stringify({
+                    userID: session?.user?.id,
+                    dataset: inputs,
+                    features: apiData,
+                    gpa: gpa
+                }),
+            });
+
+            if (response.ok) {
+                setAlert(true);
+                setMessage("Data has been successfully saved.");
+                setType("success");
+            } else {
+                setAlert(true);
+                setMessage("An error occurred while save the data." || error);
+                setType("error");
+            }
+        } catch (error) {
+            setAlert(true);
+            setMessage("An error occurred while submitting GPA." || error);
+            setType("error");
+        }
     }
 
     return (
@@ -174,31 +209,31 @@ function page() {
                     <div className = "flex flex-col gap-4 max-w-full w-max bg-white p-4 md:p-8 rounded-2xl shadow-md" data-aos = "fade-up">
                         <Message message = {message} type = {type} alert = {alert}/>
                         <div className = "flex gap-4">
-                            <div className = "h-full w-10 gap-4 flex flex-col">
-                                <div onClick = {handleAddGPA} className = "h-1/2 w-full border border-[#ececec] flex justify-center items-center rounded-xl text-[#171717] text-sm transition-all duration-200 hover:bg-[#171717] hover:text-white">
-                                    <i className = "fa-solid fa-plus"></i>
-                                </div>
-                                <div onClick = {handleRemoveGPA} className = "h-1/2 w-full border border-[#ececec] flex justify-center items-center rounded-xl text-[#f55555] text-sm transition-all duration-200 hover:bg-[#f55555] hover:text-white">
-                                    <i className = "fa-solid fa-minus"></i>
-                                </div>
-                            </div>
                             <div className = "flex overflow-x-auto styleScrollbar">
+                                <div className = "border border-[#ececec] rounded-lg rounded-r-none border-r-0">
+                                    <div className = "w-28">
+                                        <div className = "bg-[#171717] flex flex-col justify-center items-center h-14 rounded-t-lg rounded-r-none">
+                                            <div className = "w-full outline-none text-xs gap-2 flex justify-center items-center text-white">
+                                                <i className = "fa-solid fa-book"></i>
+                                                <h1 className = "text-base font-medium">Subject</h1>
+                                            </div>
+                                        </div>
+                                        <div className = "w-full">
+                                            <div className = "w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec] min-h-8 h-8">Credit</div>
+                                            <div className = "w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec] min-h-8 h-8">GPA 1</div>
+                                            <div className = "w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec] min-h-8 h-8">GPA 2</div>
+                                            <div className = "w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec] min-h-8 h-8">GPA 3</div>
+                                            <div className = "w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec] min-h-8 h-8">GPA 4</div>
+                                            <div className = "w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec] min-h-8 h-8">GPA 5</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 {inputs.map((input, index) => {
-                                    const parts = input[0] ? input[0].split(" - ") : ["", ""];
+                                    const parts = inputs[index][0] ? inputs[index][0].split(" - ") : ["", ""];
                                     return (
-                                        <div key = {index} className = {`border border-[#ececec] rounded-lg ${(index === 0 && inputs.length > 1) && "rounded-r-none border-r-0"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-none border-r-0"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
+                                        <div key = {index} className = {`border border-[#ececec] rounded-lg ${(index === 0 && inputs.length > 1) && "rounded-r-none border-r-0"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-none border-r-0"} rounded-l-none`}>
                                             <div className = "w-28">
-                                                <Listbox value = {`${inputs[index][0]}`} onChange = {(val) => {handleInput(index, 0, val); setSelectedSubjects(prev => {const prevValue = inputs[index][0]; let updated = prev.filter(s => s !== prevValue); return [...updated, val];}); resetAlert();}}>
-                                                    <Listbox.Button className = "w-28 h-14 absolute opacity-0"/>
-                                                    <Listbox.Options className = "absolute bg-white border border-[#ececec] text-sm text-center rounded-xl max-h-60 overflow-y-auto styleScrollbar outline-none mt-14">
-                                                        {allSubjects.filter(subject => !selectedSubjects.includes(subject)).map((subject, i) => (
-                                                            <Listbox.Option key = {i} value = {subject} className = {({ active })  => `cursor-pointer px-4 py-2 trnasition-all duration-100 ${active ? "bg-blue-500 text-white" : "text-[#171717]"}`}>
-                                                                {subject}
-                                                            </Listbox.Option>
-                                                        ))}
-                                                    </Listbox.Options>
-                                                </Listbox>
-                                                <div className = {`bg-[#171717] flex flex-col justify-center items-center h-14 rounded-t-lg ${input[0] === "" ? "text-[#9497a1]" : "text-white"} ${(index === 0 && inputs.length > 1) && "rounded-r-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-t-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-l-none"}`}>
+                                                <div className = {`bg-[#171717] flex flex-col justify-center items-center h-14 rounded-t-lg ${inputs[0] === "" ? "text-[#9497a1]" : "text-white"} ${(index === 0 && inputs.length > 1) && "rounded-r-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-t-none"} rounded-l-none`}>
                                                     <div className = "w-full outline-none text-xs gap-2 flex justify-center items-center">
                                                         <i className = {`${(parts[0] === "Thai" || parts[0] === "English") && "fa-solid fa-language"} ${parts[0] === "Math" && "fa-solid fa-calculator"} ${(parts[0] === "Science" || parts[0] === "Physics") && "fa-solid fa-atom"} ${parts[0] === "Chemistry" && "fa-solid fa-flask"} ${parts[0] === "Biology" && "fa-solid fa-microscope"} ${parts[0] === "Computer" && "fa-solid fa-computer"} ${parts[0] === "Robot" && "fa-solid fa-robot"} ${parts[0] === "Project" && "fa-solid fa-diagram-project"} ${parts[0] === "Social" && "fa-solid fa-people-group"} ${(parts[0] === "Social" && parts[1] === "History / Buddhism") && "fa-solid fa-dharmachakra"} ${parts[0] === "Health" && "fa-solid fa-book-medical"} ${parts[0] === "PE" && "fa-solid fa-dumbbell"} ${parts[0] === "Art" && "fa-solid fa-palette"} ${parts[0] === "Career" && "hidden"}`}></i>
                                                         <h1 className = "text-base font-medium">{parts[0] || "Subject"}</h1>
@@ -208,13 +243,10 @@ function page() {
                                                     )}
                                                 </div>
                                                 <div className = "w-full">
-                                                    <input type = "number" value = {input[1]} onChange = {(e) => handleInput(index, 1, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = "Credit"/>
+                                                    <input value = {inputs[index][1]} type = "number" onChange = {(e) => handleInput(index, 1, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 min-h-8 h-8 outline-none text-center border-b border-[#ececec]" placeholder = "Credit"/>
                                                     {input.slice(2).map((value, i) => (
-                                                        <input type = "number" key = {i} value = {value} onChange = {(e) => handleInput(index, i + 2, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 py-1 outline-none text-center border-b border-[#ececec]" placeholder = {`GPA ${i + 1}`}/>
+                                                        <input type = "number" key = {i} value = {value} onChange = {(e) => handleInput(index, i + 2, e.target.value)} className = "no-spinner w-full text-sm font-medium px-2 min-h-8 h-8 outline-none text-center border-b border-[#ececec]" placeholder = {`GPA ${i + 1}`}/>
                                                     ))}
-                                                </div>
-                                                <div onClick = {() => {handleRemoveInput(inputs); resetAlert();}} className = {`bg-[#f55555] text-center text-sm font-medium text-white py-1 rounded-b-lg ${(index === 0 && inputs.length > 1) && "rounded-br-none"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-b-none"} ${(index === inputs.length - 1 && inputs.length > 1) && "rounded-bl-none"}`}>
-                                                    <i className = "fa-solid fa-xmark"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -222,14 +254,8 @@ function page() {
                                 })}
                             </div>
                         </div>
-                        <div className = "flex gap-4 justify-center items-center">
-                            <div onClick = {handleAddInput} className = {`${inputs.length < 5 ? "w-full" : "w-130"} h-10 gap-3 text-sm rounded-xl flex justify-center items-center border border-[#ececec] hover:border-blue-500 hover:text-blue-500 transition-all duration-200`}>
-                                <i className = "fa-solid fa-plus"></i>
-                                <p>Subject</p>
-                            </div>
-                        </div>
                         <div className = {`flex gap-x-4 gap-y-2 max-xxs:flex-col justify-center ${inputs.length >= 3 ? "flex-row" : "flex-col"}`}>
-                            <button type = "submit" className = {`${inputs.length < 3 && "w-full"} ${inputs.length < 5 ? "w-1/2" : "w-64"} max-xxs:w-full py-2 bg-[#171717] border-2 border-[#171717] hover:bg-white hover:text-[#171717] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center`}>Submit</button>
+                            <button type = "submit" className = {`${inputs.length < 3 && "w-full"} ${inputs.length < 5 ? "w-1/2" : "w-64"} max-xxs:w-full py-2 bg-[#171717] border-2 border-[#171717] hover:bg-white hover:text-[#171717] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center`}>Submit {predictedGPA !== null ? predictedGPA : ""}</button>
                             <button type = "button" onClick = {handleReset} className = {`${inputs.length < 3 && "w-full"} ${inputs.length < 5 ? "w-1/2" : "w-64"} max-xxs:w-full py-2 bg-[#f55555] border-2 border-[#f55555] hover:bg-white hover:text-[#f55555] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center`}>Cancel</button>
                         </div>
                     </div>
@@ -240,3 +266,4 @@ function page() {
 }
 
 export default page
+

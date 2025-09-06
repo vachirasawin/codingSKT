@@ -44,59 +44,52 @@ function page() {
     ];
     const contentsEvaluation = [
         {
-            title: "Predict GPA 2",
+            title: "R<sup>2</sup>",
             image: "-",
             extension: "-",
-            content: "<p>R<sup>2</sup> 84.77472%</p><p>MSE 0.0230229</p>",
-            description: "R<sup>2</sup> | Mean Squared Error",
+            content: "96.10154%",
+            description: "วัดความแม่นยำของโมเดล",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-2"
+            symbol: "-",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html"
         },
         {
-            title: "Predict GPA 3",
+            title: "MSE",
             image: "-",
             extension: "-",
-            content: "<p>R<sup>2</sup> 46.88010%</p><p>MSE 1.5400387</p>",
-            description: "R<sup>2</sup> | Mean Squared Error",
+            content: "0.0856613",
+            description: "วัดความคลาดเคลื่อนเฉลี่ยยกกำลังสองระหว่างค่าจริงกับค่าพยากรณ์",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-3"
+            symbol: "-",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html"
         },
         {
-            title: "Predict GPA 4",
+            title: "√MSE",
             image: "-",
             extension: "-",
-            content: "<p>R<sup>2</sup> 98.49838%</p><p>MSE 0.0406720</p>",
-            description: "R<sup>2</sup> | Mean Squared Error",
+            content: "0.2926795",
+            description: "ขนาดความคลาดเคลื่อนเฉลี่ยของโมเดล",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-4"
+            symbol: "-",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.root_mean_squared_error.html"
         },
         {
-            title: "Predict GPA 5",
+            title: "MAE",
             image: "-",
             extension: "-",
-            content: "<p>R<sup>2</sup> 98.92722%</p><p>MSE 0.0249101</p>",
-            description: "R<sup>2</sup> | Mean Squared Error",
+            content: "0.1625934",
+            description: "วัดความคลาดเคลื่อนเฉลี่ยสัมบูรณ์ระหว่างค่าจริงกับค่าพยากรณ์",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-5"
-        },
-        {
-            title: "Predict GPA 6",
-            image: "-",
-            extension: "-",
-            content: "<p>R<sup>2</sup> 98.58638%</p><p>MSE 0.0310617</p>",
-            description: "R<sup>2</sup> | Mean Squared Error",
-            width: "-",
-            height: "-",
-            link: "-",
-            symbol: "fa-solid fa-6"
+            symbol: "-",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html"
         }
     ]
     
@@ -146,7 +139,7 @@ function page() {
                 ))}
             </div>
             <Count/>
-            <Card contents = {contentsEvaluation} subTitle = "Model" title = "Evaluation" inverse description = "ประเมินผลโมเดล" h = "h-68"/>
+            <Card contents = {contentsEvaluation} subTitle = "Model" title = "Evaluation" inverse description = "ประเมินผลโมเดล" h = "h-40"/>
             <Footer typeAdmin linearRegression session = {session}/>
         </div>
     )

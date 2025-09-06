@@ -49,6 +49,12 @@
 - [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html): Function ของ scikit-learn
 - [DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html): Function ของ scikit-learn ที่ใช้สร้างโมเดล Decision Tree Regression
 
+# Model Evaluation
+- [R²](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html): วัดความแม่นยำของโมเดล
+- [MSE](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html): วัดความคลาดเคลื่อนเฉลี่ยยกกำลังสองระหว่างค่าจริงกับค่าพยากรณ์
+- [√MSE](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.root_mean_squared_error.html): ขนาดความคลาดเคลื่อนเฉลี่ยของโมเดล
+- [MAE](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html): วัดความคลาดเคลื่อนเฉลี่ยสัมบูรณ์ระหว่างค่าจริงกับค่าพยากรณ์
+
 # Linear Regression | การถดถอยเชิงเส้น
 - 
 - Highlights (+): เหมาะกับการพยากรณ์เบื้องต้นข้อมูลเป็นลักษณะกราฟเส้นตรง
