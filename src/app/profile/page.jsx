@@ -22,27 +22,12 @@ function page() {
     }, []);
 
     //Define input field
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
+    const [firstName, setFirstName] = useState(session.user.firstName);
+    const [lastName, setLastName] = useState(session.user.lastName);
+    const [email, setEmail] = useState(session.user.email);
     const [image, setImage] = useState(session.user.image || "/profile.png");
     const [imageFile, setImageFile] = useState(null);
     const id = session.user.id;
-
-    useEffect(() => {
-        if (session?.user) {
-            if (session.user.firstName || session.user.lastName) {
-                setFirstName(session.user.firstName || "");
-                setLastName(session.user.lastName || "");
-            } else if (session.user.name) {
-                const parts = session.user.name.split(" ");
-                setFirstName(parts[0] || "");
-                setLastName(parts.slice(1).join(" ") || "");
-            }
-
-            setEmail(session.user.email || "");
-        }
-    }, [session]);
 
     //Define alert message
     const [message, setMessage] = useState("");
@@ -64,15 +49,8 @@ function page() {
     }
 
     const handleReset = async (e) => {
-        if (session.user.firstName || session.user.lastName) {
-            setFirstName(session.user.firstName || "");
-            setLastName(session.user.lastName || "");
-        } else if (session.user.name) {
-            const parts = session.user.name.split(" ");
-            setFirstName(parts[0] || "");
-            setLastName(parts.slice(1).join(" ") || "");
-        }
-
+        setFirstName(session.user.firstName || "");
+        setLastName(session.user.lastName || "");
         setEmail(session.user.email || "");
         setImage(session.user.image || "/profile.png");
     }

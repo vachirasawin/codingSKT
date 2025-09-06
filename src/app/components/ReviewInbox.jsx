@@ -15,17 +15,12 @@ function ReviewInbox() {
 
     //Define input field
     const [review, setReview] = useState("");
-    const [names, setNames] = useState("")
-
-    useEffect(() => {
+    const [names, setNames] = useState(() => {
         if (session?.user) {
-            if (session.user.name) {
-                setNames(session.user.name);
-            } else {
-                setNames(`${session.user.firstName} ${session.user.lastName}`);
-            }
+            return `${session.user.firstName} ${session.user.lastName}`;
         }
-    }, [session]);
+        return "";
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();

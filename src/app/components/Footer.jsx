@@ -35,10 +35,10 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                         </div>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${quickLink ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/" className = {`${home && "text-white"}`}>Home</Link>
-                            <Link href = "/about us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
+                            <Link href = "/about-us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
                             {session ? (
                                 <>
-                                    <Link href = "/add%20information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
+                                    <Link href = "/add-information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
                                     <Link href = "/profile" className = {`${profile && "text-white"}`}>Profile</Link>
                                     <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
                                     {typeAdmin && (

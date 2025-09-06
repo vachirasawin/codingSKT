@@ -13,6 +13,6 @@ export async function POST(request) {
 
         return NextResponse.json({ message: "User registered." }, { status: 201 });
     } catch (error) {
-        return NextResponse.json({ message: "An error occured while registrating the user." }, { status: 500  });
+        return NextResponse.json({ message: "An error occured while registrating the user." }, { status: 500 });
     }
 }

@@ -12,6 +12,25 @@ import FacebookProvider from "next-auth/providers/facebook";
 
 const authOptions = {
     adapter: MongoDBAdapter(clientPromise),
+    events: {
+        async createUser({ user }) {
+            await connectMongoDB();
+
+            if (!user.password) {
+                const [firstName, ...lastNameParts] = user.name ? user.name.split(" ") : ["", ""];
+                const lastName = lastNameParts.join(" ") || "";
+
+                await User.findByIdAndUpdate(user.id, {
+                    firstName: firstName || null,
+                    lastName: lastName || null,
+                    email: user.email,
+                    password: "",
+                    typeInfo: "registration",
+                    profileImageUrl: user.image || "/profile.png",
+                });
+            }
+        }
+    },
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -63,13 +82,17 @@ const authOptions = {
                 token.id = user._id;
                 token.firstName = user.firstName || null;
                 token.lastName = user.lastName || null;
-                token.username = user.username || null;
                 token.email = user.email;
                 token.picture = user.profileImageUrl || null;
             } else if (account?.provider === "google" || account?.provider === "github" || account?.provider === "facebook") {
                 token.id = user.id;
-                token.name = user.name;
                 token.email = user.email;
+
+                if (user?.name) {
+                    const [firstName, ...lastNameParts] = user.name.split(" ");
+                    token.firstName = firstName || null;
+                    token.lastName = lastNameParts.join(" ") || null;
+                }
 
                 if (account?.provider === "google" && user?.image) {
                     token.picture = user.image.replace("=s96-c", "=s512-c");
@@ -85,7 +108,6 @@ const authOptions = {
             session.user.id = token.id;
             session.user.firstName = token.firstName || null;
             session.user.lastName = token.lastName || null;
-            session.user.username = token.username || null;
 
             session.user.name = token.name || null;
             session.user.email = token.email || null;

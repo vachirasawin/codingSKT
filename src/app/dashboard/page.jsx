@@ -1,7 +1,7 @@
 "use client";
 
 // import from Next.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 
@@ -14,7 +14,31 @@ import Grid from "../components/Grid";
 
 function page() {
     const { data: session } = useSession();
+    const [predictedGPA, setPredictedGPA] = useState(null);
     if (!session) redirect ("/");
+
+    useEffect(() => {
+        const fetchPredictedGPA = async () => {
+            if (!session?.user?.id) return;
+
+            try {
+                const response = await fetch("/api/predictGPA", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ userID: session.user.id }),
+                });
+
+                const data = await response.json();
+                if (data.predictedGPA !== undefined) {
+                    setPredictedGPA(data.predictedGPA);
+                }
+            } catch (error) {
+                console.error("Error fetching predicted GPA:", error);
+            }
+        };
+
+        fetchPredictedGPA();
+    }, [session?.user?.id]);
 
     const datas = [
         {
@@ -133,6 +157,7 @@ function page() {
             <Title/>
             <Grid data = {datas}/>
             <Histogram data = {datas} bg = "bg-[#f7f7f7]"/>
+            {predictedGPA !== null ? predictedGPA : "Loading..."}
             <Footer dashboard session = {session}/>
         </div>
     )

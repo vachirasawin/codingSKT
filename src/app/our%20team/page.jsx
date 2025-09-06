@@ -14,6 +14,7 @@ import Footer from "../components/Footer";
 import TitleFooter from "../components/TitleFooter";
 import ReviewInbox from "../components/ReviewInbox";
 import ReviewCard from "../components/ReviewCard";
+import Count from "../components/Count";
 
 function page() {
     const { data: session } = useSession();
@@ -96,6 +97,7 @@ function page() {
                     </div>
                 ))}
             </div>
+            <Count/>
             <ReviewCard/>
             <ReviewInbox/>
             <Footer typeAdmin ourTeam session = {session}/>
