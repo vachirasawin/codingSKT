@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
+let isConnected = false;
+
 export const connectMongoDB = async () => {
-    const mongoose = require("mongoose");
+    if (isConnected) return;
     
     try {
         await mongoose.connect(process.env.MONGODB_URI);

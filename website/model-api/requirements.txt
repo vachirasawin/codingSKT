@@ -1,5 +1,5 @@
+fastapi
+uvicorn
 pandas
 scikit-learn
 pickle5
-fastapi
-uvicorn

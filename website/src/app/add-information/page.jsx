@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { redirect } from "next/navigation";
 
 // import from components
 import Navbar from "../components/Navbar";
@@ -12,7 +13,7 @@ import Message from "../components/Message";
 
 function page() {
     const { data: session } = useSession();
-    //if (!session) redirect ("/");
+    if (!session) redirect ("/");
         
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -83,25 +84,6 @@ function page() {
         ]);
         resetAlert();
     };
-
-    useEffect(() => {
-        const fetchData = async () => {
-            if (!session?.user?.id) return;
-
-            try {
-                const response = await fetch(`/api/modelData/?userID=${session.user.id}`);
-                const data = await response.json();
-                if (data) {
-                    setInputs(data.dataset);
-                }
-            } catch (error) {
-                setAlert(true);
-                setMessage("Error fetching previous inputs:", error);
-                setType("error");
-            }
-        };
-        fetchData();
-    }, [session?.user?.id]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
