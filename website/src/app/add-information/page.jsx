@@ -19,9 +19,7 @@ function page() {
         AOS.init({ duration: 1000 });
     }, []);
 
-    const [predictedGPA, setPredictedGPA] = useState(null);
-
-    const [inputs, setInputs] = useState([
+    const defaultInputs = [
         ["Thai", "", "", "", "", "", ""],
         ["English - Basic", "", "", "", "", "", ""],
         ["English - Additional", "", "", "", "", "", ""],
@@ -40,7 +38,30 @@ function page() {
         ["PE", "", "", "", "", "", ""],
         ["Art", "", "", "", "", "", ""],
         ["Career", "", "", "", "", "", ""]
-    ]);
+    ];
+    const [inputs, setInputs] = useState(defaultInputs);
+
+    useEffect(() => {
+        const fetchModelData = async () => {
+            if (!session?.user?.id) return;
+
+            try {
+                const response = await fetch(`/api/modelData?userID=${session?.user?.id}`);
+                const data = await response.json();
+
+                if (data?.dataset && Array.isArray(data.dataset)) {
+                    setInputs(data.dataset);
+                } else {
+                    setInputs(defaultInputs);
+                }
+            } catch (error) {
+                console.error("Error fetching dataset:", error);
+                setInputs(defaultInputs);
+            }
+        };
+
+        fetchModelData();
+    }, [session?.user?.id]);
 
     const [message, setMessage] = useState("");
     const [type, setType] = useState("");
@@ -118,16 +139,17 @@ function page() {
             }
         }
 
-        for (let i = 0; i < gpa.length; i++) {
-            for (let j = 0; j < gpaSubjects.length; j++) {
-                gpa[i].push(Number(gpaSubjects[i][j]) * Number(credits_studied[i][j]));
-            }
-        }
-
         for (let i = 0; i < credits_studied.length; i++) {
             credits_studied_SUM[i] = credits_studied[i].reduce((a, b) => a + b, 0);
             credits_earned_SUM[i] = credits_earned[i].reduce((a, b) => a + b, 0);
-            gpa[i] = gpa[i].reduce((a, b) => a + (isNaN(b) ? 0 : b), 0);
+
+            for (let j = 0; j < credits_studied[i].length; j++) {
+                gpa[i].push(credits_studied[i][j] * gpaSubjects[i][j]);
+            }
+        }
+
+        for (let i = 0; i < gpa.length; i++) {
+            gpa[i] = gpa[i].reduce((a, b) => a + b, 0)
         }
 
         for (let i = 0; i < gpa.length; i++) {
@@ -140,9 +162,6 @@ function page() {
 
         for (let i = 0; i < api.length; i++) {
             if (isNaN(api[i])) api[i] = 0;
-        }
-        for (let i = 0; i < gpa.length; i++) {
-            if (isNaN(gpa[i])) gpa[i] = 0;
         }
 
         for (let i = 0; i < gpaSubjects.length; i++) {
@@ -185,7 +204,7 @@ function page() {
 
     return (
         <div>
-            <Navbar addInfo session = {session}/>
+            <Navbar addInfo/>
             <div className = "p-4">
                 <form onSubmit = {handleSubmit} className = "container mx-auto justify-self-center flex flex-col items-center gap-4 h-[calc(100vh-12rem)] mt-12 justify-center">
                     <div className = "flex flex-col gap-4 max-w-full w-max bg-white p-4 md:p-8 rounded-2xl shadow-md" data-aos = "fade-up">
@@ -212,6 +231,7 @@ function page() {
                                 </div>
                                 {inputs.map((input, index) => {
                                     const parts = inputs[index][0] ? inputs[index][0].split(" - ") : ["", ""];
+                                    
                                     return (
                                         <div key = {index} className = {`border border-[#ececec] rounded-lg ${(index === 0 && inputs.length > 1) && "rounded-r-none border-r-0"} ${(index !== 0 && index !== inputs.length - 1 && inputs.length >= 3) && "rounded-none border-r-0"} rounded-l-none`}>
                                             <div className = "w-28">
@@ -237,7 +257,7 @@ function page() {
                             </div>
                         </div>
                         <div className = {`flex gap-x-4 gap-y-2 max-xxs:flex-col justify-center ${inputs.length >= 3 ? "flex-row" : "flex-col"}`}>
-                            <button type = "submit" className = {`${inputs.length < 3 && "w-full"} ${inputs.length < 5 ? "w-1/2" : "w-64"} max-xxs:w-full py-2 bg-[#171717] border-2 border-[#171717] hover:bg-white hover:text-[#171717] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center`}>Submit {predictedGPA !== null ? predictedGPA : ""}</button>
+                            <button type = "submit" className = {`${inputs.length < 3 && "w-full"} ${inputs.length < 5 ? "w-1/2" : "w-64"} max-xxs:w-full py-2 bg-[#171717] border-2 border-[#171717] hover:bg-white hover:text-[#171717] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center`}>Submit</button>
                             <button type = "button" onClick = {handleReset} className = {`${inputs.length < 3 && "w-full"} ${inputs.length < 5 ? "w-1/2" : "w-64"} max-xxs:w-full py-2 bg-[#f55555] border-2 border-[#f55555] hover:bg-white hover:text-[#f55555] transition-all duration-200 rounded-xl text-white text-sm font-medium text-center`}>Cancel</button>
                         </div>
                     </div>

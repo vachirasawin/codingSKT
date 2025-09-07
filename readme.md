@@ -45,9 +45,13 @@
 - [r2_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html): Function สำหรับวัดความแม่นยำของโมเดล
 - [LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html): Function ของ scikit-learn ที่ใช้สร้างโมเดล Linear Regression
 - [PolynomialFeatures](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html): Function ของ scikit-learn ที่แปลง Features ให้มีพจน์ยกกำลัง
-- [make_pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html): Function ของ scikit-learn
-- [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html): Function ของ scikit-learn
+- [make_pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html): Function ของ scikit-learn สำหรับใช้สร้าง pipeline สำหรับ Machine Learning
+- [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html): Class ของ scikit-learn สำหรับสร้างโมเดล Ridge regression
 - [DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html): Function ของ scikit-learn ที่ใช้สร้างโมเดล Decision Tree Regression
+- [Pickle](https://docs.python.org/3/library/pickle.html): Built-In Module ของ Python สำหรับแปลง object ให้อยู่ในรูป binary file
+- [BaseModel](https://docs.pydantic.dev/latest/api/base_model/): Class พื้นฐานของ Python สำหรับกำหนดรูปแบบข้อมูลและตรวจสอบความถูกต้อง
+- [FastAPI](https://fastapi.tiangolo.com/): Framework สำหรับสร้าง Web API ใน Python
+- Query: ใช้สำหรับกำหนดค่าและ validation ของ query parameters (ค่าที่ส่งมาจาก URL)
 
 # Model Evaluation
 - [R²](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html): วัดความแม่นยำของโมเดล

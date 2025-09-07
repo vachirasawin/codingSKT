@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectMongoDB } from "../../../../lib/mongoose";
-import GPA from "../../../../models/gpa";
+import { connectMongoDB } from "../../../../../lib/mongoose";
+import GPA from "../../../../../models/gpa";
 
 export async function POST(request) {
     try {

@@ -1,14 +1,19 @@
+"use client";
+
 // import from Next.js
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "aos/dist/aos.css";
+import { useSession } from "next-auth/react";
 
-function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models, linearRegression, polynomialRegression, regularizedLinearRegressionRidge, decisionTreeRegression, admin, typeAdmin }) {
+function Footer({ home, signIn, signUp, addInfo, profile, dashboard, aboutUs, privacyPolicy, userGuide, faq, news, ourTeam, models, linearRegression, polynomialRegression, regularizedLinearRegressionRidge, decisionTreeRegression, admin, dataset }) {
     const [quickLink, setQuickLink] = useState(false);
     const [information, setInformation] = useState(false);
     const [modelsPage, setModelsPage] = useState(false);
     const [contactInfo, setContactInfo] = useState(false);
+
+    const { data: session } = useSession();
 
     return (
         <div className = "px-4 border-t border-[#607D94] bg-[#002B4E]">
@@ -23,7 +28,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <span>T</span>
                         </h1>
                     </div>
-                    <p className = "text-xs font-medium text-[#9497a1]">version 5.9.25.1</p>
+                    <p className = "text-xs font-medium text-[#9497a1]">version 7.9.25.1</p>
                 </div>
                 <div className = "flex gap-8 max-md:flex-col max-md:gap-4">
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
@@ -41,7 +46,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                                     <Link href = "/add-information" className = {`${addInfo && "text-white"}`}>Add Information</Link>
                                     <Link href = "/profile" className = {`${profile && "text-white"}`}>Profile</Link>
                                     <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
-                                    {typeAdmin && (
+                                    {session?.user?.email === "vachirasawin.mah@gmail.com" && (
                                         <Link href = "/admin" className = {`${admin && "text-white"}`}>Admin</Link>
                                     )}
                                 </>
@@ -66,6 +71,7 @@ function Footer({ home, signIn, signUp, addInfo, profile, dashboard, session, ab
                             <Link href = "/news" className = {`${news && "text-white"}`}>News</Link>
                             <Link href = "/our%20team" className = {`${ourTeam && "text-white"}`}>Our Team</Link>
                             <Link href = "/privacy%20policy" className = {`${privacyPolicy && "text-white"}`}>Privacy Policy</Link>
+                            <Link href = "/dataset" className = {`${dataset && "text-white"}`}>Dataset</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">

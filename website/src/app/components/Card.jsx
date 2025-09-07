@@ -27,16 +27,16 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                 <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8 text-[#171717] max-w-full" data-aos = "fade-up">
                     {contents.map((content, index) => (
                         <div className = "flex flex-col" key = {`${content.title} - ${index}`}>
-                            <div className = {`shadow-md bg-white ${typeAdmin ? "rounded-t-lg" : "rounded-lg"}`}>
+                            <div className = {`shadow-lg bg-white ${typeAdmin ? "rounded-t-lg" : "rounded-lg"}`}>
                                 <div className = {`py-11 px-8 flex flex-col gap-7 min-w-72 max-w-72 ${h}`}>
                                     {content.image !== "-" ? (
-                                        <div className = "border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square px-4">
+                                        <div className = "shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square px-4">
                                             <div className = "w-8 h-8 relative">
                                                 <Image src = {content.extension !== "-" ? `/${content.image}.${content.extension}` : `${content.image}`} alt = {content.title} unoptimized fill className = {`object-contain ${content.extension === "-" && "rounded-full"}`}/>
                                             </div>
                                         </div>
                                     ) : content.symbol !== "-" && (
-                                        <div className = "border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl">
+                                        <div className = "shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl">
                                             <i className = {content.symbol}></i>
                                         </div>
                                     )}

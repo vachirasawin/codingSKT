@@ -35,7 +35,7 @@ function page() {
             <Title/>
             <TitleFooter title = "Admin" description = "ควบคุมเว็บแอปพลิเคชัน"/>
             <ReviewCard admin/>
-            <Footer admin session = {session}/>
+            <Footer admin/>
         </div>
     )
 }

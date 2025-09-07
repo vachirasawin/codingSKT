@@ -19,11 +19,6 @@ import Count from "../components/Count";
 
 function page() {
     const { data: session } = useSession();
-    
-    let typeAdmin = false;
-    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
-        typeAdmin = true;
-    };
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -307,6 +302,30 @@ function page() {
             main: "-"
         },
         {
+            title: "Numpy",
+            image: "numpy",
+            extension: "png",
+            content: "Library สำหรับคำนวณทางคณิตศาสตร์และตรรกะกับ Array",
+            description: "version 2.2.6",
+            width: "2336",
+            height: "2500",
+            link: "https://numpy.org/",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Matplotlib",
+            image: "matplotlib",
+            extension: "svg",
+            content: "Library สำหรับสร้างกราฟเพื่อดูว่ารูปแบบการทำงานของโมเดลตรงกับข้อมูลจริงไหม",
+            description: "",
+            width: "1200",
+            height: "288",
+            link: "https://matplotlib.org/",
+            symbol: "-",
+            main: "-"
+        },
+        {
             title: "Train Test Split",
             image: "sklearn",
             extension: "png",
@@ -331,10 +350,70 @@ function page() {
             main: "-"
         },
         {
+            title: "Polynomial Features",
+            image: "sklearn",
+            extension: "png",
+            content: "Function ของ scikit-learn ที่แปลง Features ให้มีพจน์ยกกำลัง",
+            description: "scikit-learn | version 1.7.0",
+            width: "254",
+            height: "183",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Make Pipeline",
+            image: "sklearn",
+            extension: "png",
+            content: "Function ของ scikit-learn สำหรับใช้สร้าง pipeline สำหรับ Machine Learning",
+            description: "scikit-learn | version 1.7.0",
+            width: "254",
+            height: "183",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Ridge",
+            image: "sklearn",
+            extension: "png",
+            content: "Class ของ scikit-learn สำหรับสร้างโมเดล Ridge regression",
+            description: "scikit-learn | version 1.7.0",
+            width: "254",
+            height: "183",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Decision Tree Regressor",
+            image: "sklearn",
+            extension: "png",
+            content: "Function ของ scikit-learn ที่ใช้สร้างโมเดล Decision Tree Regression",
+            description: "scikit-learn | version 1.7.0",
+            width: "254",
+            height: "183",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Mean Absolute Error",
+            image: "sklearn",
+            extension: "png",
+            content: "Function สำหรับวัดความคลาดเคลื่อนเฉลี่ยสัมบูรณ์ระหว่างค่าจริงกับค่าพยากรณ์",
+            description: "scikit-learn | version 1.7.0",
+            width: "254",
+            height: "183",
+            link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
             title: "Mean Squared Error",
             image: "sklearn",
             extension: "png",
-            content: "Library สำหรับแสดงความคลาดเคลื่อน",
+            content: "Function สำหรับวัดความคลาดเคลื่อนเฉลี่ยยกกำลังสองระหว่างค่าจริงกับค่าพยากรณ์",
             description: "scikit-learn | version 1.7.0",
             width: "254",
             height: "183",
@@ -346,12 +425,60 @@ function page() {
             title: "R<sup>2</sup>",
             image: "sklearn",
             extension: "png",
-            content: "Library สำหรับแสดงความแม่นยำ",
+            content: "Function ของ scikit-learn ที่ใช้สร้างโมเดล Linear Regression",
             description: "scikit-learn | version 1.7.0",
             width: "254",
             height: "183",
             link: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html",
             symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Pickle",
+            image: "pickle",
+            extension: "png",
+            content: "Built-In Module ของ Python สำหรับแปลง object ให้อยู่ในรูป binary file",
+            description: "",
+            width: "400",
+            height: "200",
+            link: "https://docs.python.org/3/library/pickle.html",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "BaseModel",
+            image: "basemodel",
+            extension: "png",
+            content: "Class พื้นฐานของ Python สำหรับกำหนดรูปแบบข้อมูลและตรวจสอบความถูกต้อง",
+            description: "",
+            width: "200",
+            height: "200",
+            link: "https://docs.pydantic.dev/latest/api/base_model/",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "FastAPI",
+            image: "fastapi",
+            extension: "png",
+            content: "Framework สำหรับสร้าง Web API ใน Python",
+            description: "version 0.1.0",
+            width: "280",
+            height: "280",
+            link: "https://fastapi.tiangolo.com/",
+            symbol: "-",
+            main: "-"
+        },
+        {
+            title: "Query",
+            image: "-",
+            extension: "-",
+            content: "ใช้สำหรับกำหนดค่าและ validation ของ query parameters (ค่าที่ส่งมาจาก URL)",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-link",
             main: "-"
         },
         {
@@ -532,7 +659,7 @@ function page() {
             <Card contents = {contentsReport} title = "Report" subTitle = "Project" inverse downloadType description = "ฮาร์ดแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชันและโมเดลในการพยากรณ์ช่วงของผลการเรียนของผู้เรียนนอนาคต" h = "h-64"/>
             <ReviewCard/>
             <ReviewInbox/>
-            <Footer aboutUs typeAdmin session = {session}/>
+            <Footer aboutUs/>
         </div>
     )
 }

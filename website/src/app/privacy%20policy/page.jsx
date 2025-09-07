@@ -14,13 +14,6 @@ import Card from "../components/Card";
 import Footer from "../components/Footer";
 
 function page() {
-    const { data: session } = useSession();
-
-    let typeAdmin = false;
-    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
-        typeAdmin = true;
-    };
-
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
@@ -87,7 +80,7 @@ function page() {
                 </div>
             </div>
             <Card contents = {contents} title = "Privacy Policy" description = "ข้อกำหนดการใช้ข้อมูลส่วนตัวของผู้เรียนและผู้ใช้" h = "h-86"/>
-            <Footer typeAdmin privacyPolicy session = {session}/>
+            <Footer privacyPolicy/>
         </div>
     )
 }

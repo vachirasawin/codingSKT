@@ -18,36 +18,11 @@ function Info() {
     }, []);
 
     const datas = [
-        {
-            title: "Math",
-            description: "Basic",
-            lower: "1",
-            upper: "2"
-        },
-        {
-            title: "Math",
-            description: "Additional",
-            lower: "1",
-            upper: "1.5"
-        },
-        {
-            title: "English",
-            description: "Basic",
-            lower: "3",
-            upper: "3.5"
-        },
-        {
-            title: "English",
-            description: "Additional",
-            lower: "2",
-            upper: "2.5"
-        },
-        {
-            title: "Thai",
-            description: "",
-            lower: "3",
-            upper: "4"
-        }
+        ["Math - Basic", 2],
+        ["Math - Additional", 1.5],
+        ["English - Basic", 3.5],
+        ["English - Additional", 2.5],
+        ["Thai", 4]
     ]
 
     const [displayData, setDisplayData] = useState(datas);
@@ -98,7 +73,7 @@ function Info() {
                         </div>
                     )}
                 </div>
-                <Histogram data = {displayData} bg = "bg-white"/>
+                <Histogram data = {displayData} bg = "bg-white" info/>
             </div>
         </div>
     )

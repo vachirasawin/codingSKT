@@ -16,13 +16,6 @@ import Card from "../../components/Card";
 import Count from "@/app/components/Count";
 
 function page() {
-    const { data: session } = useSession();
-
-    let typeAdmin = false;
-    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
-        typeAdmin = true;
-    };
-
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
@@ -140,7 +133,7 @@ function page() {
             </div>
             <Count/>
             <Card contents = {contentsEvaluation} subTitle = "Model" title = "Evaluation" inverse description = "ประเมินผลโมเดล" h = "h-40"/>
-            <Footer typeAdmin regularizedLinearRegressionRidge session = {session}/>
+            <Footer regularizedLinearRegressionRidge/>
         </div>
     )
 }

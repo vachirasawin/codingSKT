@@ -17,13 +17,6 @@ import ReviewCard from "../components/ReviewCard";
 import Count from "../components/Count";
 
 function page() {
-    const { data: session } = useSession();
-
-    let typeAdmin = false;
-    if (session?.user?.email === "vachirasawin.mah@gmail.com") {
-        typeAdmin = true;
-    };
-
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
@@ -81,7 +74,7 @@ function page() {
             <Count/>
             <ReviewCard/>
             <ReviewInbox/>
-            <Footer typeAdmin faq session = {session}/>
+            <Footer faq/>
         </div>
     )
 }
