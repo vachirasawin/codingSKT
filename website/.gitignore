@@ -11,8 +11,8 @@
 !.yarn/versions
 
 # model
-/model-api
-/model-py
+model-api/
+model-py/
 
 # testing
 /coverage
