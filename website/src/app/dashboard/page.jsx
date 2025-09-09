@@ -180,7 +180,7 @@ function page() {
         <div>
             <Navbar dashboard/>
             <Title/>
-            {predictedGPAArray && averagePredictedGPA !== "null" ? (
+            {predictedGPAArray && averagePredictedGPA !== "NaN" ? (
                 <>
                     <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]">
                         <div className = "container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 py-24 max-md:py-8 justify-center items-center">

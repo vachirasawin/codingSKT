@@ -24,10 +24,7 @@ X2 = ["thai_2", "english_basic_2", "english_add_2", "math_basic_2", "math_add_2"
 X3 = ["thai_3", "english_basic_3", "english_add_3", "math_basic_3", "math_add_3", "science_3", "physics_3", "chemistry_3", "biology_3", "computer_3", "robot_3", "project_3", "social1_3", "social2_3", "health_3", "pe_3", "art_3", "career_3", "credits_studied_3", "credits_earned_3", "gpa_3"]
 X4 = ["thai_4", "english_basic_4", "english_add_4", "math_basic_4", "math_add_4", "science_4", "physics_4", "chemistry_4", "biology_4", "computer_4", "robot_4", "project_4", "social1_4", "social2_4", "health_4", "pe_4", "art_4", "career_4", "credits_studied_4", "credits_earned_4", "gpa_4"]
 X5 = ["thai_5", "english_basic_5", "english_add_5", "math_basic_5", "math_add_5", "science_5", "physics_5", "chemistry_5", "biology_5", "computer_5", "robot_5", "project_5", "social1_5", "social2_5", "health_5", "pe_5", "art_5", "career_5", "credits_studied_5", "credits_earned_5", "gpa_5"]
-X2 += X1
-X3 += X2
-X4 += X3
-X5 += X4
+X5 = X1 + X2 + X3 + X4 + X5
 X_array = [X5, X5, X5, X5]
 y_array = ["gpa_6", "gpa_6", "gpa_6", "gpa_6"]
 

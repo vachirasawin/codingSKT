@@ -44,7 +44,9 @@ function ReviewCard({ admin }) {
     };
 
     return (
-        <Card contents = {contents} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96" typeAdmin = {admin} onDelete = {handleDelete}/>
+        contents !== "null" && (
+            <Card contents = {contents} subTitle = "User" title = "Reviews" inverse description = "รีวิวจากผู้ใช้งาน" h = "h-96" typeAdmin = {admin} onDelete = {handleDelete}/>
+        )
     )
 }
 

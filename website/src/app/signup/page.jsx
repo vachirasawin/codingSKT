@@ -58,13 +58,6 @@ function page() {
             return;
         };
 
-        if (username.toLowerCase() === password.toLowerCase()) {
-            setAlert(true);
-            setMessage("Password must not match your username.");
-            setType("error");
-            return;
-        };
-
         try {
             const responseCheckEmail = await fetch("/api/checkEmail", {
                 method: "POST",
