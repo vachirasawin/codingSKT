@@ -1,2 +1,5 @@
 .vercel
 model.ipynb
+website/.next/
+website/out/
+website/build/
