@@ -18,11 +18,11 @@ model-py/
 /coverage
 
 # next.js build output
-/out/
-/.next/
+out/
+.next/
 
 # production
-/build
+build/
 
 # misc
 .DS_Store
